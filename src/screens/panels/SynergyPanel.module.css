@@ -1,0 +1,114 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 8px;
+  overflow-y: auto;
+  height: 100%;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.sectionTitle {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #444466;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #1a1a35;
+  margin-bottom: 2px;
+  flex-shrink: 0;
+}
+
+.divider {
+  height: 1px;
+  background: #1a1a35;
+  margin: 8px 0;
+  flex-shrink: 0;
+}
+
+.empty {
+  font-size: 9px;
+  color: #2a2a44;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ── Fila de sinergia ── */
+.row {
+  padding: 4px 5px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: background 0.1s;
+}
+
+.rowActive {
+  background: #0f0f28;
+  border-color: #1e1e44;
+}
+
+.rowHeader {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #2a2a44;
+  flex-shrink: 0;
+}
+
+.dotActive {
+  background: #44dd44;
+  box-shadow: 0 0 4px #44dd4488;
+}
+
+.synergyName {
+  font-size: 9px;
+  font-weight: 600;
+  color: #666688;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rowActive .synergyName { color: #aaaacc; }
+
+.stars {
+  font-size: 9px;
+  color: #f5a623;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.counter {
+  font-size: 8px;
+  color: #333355;
+  flex-shrink: 0;
+}
+
+.rowActive .counter { color: #555577; }
+
+.desc {
+  margin: 2px 0 0 9px;
+  font-size: 8px;
+  color: #333355;
+  line-height: 1.4;
+}
+
+.rowActive .desc { color: #555577; }

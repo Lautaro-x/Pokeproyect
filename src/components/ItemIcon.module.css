@@ -1,0 +1,59 @@
+.wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sprite {
+  image-rendering: pixelated;
+  object-fit: contain;
+  display: block;
+}
+
+/* Fixed tooltip — escapes cualquier overflow:hidden padre */
+.tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  z-index: 9999;
+  background: #0d0c20;
+  border: 1px solid #44417a;
+  border-radius: 7px;
+  padding: 8px 10px;
+  min-width: 155px;
+  max-width: 210px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.85);
+  pointer-events: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 5px;
+}
+
+.tipImg {
+  width: 25px;
+  height: 25px;
+  image-rendering: pixelated;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.tipName {
+  font-size: 10px;
+  font-weight: 700;
+  color: #e2e0ff;
+  line-height: 1.2;
+}
+
+.tipDesc {
+  margin: 0;
+  font-size: 9px;
+  color: #8888bb;
+  line-height: 1.5;
+}

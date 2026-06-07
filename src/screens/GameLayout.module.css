@@ -1,0 +1,156 @@
+.screen {
+  width: 100vw;
+  height: 100vh;
+  background: #07070f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Los tres paneles agrupados y pegados entre sí */
+.gameGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: calc(100vh - 24px);
+  gap: 8px;
+}
+
+.leftPanel {
+  width: 170px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0d0d1f;
+}
+
+.gameBox {
+  width: 540px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0f0e17;
+  box-shadow: 0 0 50px #000c;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ── Overlay de resultado final ── */
+@keyframes resultIn {
+  0%   { opacity: 0; transform: scale(0.5); }
+  18%  { opacity: 1; transform: scale(1.08); }
+  30%  { opacity: 1; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.resultOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 16px;
+  animation: resultIn 0.8s ease-out forwards;
+}
+
+.resultBtn {
+  padding: 10px 32px;
+  background: transparent;
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.15s;
+}
+
+.resultBtn:hover { background: rgba(255, 215, 0, 0.15); }
+
+.rightPanel {
+  width: 160px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rightCard {
+  flex: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0d0d1f;
+}
+
+/* ── Modal Prof. Oak ── */
+.oakOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.oakModal {
+  background: #0f0e1e;
+  border: 1px solid #44417a;
+  border-radius: 12px;
+  padding: 24px 28px 20px;
+  max-width: 300px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.9);
+}
+
+.oakCard {
+  transform: rotate(30deg);
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 12px rgba(80, 60, 180, 0.5));
+}
+
+.oakTitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8888bb;
+}
+
+.oakText {
+  margin: 0;
+  font-size: 14px;
+  color: #ddddf0;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.oakBtn {
+  padding: 7px 24px;
+  background: transparent;
+  border: 1px solid #5555aa;
+  border-radius: 7px;
+  color: #aaaaff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.oakBtn:hover {
+  background: #1a1a40;
+  border-color: #8888cc;
+}

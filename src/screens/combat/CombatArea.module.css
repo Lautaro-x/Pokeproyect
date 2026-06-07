@@ -1,0 +1,498 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+.container.locked { pointer-events: none; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-bottom: 1px solid #1e1e35;
+  flex-shrink: 0;
+}
+
+.phaseLabel {
+  font-size: 9px;
+  color: #444466;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.startBtn {
+  padding: 4px 14px;
+  background: transparent;
+  border: 1.5px solid #ffd700;
+  border-radius: 6px;
+  cursor: pointer;
+  pointer-events: all;
+  transition: background 0.15s, border-color 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.startBtn:hover    { background: rgba(230, 57, 70, 0.15); border-color: #ffea70; }
+.startBtn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.zones {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── SLOT: 3 columnas (jugador | VS | rival) ── */
+.slot {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 28px 1fr;
+  border-bottom: 1px solid #161628;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.slot:last-child { border-bottom: none; }
+
+/* ── VS DIVIDER ── */
+.vsDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0c0b18;
+}
+
+/* ══════════════════════════════════════
+   POSICIONAMIENTO — lado jugador
+══════════════════════════════════════ */
+.playerSide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: background 0.1s;
+}
+
+.playerSide.dropTarget       { background: #0a0a1a; }
+.playerSide.dropTarget.over  { background: #0d1a0d; outline: 1px solid #44aa44; outline-offset: -1px; }
+
+/* ── Card colocada durante posicionamiento ── */
+.placedCard {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  padding: 2px 4px;
+}
+
+/* Sprite con barras superpuestas en posicionamiento */
+.spriteWithBars {
+  position: relative;
+  flex-shrink: 0;
+  width: 125px;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.barsOverlay {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  pointer-events: none;
+}
+
+.barsOverlay .barBg {
+  height: 5px;
+  background: rgba(8, 8, 20, 0.75);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* Sprite jugador → mira a la derecha */
+.cardSprite {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  image-rendering: auto;
+  flex-shrink: 0;
+  transform: scaleX(-1);
+}
+
+.cardInfo { flex: 1; min-width: 0; }
+
+.cardName {
+  font-size: 9px;
+  font-weight: 600;
+  color: #ccc;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardLv { font-size: 8px; color: #555; }
+
+.removeBtn {
+  background: transparent;
+  border: none;
+  color: #444;
+  cursor: pointer;
+  font-size: 11px;
+  padding: 2px 4px;
+  pointer-events: all;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.removeBtn:hover { color: #e63946; }
+
+/* Acciones de card en posicionamiento (info + remove) */
+.cardActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* Botón ! compartido */
+.infoBtn {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid #2a2a50;
+  background: transparent;
+  color: #444466;
+  font-size: 8px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+  transition: color 0.1s, border-color 0.1s;
+  line-height: 1;
+  padding: 0;
+  flex-shrink: 0;
+}
+.infoBtn:hover { color: #aaaaff; border-color: #6666bb; }
+
+/* ══════════════════════════════════════
+   POSICIONAMIENTO — lado enemigo
+══════════════════════════════════════ */
+.enemySide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  background: #0c0b1a;
+}
+
+.enemyCard {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  padding: 2px 4px;
+  flex-direction: row-reverse; /* sprite a la derecha */
+}
+
+/* Sprite rival → mira a la izquierda (sin flip) */
+.enemySprite {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  image-rendering: auto;
+  flex-shrink: 0;
+}
+
+
+.enemyInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.enemyName {
+  font-size: 9px;
+  color: #993333;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════
+   COMBATE — lado jugador
+══════════════════════════════════════ */
+.combatPlayerSide {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  gap: 4px;
+  padding: 4px;
+  background: #0a0a1a;
+}
+
+.combatSpriteWrap {
+  flex-shrink: 0;
+  position: relative;
+  align-self: center;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sprite jugador mira a la derecha */
+.combatSprite {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: auto;
+  transform: scaleX(-1);
+  transition: filter 0.05s;
+}
+
+.combatPlayerContent {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+}
+
+.combatBars {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 75%;
+}
+
+.combatNameRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.combatBonusRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 3px;
+  min-height: 0;
+}
+
+.combatTypeRow {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 2px;
+}
+
+/* ══════════════════════════════════════
+   COMBATE — lado enemigo (espejo)
+══════════════════════════════════════ */
+.combatEnemySide {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  gap: 4px;
+  padding: 4px;
+  background: #0c0b1a;
+}
+
+.combatEnemySpriteWrap {
+  flex-shrink: 0;
+  position: relative;
+  align-self: center;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sprite rival mira a la izquierda (sin flip) */
+.combatEnemySprite {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: auto;
+  transition: filter 0.05s;
+}
+
+.combatEnemyContent {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3px;
+}
+
+.combatEnemyBars {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 75%;
+}
+
+.combatEnemyNameRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.combatEnemyBonusRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  align-items: center;
+  padding-bottom: 3px;
+  min-height: 0;
+}
+
+.combatEnemyTypeRow {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  padding-top: 2px;
+}
+
+/* ── Barras (compartidas) ── */
+.barGroup { display: flex; flex-direction: column; gap: 1px; }
+
+.barLabel {
+  font-size: 7px;
+  color: #333355;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.barBg {
+  height: 5px;
+  background: #141428;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.hpFill {
+  height: 100%;
+  width: 100%;
+  background: #44dd44;
+  border-radius: 3px;
+}
+
+.atbFill {
+  height: 100%;
+  width: 0%;
+  background: #ffd700;
+  border-radius: 3px;
+}
+
+/* ── Labels nombre en combate ── */
+.combatName {
+  font-size: 9px;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.combatLevel { font-size: 8px; color: #555; }
+
+.emptyLabel {
+  font-size: 9px;
+  color: #222244;
+}
+
+/* ── Crítico label ── */
+.critLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 21;
+  white-space: nowrap;
+}
+
+/* ── Proc label (sinergia activada) ── */
+.procLabel {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0px);
+  background: rgba(0, 0, 0, 0.92);
+  color: #ffd700;
+  font-size: 7px;
+  font-weight: 900;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 20;
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+/* ── ROUND START banner ── */
+@keyframes roundStartAnim {
+  0%   { opacity: 0; transform: scale(0.5); }
+  15%  { opacity: 1; transform: scale(1.08); }
+  25%  { opacity: 1; transform: scale(1); }
+  72%  { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.15); }
+}
+
+.roundStartOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.25);
+  animation: roundStartAnim 2s ease-in-out forwards;
+  overflow: visible;
+}
+
+/* ── Grayscale faint ── */
+.fainted {
+  filter: grayscale(1) brightness(0.45) !important;
+  transition: filter 0.5s;
+}

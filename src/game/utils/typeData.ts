@@ -1,0 +1,43 @@
+import type { PokemonType } from '../../types'
+
+export const TYPE_COLOR: Record<PokemonType, string> = {
+  normal:   '#9099A1',
+  fire:     '#FF6C31',
+  water:    '#4D90D5',
+  electric: '#F3D23B',
+  grass:    '#63BC5A',
+  ice:      '#74CEC0',
+  fighting: '#CE4265',
+  poison:   '#AB6AC8',
+  ground:   '#D97845',
+  flying:   '#8FA8DD',
+  psychic:  '#FA7179',
+  bug:      '#90C12C',
+  rock:     '#C7B78B',
+  ghost:    '#5269AC',
+  dragon:   '#0B6DC3',
+  dark:     '#5A5366',
+  steel:    '#5A8EA1',
+  fairy:    '#EC8FE6',
+}
+
+export const TYPE_ABBREV: Record<PokemonType, string> = {
+  normal:   'NORM',
+  fire:     'FIRE',
+  water:    'WATR',
+  electric: 'ELEC',
+  grass:    'GRAS',
+  ice:      'ICE',
+  fighting: 'FGHT',
+  poison:   'POIS',
+  ground:   'GRND',
+  flying:   'FLY',
+  psychic:  'PSYC',
+  bug:      'BUG',
+  rock:     'ROCK',
+  ghost:    'GHST',
+  dragon:   'DRAG',
+  dark:     'DARK',
+  steel:    'STEE',
+  fairy:    'FAIR',
+}

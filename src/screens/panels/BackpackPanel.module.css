@@ -1,0 +1,110 @@
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 8px 10px;
+  overflow-y: auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #444466;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #1a1a35;
+  flex-shrink: 0;
+}
+
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.tab {
+  width: 30px;
+  height: 28px;
+  background: transparent;
+  border: 1px solid #1e1e3a;
+  border-radius: 5px;
+  color: #444466;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.tab:hover {
+  background: #13132a;
+  color: #8888cc;
+  border-color: #333366;
+}
+
+.tabActive {
+  background: #1a1a40;
+  color: #aaaaff;
+  border-color: #5555aa;
+}
+
+/* ── Drop highlight ── */
+.panel.over {
+  outline: 1px dashed #8855ff;
+  outline-offset: -3px;
+  background: #0e0b1e;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.itemCell {
+  position: relative;
+  aspect-ratio: 1;
+  background: #111128;
+  border: 1px solid #1e1e3a;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  transition: border-color 0.12s, background 0.12s;
+  overflow: visible;
+}
+
+.itemCell:hover {
+  border-color: #5555aa;
+  background: #18183a;
+}
+
+/* ── Quantity badge ── */
+.qtyBadge {
+  position: absolute;
+  bottom: 1px;
+  right: 2px;
+  font-size: 7px;
+  font-weight: 700;
+  color: #aaaaee;
+  line-height: 1;
+  pointer-events: none;
+  text-shadow: 0 0 4px #000, 0 0 4px #000;
+}
+
+.empty {
+  font-size: 11px;
+  color: #333355;
+  text-align: center;
+  margin-top: 20px;
+}

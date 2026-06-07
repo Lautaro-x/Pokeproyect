@@ -1,0 +1,160 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 8px;
+  overflow-y: auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.panel.locked { pointer-events: none; opacity: 0.65; }
+
+.backBtn {
+  background: transparent;
+  border: 1px solid #1e1e35;
+  color: #444466;
+  padding: 4px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 9px;
+  margin-bottom: 4px;
+  pointer-events: all;
+  transition: color 0.1s, border-color 0.1s;
+  width: 100%;
+}
+
+.backBtn:hover { color: #aaa; border-color: #444; }
+
+.card {
+  background: #111128;
+  border: 1px solid #1e1e3a;
+  border-radius: 8px;
+  padding: 6px 6px 5px;
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  user-select: none;
+  transition: border-color 0.12s, background 0.12s;
+  position: relative;
+}
+
+.card:hover:not(.placed) { border-color: #3a3a88; background: #14143a; }
+.card.placed   { opacity: 0.38; cursor: default; border-color: #1e3a1e; }
+.card.fainted  { filter: grayscale(1) brightness(0.5); cursor: not-allowed; border-color: #333; }
+.card.dropOver    { border-color: #8855ff; background: #1a1040; outline: 1px solid #8855ff; outline-offset: -1px; }
+.card.consumeOver { border-color: #55cc55; background: #0d1f0d; outline: 1px solid #44aa44; outline-offset: -1px; }
+
+.typeBadges {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 1;
+}
+
+.spriteWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sprite {
+  width: 52px;
+  height: 52px;
+  image-rendering: auto;
+  object-fit: contain;
+  transform: scaleX(-1);
+}
+
+.itemSlot {
+  width: 22px;
+  height: 22px;
+  border: 1px dashed #282840;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111128;
+  margin-top: 3px;
+  transition: border-color 0.1s, background 0.1s;
+}
+
+.itemSlot.itemSlotOver {
+  border-color: #8855ff;
+  border-style: solid;
+  background: #1a1040;
+}
+
+.itemEmpty {
+  font-size: 8px;
+  color: #383860;
+  line-height: 1;
+}
+
+.itemSprite {
+  width: 18px;
+  height: 18px;
+  image-rendering: pixelated;
+  object-fit: contain;
+  cursor: grab;
+  display: block;
+}
+
+.infoBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #2a2a50;
+  border-radius: 50%;
+  background: transparent;
+  color: #444466;
+  font-size: 9px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+  transition: color 0.1s, border-color 0.1s;
+  line-height: 1;
+  padding: 0;
+}
+.infoBtn:hover { color: #aaaaff; border-color: #6666bb; }
+
+.nameRow {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  justify-content: center;
+}
+
+.name {
+  font-size: 10px;
+  font-weight: 600;
+  color: #bbb;
+  text-transform: capitalize;
+}
+
+.level { font-size: 9px; color: #555; }
+
+.hpBarBg {
+  width: 100%;
+  height: 4px;
+  background: #1a1a2e;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.hpBarFill {
+  height: 100%;
+  background: #44dd44;
+  border-radius: 2px;
+}
