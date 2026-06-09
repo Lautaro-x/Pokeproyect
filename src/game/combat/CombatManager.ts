@@ -83,19 +83,35 @@ export class CombatManager {
     playerCombatants: (CombatPokemon | null)[],
     enemyCombatants: (CombatPokemon | null)[],
     playerTeam: PokemonInstance[],
-    enemyTeam: PokemonInstance[]
+    enemyTeam: PokemonInstance[],
+    withSynergies = true
   ): void {
     const maxSlots = Math.max(playerCombatants.length, enemyCombatants.length)
     this.slots = Array.from({ length: maxSlots }, (_, i) =>
       new CombatSlot(i, playerCombatants[i] ?? null, enemyCombatants[i] ?? null)
     )
-    this.playerSynergy.evaluate(playerTeam)
-    this.enemySynergy.evaluate(enemyTeam)
+    if (withSynergies) {
+      this.playerSynergy.evaluate(playerTeam)
+      this.enemySynergy.evaluate(enemyTeam)
+    }
     this.state = 'fighting'
   }
 
   tick(deltaMs: number): void {
     if (this.state !== 'fighting') return
+
+    // ── Dynamic ATB rate ──────────────────────────────────────────────────────
+    // The slowest Pokémon currently in the field attacks exactly once every 3 s.
+    // atbRate = 100 / (3 * minFactor)  →  fill time for slowest = 3000 ms.
+    const activePokemon = this.slots
+      .filter(s => s.isActive())
+      .flatMap(s => [s.player, s.enemy])
+      .filter((p): p is CombatPokemon => p !== null && !p.isDefeated)
+
+    const minFactor = activePokemon.length > 0
+      ? Math.min(...activePokemon.map(p => p.getProgressFactor()))
+      : 1
+    const atbRate = 100 / (3 * Math.max(0.1, minFactor))
 
     for (const slot of this.slots) {
       if (!slot.isActive()) continue
@@ -103,7 +119,7 @@ export class CombatManager {
       const { player, enemy } = slot
 
       if (player && !player.isDefeated) {
-        if (player.tick(deltaMs) && enemy && !enemy.isDefeated) {
+        if (player.tick(deltaMs, atbRate) && enemy && !enemy.isDefeated) {
           if (enemy.firstHitDodge) {
             enemy.firstHitDodge = false
             this.emit('synergy_proc', { slotIndex: slot.index, side: 'enemy', synergyName: 'Sombra' })
@@ -194,7 +210,7 @@ export class CombatManager {
       }
 
       if (enemy && !enemy.isDefeated) {
-        if (enemy.tick(deltaMs) && player && !player.isDefeated) {
+        if (enemy.tick(deltaMs, atbRate) && player && !player.isDefeated) {
           if (player.firstHitDodge) {
             player.firstHitDodge = false
             this.emit('synergy_proc', { slotIndex: slot.index, side: 'player', synergyName: 'Sombra' })

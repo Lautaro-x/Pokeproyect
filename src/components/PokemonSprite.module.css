@@ -1,0 +1,18 @@
+.wrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.shinyBadge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 10px;
+  line-height: 1;
+  color: #ffd700;
+  text-shadow: 0 0 3px #000, 0 0 5px #000;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}

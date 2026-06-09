@@ -1,0 +1,11 @@
+[
+  { "gen": 1, "region": "Kanto",   "name": "Profesor Oak",             "gender": "male",   "image": "Gen1_Kanto_Profesor Oak.png",               "starters": [1, 4, 7] },
+  { "gen": 2, "region": "Johto",   "name": "Profesor Elm",             "gender": "male",   "image": "Gen2_Johto_Profesor Elm.png",               "starters": [152, 155, 158] },
+  { "gen": 3, "region": "Hoenn",   "name": "Profesor Abedul",          "gender": "male",   "image": "Gen3_Hoenn_Profesor Abedul.png",            "starters": [252, 255, 258] },
+  { "gen": 4, "region": "Sinnoh",  "name": "Profesor Serbal",          "gender": "male",   "image": "Gen4_Sinnoh_Profesor Serbal.png",           "starters": [387, 390, 393] },
+  { "gen": 5, "region": "Teselia", "name": "Profesora Encina",         "gender": "female", "image": "Gen5_Teselia_Profesora Encina.png",         "starters": [495, 498, 501] },
+  { "gen": 6, "region": "Kalos",   "name": "Profesor Ciprés",          "gender": "male",   "image": "Gen6_Kalos_Profesor Ciprés.png",            "starters": [650, 653, 656] },
+  { "gen": 7, "region": "Alola",   "name": "Profesor Kukui",           "gender": "male",   "image": "Gen7_Alola_Profesor Kukui.png",             "starters": [722, 725, 728] },
+  { "gen": 8, "region": "Galar",   "name": "Profesora Magnolia",       "gender": "female", "image": "Gen8_Galar_Profesora Magnolia.png",         "starters": [810, 813, 816] },
+  { "gen": 9, "region": "Paldea",  "name": "Profesores Turo y Albora", "gender": "plural", "image": "Gen9_Paldea_Profesores Turo y  Albora.png", "starters": [906, 909, 912] }
+]

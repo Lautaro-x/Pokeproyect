@@ -1,0 +1,83 @@
+.scene {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── Top bar ── */
+.topBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #0d0d1f;
+  border-bottom: 1px solid #1a1a2e;
+  flex-shrink: 0;
+}
+
+.backBtn {
+  background: transparent;
+  border: 1px solid #2a2a4a;
+  border-radius: 5px;
+  color: #6666aa;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+}
+.backBtn:hover { color: #aaaaff; border-color: #5555aa; }
+
+.title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8888bb;
+}
+
+/* ── Scenery image ── */
+.scenery {
+  flex-shrink: 0;
+  height: 330px;
+  overflow: hidden;
+  position: relative;
+  background: #0a0a18;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+.sceneImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ── Content ── */
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.healBtn {
+  background: #cc2244;
+  border: 2px solid #ff6688;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 40px;
+  cursor: pointer;
+  transition: background 0.12s, transform 0.1s;
+  box-shadow: 0 0 18px rgba(204, 34, 68, 0.4);
+}
+.healBtn:hover { background: #ee3355; transform: scale(1.04); }
+.healBtn:active { transform: scale(0.98); }

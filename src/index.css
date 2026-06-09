@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #1a1a2e;
+  background: #1a1a2e url('/sprites/backgrounds/background_day.jpg') center / cover fixed;
   color: #eee;
   font-family: 'Segoe UI', sans-serif;
 }

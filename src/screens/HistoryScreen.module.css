@@ -1,0 +1,351 @@
+.screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.gameGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: calc(100vh - 24px);
+  gap: 8px;
+}
+
+.leftPanel {
+  width: 170px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.gameBox {
+  width: 540px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: url('/sprites/backgrounds/grass.jpg') center;
+  box-shadow: 0 0 50px #000c;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.rightPanel {
+  width: 160px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rightCard {
+  flex: 1;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* ── Map header ── */
+.mapHeader {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: #0a0a18;
+  border-bottom: 1px solid #1a1a2e;
+}
+
+.mapRegion {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffd700;
+  text-shadow: 0 0 12px #ffd70044;
+}
+
+.mapSep {
+  font-size: 10px;
+  color: #33334a;
+}
+
+.mapNumber {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #44446a;
+}
+
+/* ── Capture view ── */
+.captureView {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 32px;
+  background: #07070f;
+}
+
+.captureArtwork {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  image-rendering: auto;
+  filter: drop-shadow(0 0 18px #ffd70033);
+}
+
+.captureName {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e8e8ff;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.captureLevel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6666aa;
+}
+
+.captureQuestion {
+  font-size: 13px;
+  color: #aaaacc;
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.captureQuestion strong {
+  color: #ffd700;
+  text-transform: capitalize;
+}
+
+.captureButtons {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.btnCapture {
+  background: #1a3a1a;
+  border: 2px solid #44cc44;
+  border-radius: 8px;
+  color: #88ee88;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 9px 28px;
+  cursor: pointer;
+  transition: background 0.12s, transform 0.1s;
+}
+.btnCapture:hover { background: #224422; transform: scale(1.04); }
+
+.btnSkip {
+  background: #1a1a2e;
+  border: 2px solid #44446a;
+  border-radius: 8px;
+  color: #6666aa;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 9px 28px;
+  cursor: pointer;
+  transition: background 0.12s, transform 0.1s;
+}
+.btnSkip:hover { background: #22223a; transform: scale(1.04); }
+
+/* ── Replace grid ── */
+.replaceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.replaceCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: #0d0d1f;
+  border: 2px solid #22223a;
+  border-radius: 10px;
+  padding: 10px 6px 8px;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s, transform 0.1s;
+}
+.replaceCard:hover {
+  border-color: #cc4444;
+  background: #1a0d0d;
+  transform: scale(1.04);
+}
+
+.replaceSprite {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.replaceName {
+  font-size: 10px;
+  font-weight: 700;
+  color: #aaaacc;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.replaceLevel {
+  font-size: 10px;
+  color: #55557a;
+}
+
+/* ── Evolution overlay ── */
+@keyframes evoFlash {
+  0%   { filter: brightness(1) saturate(1); }
+  14%  { filter: brightness(30) saturate(0); }
+  28%  { filter: brightness(1) saturate(1); }
+  42%  { filter: brightness(30) saturate(0); }
+  56%  { filter: brightness(1) saturate(1); }
+  70%  { filter: brightness(30) saturate(0); }
+  84%  { filter: brightness(1) saturate(1); }
+  100% { filter: brightness(30) saturate(0); }
+}
+
+@keyframes evoFadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.evoOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  gap: 28px;
+}
+
+.evoLabel {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.evoSprites {
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+
+.evoSpriteFlashing {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: evoFlash 1.8s linear;
+}
+
+.evoSpriteHidden {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+}
+
+.evoSpriteVisible {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: evoFadeIn 0.6s ease-out forwards;
+}
+
+.evoNewName {
+  font-size: 26px;
+  font-weight: 900;
+  color: #ffd700;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  margin: 0;
+  animation: evoFadeIn 0.6s ease-out forwards;
+}
+
+.evoContinueBtn {
+  padding: 10px 36px;
+  background: transparent;
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  color: #ffd700;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.15s;
+  animation: evoFadeIn 0.6s ease-out forwards;
+}
+
+.evoContinueBtn:hover {
+  background: rgba(255, 215, 0, 0.15);
+}
+
+/* ── Game over overlay ── */
+.gameOverOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  z-index: 1000;
+}
+
+.gameOverTitle {
+  font-size: 48px;
+  font-weight: 900;
+  color: #e63946;
+  letter-spacing: 3px;
+  margin: 0;
+  text-shadow: 0 0 30px #e6394688;
+}
+
+.gameOverBtn {
+  padding: 12px 40px;
+  background: transparent;
+  border: 2px solid #e63946;
+  border-radius: 8px;
+  color: #e63946;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.gameOverBtn:hover {
+  background: rgba(230, 57, 70, 0.15);
+}

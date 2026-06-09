@@ -1,6 +1,5 @@
 import { PokemonInstance } from './PokemonInstance'
 
-const ATB_RATE = 9.0
 
 export const BONUS_KEYS = ['attack', 'defense', 'special_attack', 'special_defense', 'speed'] as const
 export type BonusKey = typeof BONUS_KEYS[number]
@@ -55,10 +54,15 @@ export class CombatPokemon {
     return this.boosted(this.instance.getDefenseStat(), key)
   }
 
-  tick(deltaMs: number): boolean {
-    if (this.isDefeated) return false
+  /** Factor de progresión ATB: cuánto más rápido que la base llena la barra. */
+  getProgressFactor(): number {
     const speedMult = 1 + this.bonuses.speed * 0.25
-    this.atbProgress += ((1.0 + (this.instance.getSpeedStat() * speedMult) / 30.0) * deltaMs * ATB_RATE) / 1000
+    return 1.0 + (this.instance.getSpeedStat() * speedMult) / 30.0
+  }
+
+  tick(deltaMs: number, atbRate: number): boolean {
+    if (this.isDefeated) return false
+    this.atbProgress += this.getProgressFactor() * deltaMs * atbRate / 1000
     if (this.atbProgress >= 100) {
       this.atbProgress -= 100
       return true

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, type ReactNode } from 'react'
 import styles from './PokemonInfoModal.module.css'
 import type { PokemonInstance } from '../game/entities/PokemonInstance'
 import { PokemonSprite } from './PokemonSprite'
@@ -20,9 +20,10 @@ const STAT_MAX = 200
 interface Props {
   pokemon: PokemonInstance
   onClose: () => void
+  footer?: ReactNode
 }
 
-export function PokemonInfoModal({ pokemon, onClose }: Props) {
+export function PokemonInfoModal({ pokemon, onClose, footer }: Props) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', onKey)
@@ -122,6 +123,13 @@ export function PokemonInfoModal({ pokemon, onClose }: Props) {
             </div>
           )}
         </div>
+
+        {footer && (
+          <>
+            <div className={styles.divider} />
+            {footer}
+          </>
+        )}
 
       </div>
     </div>

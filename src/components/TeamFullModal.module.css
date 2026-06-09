@@ -1,0 +1,59 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: #07071a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px;
+  z-index: 30;
+}
+
+.question {
+  font-size: 13px;
+  color: #aaaacc;
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.question strong {
+  color: #ffd700;
+  text-transform: capitalize;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: #0d0d1f;
+  border: 2px solid #22223a;
+  border-radius: 10px;
+  padding: 10px 6px 8px;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s, transform 0.1s;
+}
+.card:hover { border-color: #cc4444; background: #1a0d0d; transform: scale(1.04); }
+
+.sprite { width: 64px; height: 64px; object-fit: contain; }
+
+.name {
+  font-size: 10px;
+  font-weight: 700;
+  color: #aaaacc;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.level { font-size: 10px; color: #55557a; }

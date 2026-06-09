@@ -1,0 +1,175 @@
+.selector {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── Top bar: volver + inputs ── */
+.topBar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 12px;
+  background: #0d0d1f;
+  border-bottom: 1px solid #1a1a2e;
+  flex-shrink: 0;
+}
+
+.backBtn {
+  background: transparent;
+  border: 1px solid #2a2a4a;
+  border-radius: 5px;
+  color: #6666aa;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+  margin-right: 4px;
+}
+
+.backBtn:hover {
+  color: #aaaaff;
+  border-color: #5555aa;
+}
+
+.controlLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #9999cc;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.levelInput {
+  width: 48px;
+  background: #16162a;
+  border: 1px solid #33336a;
+  border-radius: 4px;
+  color: #ddddff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 6px;
+  text-align: center;
+  outline: none;
+}
+
+.levelInput:focus { border-color: #6666cc; }
+
+.shinyCheck {
+  width: 14px;
+  height: 14px;
+  accent-color: #ffd700;
+  cursor: pointer;
+}
+
+/* ── Scrollable pokemon list ── */
+.list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a4a transparent;
+}
+
+/* ── Generation group ── */
+.genGroup {
+  margin-bottom: 4px;
+}
+
+.genHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #6666aa;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+
+.genHeader::-webkit-details-marker { display: none; }
+
+.genHeader::before {
+  content: '▶';
+  font-size: 8px;
+  transition: transform 0.15s;
+}
+
+details[open] > .genHeader::before {
+  transform: rotate(90deg);
+}
+
+.genHeader:hover { color: #9999cc; }
+
+.genCount {
+  margin-left: auto;
+  font-size: 9px;
+  color: #44445a;
+  font-weight: 400;
+}
+
+/* ── Pokemon chips ── */
+.chips {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  padding: 4px 4px 6px 16px;
+}
+
+.chip {
+  font-size: 9px;
+  font-weight: 600;
+  color: #aaaadd;
+  background: #16162a;
+  border: 1px solid #2a2a4a;
+  border-radius: 4px;
+  padding: 3px 5px;
+  cursor: grab;
+  user-select: none;
+  transition: background 0.1s, border-color 0.1s, color 0.1s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chip:hover {
+  background: #22224a;
+  border-color: #5555aa;
+  color: #ccccff;
+}
+
+.chip:active { cursor: grabbing; }
+
+/* ── Release zone ── */
+.releaseZone {
+  flex-shrink: 0;
+  margin: 8px 10px 10px;
+  border: 1px dashed #2a2a4a;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #44445a;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  cursor: default;
+}
+
+.releaseZone.releaseOver {
+  border-color: #cc3333;
+  color: #ff6666;
+  background: rgba(180, 40, 40, 0.08);
+}

@@ -43,6 +43,7 @@ interface Props {
   onStart:          () => void
   onRoundEnd:       (result: RoundResult) => void
   onLevelUp?:       (teamIdx: number, newLevel: number) => void
+  withSynergies?:   boolean
 }
 
 const NUM_SLOTS = 6
@@ -90,6 +91,7 @@ function InfoBtn({ onClick }: { onClick: () => void }) {
 export function CombatArea({
   playerTeam, enemyTeam, placements,
   phase, gameRound, onPlace, onUnplace, onStart, onRoundEnd, onLevelUp,
+  withSynergies = true,
 }: Props) {
   const [dragOver,   setDragOver]   = useState<number | null>(null)
   const [showBanner, setShowBanner] = useState(false)
@@ -127,6 +129,7 @@ export function CombatArea({
       playerCombatants, enemyCombatants,
       playerTeam.filter((_, i) => placements.includes(i)),
       enemyTeam,
+      withSynergies,
     )
 
     manager.on('attack', ({ slotIndex, side, isCritical }) => {

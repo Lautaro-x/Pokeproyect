@@ -11,22 +11,44 @@ interface Props {
   placedIndices:     Set<number>
   faintedIndices:    Set<number>
   locked:            boolean
-  onBack:            () => void
+  side?:             'player' | 'enemy'
+  money?:            number
+  onBack?:           () => void
   onReorder?:        (from: number, to: number) => void
   onItemDrop?:       (dragJson: string, toTeamIdx: number) => void
   onConsumableDrop?: (dragJson: string, toTeamIdx: number) => void
+  onPokemonDrop?:    (dragJson: string) => void
 }
 
-export function TeamPanel({ team, placedIndices, faintedIndices, locked, onBack, onReorder, onItemDrop, onConsumableDrop }: Props) {
+export function TeamPanel({ team, placedIndices, faintedIndices, locked, side = 'player', money, onBack, onReorder, onItemDrop, onConsumableDrop, onPokemonDrop }: Props) {
   const [inspected,        setInspected]        = useState<PokemonInstance | null>(null)
   const [dragOverIdx,      setDragOverIdx]      = useState<number | null>(null)
   const [dragOverItemSlot, setDragOverItemSlot] = useState<number | null>(null)
   const [consumeOverIdx,   setConsumeOverIdx]   = useState<number | null>(null)
+  const [pokemonDragOver,  setPokemonDragOver]  = useState(false)
   const dragSourceIdx = useRef<number | null>(null)
 
   return (
-    <div className={`${styles.panel} ${locked ? styles.locked : ''}`}>
-      <button className={styles.backBtn} onClick={onBack}>← Menú</button>
+    <div
+      className={`${styles.panel} ${locked ? styles.locked : ''} ${pokemonDragOver ? styles.pokemonOver : ''}`}
+      onDragOver={e => {
+        if (e.dataTransfer.types.includes('pokemondrag')) {
+          e.preventDefault()
+          setPokemonDragOver(true)
+        }
+      }}
+      onDragLeave={e => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) setPokemonDragOver(false)
+      }}
+      onDrop={e => {
+        if (!e.dataTransfer.types.includes('pokemondrag')) return
+        e.preventDefault()
+        setPokemonDragOver(false)
+        const json = e.dataTransfer.getData('pokemondrag')
+        if (json) onPokemonDrop?.(json)
+      }}
+    >
+      {onBack && <button className={styles.backBtn} onClick={onBack}>← Menú</button>}
 
       {team.map((pokemon, i) => {
         const placed   = placedIndices.has(i)
@@ -49,6 +71,7 @@ export function TeamPanel({ team, placedIndices, faintedIndices, locked, onBack,
             onDragStart={e => {
               dragSourceIdx.current = i
               e.dataTransfer.setData('teamIndex', String(i))
+              e.dataTransfer.setData('teamside', side)
               e.dataTransfer.effectAllowed = 'move'
             }}
             onDragEnd={() => {
@@ -136,7 +159,7 @@ export function TeamPanel({ team, placedIndices, faintedIndices, locked, onBack,
             >!</button>
 
             <div className={styles.spriteWrap}>
-              <PokemonSprite id={pokemon.data.id} flip className={styles.sprite} />
+              <PokemonSprite id={pokemon.data.id} shiny={pokemon.shiny} flip className={styles.sprite} />
             </div>
 
             <div className={styles.nameRow}>
@@ -159,6 +182,30 @@ export function TeamPanel({ team, placedIndices, faintedIndices, locked, onBack,
 
       {inspected && (
         <PokemonInfoModal pokemon={inspected} onClose={() => setInspected(null)} />
+      )}
+
+      {money !== undefined && (
+        <div className={styles.wallet}>
+          <svg viewBox="0 0 44 34" width="44" height="34" aria-hidden="true">
+            {/* Cuerpo del monedero */}
+            <rect x="2" y="10" width="40" height="22" rx="8" fill="#bb1111"/>
+            {/* Solapa superior */}
+            <ellipse cx="22" cy="13" rx="17" ry="11" fill="#cc2222"/>
+            {/* Sombra interior solapa */}
+            <ellipse cx="22" cy="17" rx="14" ry="7" fill="#bb1111"/>
+            {/* Cierre amarillo */}
+            <rect x="15" y="4" width="14" height="8" rx="4" fill="#ffd700"/>
+            <rect x="18" y="6" width="8" height="4" rx="2" fill="#cc9900"/>
+            {/* Símbolo Pokédolar sobre el monedero */}
+            <g transform="translate(13.5, 15)" fill="none" stroke="#ff9999" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="0" x2="3" y2="11"/>
+              <path d="M3 0 Q9.5 0 9.5 3.5 Q9.5 7 3 7"/>
+              <line x1="0.5" y1="8.5"  x2="10" y2="8.5"/>
+              <line x1="0.5" y1="10.5" x2="10" y2="10.5"/>
+            </g>
+          </svg>
+          <span className={styles.walletAmount}>{money.toLocaleString('es-ES')}</span>
+        </div>
       )}
     </div>
   )

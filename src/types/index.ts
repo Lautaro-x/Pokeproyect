@@ -34,6 +34,17 @@ export interface WebmMod {
   zoom_position?: [number, number]
 }
 
+export interface RegionPresence {
+  kanto:   number
+  johto:   number
+  hoenn:   number
+  sinnoh:  number
+  teselia: number
+  kalos:   number
+  galar:   number
+  paldea:  number
+}
+
 export interface PokemonData {
   id: number
   name: string
@@ -47,6 +58,7 @@ export interface PokemonData {
   evolutions: EvolutionEntry[]
   sprites: PokemonSprites
   webm_mod?: WebmMod
+  in_region?: RegionPresence
 }
 
 export type SlotStatus = 'empty' | 'active' | 'player_won' | 'enemy_won'
@@ -67,3 +79,8 @@ export interface RoundEndEvent {
   playerWins: number
   enemyWins: number
 }
+
+export type Gift =
+  | { type: 'pokedollars'; quantity: number }
+  | { type: 'item'; item_id: string; quantity: number }
+  | { type: 'pokemon'; id: number | 'random'; generation?: 'actual' | 'not_actual'; is_shiny: boolean; is_legendary: boolean; is_mythical: boolean }

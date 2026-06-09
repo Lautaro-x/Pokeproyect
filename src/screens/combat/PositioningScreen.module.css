@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: #111130;
 }
 
 .title {
@@ -60,6 +61,7 @@
   padding: 6px;
   transition: background 0.15s;
   cursor: default;
+  background: #111130;
 }
 
 .playerSide.dragOver { background: #1a2a1a; border-color: #44aa44; }

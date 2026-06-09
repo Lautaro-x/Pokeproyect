@@ -1,0 +1,157 @@
+.screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.gameGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: calc(100vh - 24px);
+  gap: 8px;
+}
+
+.leftPanel {
+  width: 170px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.gameBox {
+  width: 540px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0f0e17;
+  box-shadow: 0 0 50px #000c;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.rightPanel {
+  width: 160px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rightCard {
+  flex: 1;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* ── Vista default del game box ── */
+.defaultView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 24px 20px;
+  gap: 24px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.sectionTitle {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #6666aa;
+  margin: 0;
+  align-self: flex-start;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 220px;
+  align-self: flex-start;
+}
+
+.actionBtn {
+  background: transparent;
+  border: 1px solid #33336a;
+  border-radius: 6px;
+  color: #9999cc;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 9px 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+
+.actionBtn:hover {
+  background: #16162a;
+  border-color: #6666cc;
+  color: #ccccff;
+}
+
+.actionBtnActive {
+  border-color: #663333;
+  color: #cc6666;
+}
+
+.actionBtnActive:hover {
+  background: #1a1010;
+  border-color: #cc3333;
+  color: #ff8888;
+}
+
+/* ── Result overlay (combat) ── */
+.resultOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 16px;
+}
+
+.resultLabel {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #ffd700;
+  text-shadow: 0 0 20px #ffd70088;
+}
+
+.resultBtn {
+  padding: 9px 28px;
+  background: transparent;
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.15s;
+}
+
+.resultBtn:hover { background: rgba(255, 215, 0, 0.15); }
+
+/* ── Panel equipo rival ── */
+.enemyPanel {
+  width: 170px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0d0d1f;
+}

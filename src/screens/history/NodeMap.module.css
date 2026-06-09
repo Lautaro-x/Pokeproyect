@@ -1,0 +1,41 @@
+.container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a4a transparent;
+}
+
+.container::-webkit-scrollbar       { width: 4px; }
+.container::-webkit-scrollbar-thumb { background: #2a2a4a; border-radius: 2px; }
+
+/* ── Node tooltip ── */
+.tooltip {
+  position: fixed;
+  pointer-events: none;
+  z-index: 999;
+  background: #0d0d1f;
+  border: 1px solid #2a2a4a;
+  border-radius: 7px;
+  padding: 7px 11px;
+  min-width: 120px;
+  transform: translate(14px, -50%);
+}
+
+.tooltipTitle {
+  font-size: 11px;
+  font-weight: 800;
+  color: #e8e8ff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.tooltipReward {
+  font-size: 10px;
+  color: #ffd700;
+  font-weight: 600;
+  margin: 3px 0 0;
+}

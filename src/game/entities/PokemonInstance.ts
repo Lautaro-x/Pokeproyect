@@ -7,6 +7,9 @@ export interface Item {
   description?: string
   typeOverride?: PokemonType
   consumable?: boolean
+  price?:      number
+  weight?:     number
+  shopMaxQty?: number
 }
 
 export class PokemonInstance {
@@ -16,6 +19,7 @@ export class PokemonInstance {
   equippedItem: Item | null
   currentHp: number  // persiste entre rondas
   preMegaData: PokemonData | null = null
+  shiny: boolean = false
 
   constructor(data: PokemonData, level: number, attackLevel: AttackLevel = 1) {
     this.data = data
@@ -65,9 +69,10 @@ export class PokemonInstance {
   }
 
   setLevel(newLevel: number): void {
+    const wasFainted = this.currentHp === 0
     const hpPct = this.currentHp / this.getMaxHp()
     this.level = Math.min(100, newLevel)
-    this.currentHp = Math.max(1, Math.floor(this.getMaxHp() * hpPct))
+    this.currentHp = wasFainted ? 0 : Math.max(1, Math.floor(this.getMaxHp() * hpPct))
   }
 
   getEffectiveType(): PokemonType {

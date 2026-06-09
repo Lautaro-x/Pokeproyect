@@ -1,7 +1,6 @@
 .screen {
   width: 100vw;
   height: 100vh;
-  background: #07070f;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +21,6 @@
   flex-shrink: 0;
   border-radius: 14px;
   overflow: hidden;
-  background: #0d0d1f;
 }
 
 .gameBox {
@@ -87,7 +85,6 @@
   flex: 1;
   border-radius: 14px;
   overflow: hidden;
-  background: #0d0d1f;
 }
 
 /* ── Modal Prof. Oak ── */

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import type { CSSProperties } from 'react'
 import { spriteWithFallback } from '../game/utils/spriteUrl'
+import styles from './PokemonSprite.module.css'
 
 interface Props {
   id: number
@@ -32,22 +33,17 @@ export function PokemonSprite({ id, shiny = false, flip = false, paused = false,
     ...(flip ? { transform: 'scaleX(-1)' } : {}),
   }
 
-  if (useFallback) {
-    return (
-      <img
-        key={id}
-        ref={imgRef}
-        src={fallback}
-        alt=""
-        draggable={false}
-        className={className}
-        style={baseStyle}
-        onError={() => {/* oficial artwork siempre existe */}}
-      />
-    )
-  }
-
-  return (
+  const sprite = useFallback ? (
+    <img
+      key={id}
+      ref={imgRef}
+      src={fallback}
+      alt=""
+      draggable={false}
+      className={className}
+      style={baseStyle}
+    />
+  ) : (
     <video
       key={id}
       ref={videoRef}
@@ -63,5 +59,14 @@ export function PokemonSprite({ id, shiny = false, flip = false, paused = false,
     >
       <source src={webm} type="video/webm" onError={() => setUseFallback(true)} />
     </video>
+  )
+
+  if (!shiny) return sprite
+
+  return (
+    <span className={styles.wrap}>
+      {sprite}
+      <span className={styles.shinyBadge}>★</span>
+    </span>
   )
 }

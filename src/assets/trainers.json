@@ -1,0 +1,57 @@
+[
+  {
+    "id": "calvo",
+    "sprite": "Calvo_mini_NB.png",
+    "types": ["poison", "rock", "dark"]
+  },
+  {
+    "id": "criadora",
+    "sprite": "Criadora_mini_NB.png",
+    "types": ["fairy", "normal", "flying"]
+  },
+  {
+    "id": "ace",
+    "sprite": "Entrenador_guay_mini_NB.png",
+    "types": []
+  },
+  {
+    "id": "karateka",
+    "sprite": "Karateka_mini_NB.png",
+    "types": ["fighting", "rock"]
+  },
+  {
+    "id": "medium",
+    "sprite": "Médium_mini_NB.png",
+    "types": ["psychic", "ghost", "fairy", "dark"]
+  },
+  {
+    "id": "montanero",
+    "sprite": "Montañero_mini_NB.png",
+    "types": ["ground", "rock", "steel", "fighting"]
+  },
+  {
+    "id": "pescador",
+    "sprite": "Pescador_mini_NB.png",
+    "types": ["water", "flying"]
+  },
+  {
+    "id": "rockera",
+    "sprite": "Rockera_mini_NB.png",
+    "types": ["electric", "steel", "fighting"]
+  },
+  {
+    "id": "arlequin",
+    "sprite": "Arlequín_mini_NB.png",
+    "types": ["fire", "water"]
+  },
+  {
+    "id": "escolar",
+    "sprite": "Escolar_mini_NB.png",
+    "types": ["bug", "grass", "normal"]
+  },
+  {
+    "id": "veterana",
+    "sprite": "Veterana_mini_NB.png",
+    "types": ["dragon", "ice", "fire"]
+  }
+]

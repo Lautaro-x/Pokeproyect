@@ -8,7 +8,8 @@
   box-sizing: border-box;
 }
 
-.panel.locked { pointer-events: none; opacity: 0.65; }
+.panel.locked     { pointer-events: none; opacity: 0.65; }
+.panel.pokemonOver { outline: 2px solid #6666ff; outline-offset: -2px; }
 
 .backBtn {
   background: transparent;
@@ -157,4 +158,27 @@
   height: 100%;
   background: #44dd44;
   border-radius: 2px;
+}
+
+/* ── Monedero ── */
+.wallet {
+  position: sticky;
+  bottom: 0;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 6px 6px;
+  background: #0d0d1f;
+  border-top: 1px solid #1a1a2e;
+  pointer-events: none;
+  border-radius: 8px;
+}
+
+.walletAmount {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffd700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px #ffd70066;
 }

@@ -1,0 +1,126 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 40px;
+  position: relative;
+}
+
+/* ── Back button ── */
+.backBtn {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  background: transparent;
+  border: 1px solid #2a2a4a;
+  border-radius: 6px;
+  color: #6666aa;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.backBtn:hover {
+  color: #aaaaff;
+  border-color: #5555aa;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  background: #111130;
+}
+
+.title {
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 40px #ffd70066, 0 2px 0 #000;
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: #6666aa;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ── Region grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 140px);
+  gap: 12px;
+}
+
+/* ── Region card base ── */
+.regionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 20px 12px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  position: relative;
+}
+
+.regionCard:active { transform: scale(0.96); }
+
+/* ── Unlocked (Kanto) ── */
+.unlocked {
+  background: #1a1a3a;
+  border-color: #ffd700;
+  box-shadow: 0 0 20px #ffd70033;
+}
+
+.unlocked:hover {
+  background: #22224a;
+  border-color: #ffe84d;
+  box-shadow: 0 0 30px #ffd70066;
+}
+
+/* ── Locked ── */
+.locked {
+  background: #0d0d1a;
+  border-color: #1e1e32;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ── Text inside cards ── */
+.regionGen {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.unlocked .regionGen { color: #ffd700; }
+.locked   .regionGen { color: #44445a; }
+
+.regionName {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.unlocked .regionName { color: #ffffff; }
+.locked   .regionName { color: #33334a; }
+
+.lockIcon {
+  font-size: 14px;
+  margin-top: 4px;
+}

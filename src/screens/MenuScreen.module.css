@@ -5,7 +5,6 @@
   justify-content: center;
   height: 100vh;
   gap: 48px;
-  background: radial-gradient(ellipse at center, #16213e 0%, #0f0e17 100%);
 }
 
 .title {
@@ -57,4 +56,50 @@
 .btnPrimary:hover {
   background: #ff4d5a;
   box-shadow: 0 4px 30px #e63946aa;
+}
+
+.btnSecondary {
+  background: transparent;
+  color: #aaaaff;
+  border: 2px solid #44417a;
+  box-shadow: none;
+}
+
+.btnSecondary:hover {
+  background: #1a1a40;
+  border-color: #8888cc;
+  color: #ccccff;
+}
+
+.btnContinue {
+  background: #1a3a1a;
+  border: 2px solid #44aa44;
+  color: #88ff88;
+  box-shadow: 0 4px 20px #44aa4444;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 0;
+}
+
+.btnContinue:hover {
+  background: #1f4a1f;
+  border-color: #66cc66;
+  box-shadow: 0 4px 30px #44aa4466;
+}
+
+.continueLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.continueSub {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  opacity: 0.75;
+  text-transform: uppercase;
 }
