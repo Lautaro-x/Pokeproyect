@@ -42,6 +42,29 @@
 .startBtn:hover    { background: rgba(230, 57, 70, 0.15); border-color: #ffea70; }
 .startBtn:disabled { opacity: 0.35; cursor: not-allowed; }
 
+.startGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.speedBtn {
+  padding: 4px 8px;
+  background: transparent;
+  border: 1.5px solid #444466;
+  border-radius: 4px;
+  color: #444466;
+  font-size: 11px;
+  font-weight: 900;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.speedBtn:hover       { background: rgba(100,100,200,0.15); border-color: #8888cc; color: #8888cc; }
+.speedBtnActive       { border-color: #ffd700; color: #ffd700; background: rgba(255,215,0,0.12); }
+.speedBtnActive:hover { background: rgba(255,215,0,0.22); }
+
 .zones {
   flex: 1;
   display: flex;
@@ -82,13 +105,15 @@
 }
 
 .playerSide.dropTarget       { background: #0a0a1a; }
-.playerSide.dropTarget.over  { background: #0d1a0d; outline: 1px solid #44aa44; outline-offset: -1px; }
+.playerSide.over             { outline: 1px solid #44aa44; outline-offset: -1px; }
+.playerSide.dropTarget.over  { background: #0d1a0d; }
 
 /* ── Card colocada durante posicionamiento ── */
 .placedCard {
   display: flex;
   align-items: center;
   gap: 5px;
+  cursor: grab;
   width: 100%;
   padding: 2px 4px;
 }

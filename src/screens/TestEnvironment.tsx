@@ -17,6 +17,8 @@ import type { Professor } from './test-env/HistoryStarts'
 import professorsData from '../assets/professors.json'
 import { CombatArea } from './combat/CombatArea'
 import { EvolutionModal } from '../components/EvolutionModal'
+import { clearPokedex } from '../game/utils/pokedex'
+import { REGIONS, isHistoriaUnlocked } from '../game/utils/unlockedModes'
 import { TeamFullModal } from '../components/TeamFullModal'
 import { GameProvider, useGame } from '../context/GameContext'
 import { PokemonInstance } from '../game/entities/PokemonInstance'
@@ -25,6 +27,9 @@ import type { PokemonData } from '../types'
 import allPokemon from '../assets/pokemon.json'
 
 const DB = allPokemon as PokemonData[]
+
+
+type GameModeStep = 'mode' | 'historia'
 
 type GameBoxView = 'default' | 'add-pokemon' | 'add-item' | 'shop' | 'pokemon-center' | 'gen-picker' | 'history-starts' | 'story-picker' | 'story' | 'combat'
 
@@ -43,6 +48,7 @@ function TestEnvironmentInner() {
     setPlayerTeam, addPokemon, replacePokemon,
     reorderTeam, applyItemDrop, applyConsumableDrop, unequipToBackpack,
     addEquipable, removeEquipable, addConsumable, deductConsumable, addMoney,
+    registerCatch,
   } = useGame()
 
   const handleItemDrop = (dragJson: string, toTeamIdx: number) => {
@@ -64,6 +70,21 @@ function TestEnvironmentInner() {
   const [evolutionQueue, setEvolutionQueue] = useState<EvolutionEntry[]>([])
   const [historyGen,     setHistoryGen]     = useState<number>(1)
   const [selectedScene,  setSelectedScene]  = useState<SceneData | null>(null)
+
+  // ── Game mode launch modal ─────────────────────────────────────────────────
+  const [gameModeStep,    setGameModeStep]    = useState<GameModeStep | null>(null)
+  const [modalRegion,     setModalRegion]     = useState<typeof REGIONS[number]>(REGIONS[0])
+  const [modalMapNumber,  setModalMapNumber]  = useState(1)
+
+  const openGameModeModal = () => { setGameModeStep('mode'); setModalRegion(REGIONS[0]); setModalMapNumber(1) }
+  const closeGameModeModal = () => setGameModeStep(null)
+
+  const launchHistoria = () => {
+    closeGameModeModal()
+    navigate('/history', {
+      state: { region: modalRegion.id, gen: modalRegion.gen, mapNumber: modalMapNumber, team: playerTeam, backpack, consumables },
+    })
+  }
 
   // ── Combat state ──────────────────────────────────────────────────────────
   const [combatEnemyTeam, setCombatEnemyTeam] = useState<PokemonInstance[]>([])
@@ -102,6 +123,7 @@ function TestEnvironmentInner() {
     result.shiny        = p.shiny
     result.currentHp    = Math.max(1, Math.floor(result.getMaxHp() * hpPct))
     if (entry.isMega) result.preMegaData = p.data
+    registerCatch(chosenData.id, p.shiny)
     replacePokemon(entry.teamIdx, result)
     setEvolutionQueue(prev => prev.slice(1))
   }
@@ -263,6 +285,12 @@ function TestEnvironmentInner() {
                 </button>
                 <button className={styles.actionBtn} onClick={() => addMoney(1000)}>
                   + 1000 Pokédólares
+                </button>
+                <button className={styles.actionBtn} onClick={() => { if (confirm('¿Limpiar Pokédex?')) clearPokedex() }}>
+                  × Limpiar Pokédex
+                </button>
+                <button className={`${styles.actionBtn} ${styles.actionBtnLaunch}`} onClick={openGameModeModal}>
+                  ▶ Iniciar modo de juego
                 </button>
                 <button className={styles.actionBtn} onClick={() => setGameBoxView('story-picker')}>
                   ✦ Historia
@@ -437,6 +465,67 @@ function TestEnvironmentInner() {
       )}
 
       <TeamFullModal />
+
+      {/* ── Game mode launch modal ── */}
+      {gameModeStep !== null && (
+        <div className={styles.gmOverlay} onClick={closeGameModeModal}>
+          <div className={styles.gmModal} onClick={e => e.stopPropagation()}>
+
+            {gameModeStep === 'mode' && (
+              <>
+                <h3 className={styles.gmTitle}>Iniciar modo de juego</h3>
+                <p className={styles.gmSub}>Selecciona un modo</p>
+                <div className={styles.gmModes}>
+                  <button className={styles.gmModeBtn} onClick={() => setGameModeStep('historia')}>
+                    <span className={styles.gmModeName}>Modo Historia</span>
+                    <span className={styles.gmModeDesc}>Viaja por las regiones Pokémon</span>
+                  </button>
+                </div>
+                <button className={styles.gmClose} onClick={closeGameModeModal}>Cancelar</button>
+              </>
+            )}
+
+            {gameModeStep === 'historia' && (
+              <>
+                <h3 className={styles.gmTitle}>Modo Historia</h3>
+                <p className={styles.gmSub}>Elige región y mapa de inicio</p>
+                <div className={styles.gmRegionGrid}>
+                  {REGIONS.map(r => {
+                    const unlocked = isHistoriaUnlocked(r.id)
+                    return (
+                      <button
+                        key={r.id}
+                        className={`${styles.gmRegionCard} ${unlocked ? styles.gmRegionUnlocked : styles.gmRegionLocked} ${modalRegion.id === r.id ? styles.gmRegionSelected : ''}`}
+                        disabled={!unlocked}
+                        onClick={() => setModalRegion(r)}
+                      >
+                        <span className={styles.gmRegionGen}>{r.genLabel}</span>
+                        <span className={styles.gmRegionName}>{r.name}</span>
+                        {!unlocked && <span>🔒</span>}
+                      </button>
+                    )
+                  })}
+                </div>
+                <div className={styles.gmMapRow}>
+                  <label className={styles.gmMapLabel}>Mapa de inicio</label>
+                  <div className={styles.gmMapControls}>
+                    <button className={styles.gmMapBtn} onClick={() => setModalMapNumber(n => Math.max(1, n - 1))}>−</button>
+                    <span className={styles.gmMapNum}>{modalMapNumber}</span>
+                    <button className={styles.gmMapBtn} onClick={() => setModalMapNumber(n => n + 1)}>+</button>
+                  </div>
+                </div>
+                <div className={styles.gmActions}>
+                  <button className={styles.gmClose} onClick={() => setGameModeStep('mode')}>← Atrás</button>
+                  <button className={styles.gmLaunch} onClick={launchHistoria} disabled={playerTeam.length === 0}>
+                    {playerTeam.length === 0 ? 'Sin equipo' : '▶ Iniciar'}
+                  </button>
+                </div>
+              </>
+            )}
+
+          </div>
+        </div>
+      )}
     </div>
   )
 }

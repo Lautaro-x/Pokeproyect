@@ -160,16 +160,48 @@
   border-radius: 2px;
 }
 
-/* ── Monedero ── */
-.wallet {
+/* ── Bottom section (Pokédex + monedero) ── */
+.bottomSection {
   position: sticky;
   bottom: 0;
   margin-top: auto;
   display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #0d0d1f;
+  padding-top: 6px;
+}
+
+.pokedexBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid #1e1e3a;
+  color: #555577;
+  padding: 5px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 600;
+  width: 100%;
+  pointer-events: all;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.pokedexBtn:hover {
+  color: #aaaaff;
+  border-color: #4444aa;
+  background: #0f0f28;
+}
+
+/* ── Monedero ── */
+.wallet {
+  display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px 6px 6px;
-  background: #0d0d1f;
   border-top: 1px solid #1a1a2e;
   pointer-events: none;
   border-radius: 8px;

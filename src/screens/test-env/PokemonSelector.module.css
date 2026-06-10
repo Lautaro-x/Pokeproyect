@@ -69,6 +69,53 @@
   cursor: pointer;
 }
 
+/* ── Search bar ── */
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #0d0d1f;
+  border-bottom: 1px solid #1a1a2e;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  background: #16162a;
+  border: 1px solid #33336a;
+  border-radius: 5px;
+  color: #ddddff;
+  font-size: 11px;
+  padding: 5px 8px;
+  outline: none;
+  transition: border-color 0.12s;
+}
+
+.searchInput:focus { border-color: #6666cc; }
+.searchInput::placeholder { color: #44445a; }
+
+.searchClear {
+  background: transparent;
+  border: none;
+  color: #555577;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color 0.1s;
+}
+
+.searchClear:hover { color: #aaaaff; }
+
+.noResults {
+  text-align: center;
+  color: #44445a;
+  font-size: 11px;
+  padding: 24px 0;
+  margin: 0;
+}
+
 /* ── Scrollable pokemon list ── */
 .list {
   flex: 1;

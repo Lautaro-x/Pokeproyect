@@ -349,3 +349,171 @@
 .gameOverBtn:hover {
   background: rgba(230, 57, 70, 0.15);
 }
+
+/* ── Hall of Fame overlay ── */
+.hallFameOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.hallFamePanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.hallFameStars {
+  font-size: 28px;
+  color: #ffd700;
+  letter-spacing: 10px;
+  margin: 0;
+  text-shadow: 0 0 20px #ffd70088;
+}
+
+.hallFameTitle {
+  font-size: 52px;
+  font-weight: 900;
+  color: #ffd700;
+  letter-spacing: 3px;
+  margin: 0;
+  text-shadow: 0 0 40px #ffd70066;
+}
+
+.hallFameText {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ccccff;
+  letter-spacing: 1.5px;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.hallFameBtn {
+  margin-top: 16px;
+  padding: 12px 48px;
+  background: transparent;
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  color: #ffd700;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.hallFameBtn:hover {
+  background: rgba(255, 215, 0, 0.12);
+}
+
+.hallFameUnlocked {
+  margin-top: 12px;
+  background: rgba(255, 215, 0, 0.07);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: 8px;
+  padding: 10px 16px;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hallFameUnlockedTitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffd700;
+  margin: 0 0 6px;
+  letter-spacing: 0.5px;
+}
+
+.hallFameUnlockedList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hallFameUnlockedItem {
+  font-size: 12px;
+  color: #ffe066;
+  padding-left: 12px;
+  position: relative;
+}
+.hallFameUnlockedItem::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  font-size: 8px;
+  top: 2px;
+  color: #ffd700;
+}
+
+/* ── Modal Prof. Oak ── */
+.oakOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.oakModal {
+  background: #0f0e1e;
+  border: 1px solid #44417a;
+  border-radius: 10px;
+  padding: 28px 32px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 320px;
+}
+
+.oakCard {
+  transform: rotate(30deg);
+  flex-shrink: 0;
+}
+
+.oakTitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8888cc;
+}
+
+.oakText {
+  margin: 0;
+  font-size: 14px;
+  color: #ccccee;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.oakBtn {
+  padding: 7px 24px;
+  background: transparent;
+  border: 1.5px solid #5550a0;
+  border-radius: 6px;
+  color: #8888cc;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.oakBtn:hover {
+  background: #1a1a40;
+  border-color: #8888cc;
+}

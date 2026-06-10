@@ -13,11 +13,15 @@ import { PokemonCenter } from './test-env/PokemonCenter'
 import { ShopEvent }    from './test-env/ShopEvent'
 import { StoryScene } from './test-env/StoryScene'
 import { generateMap, wildLevel } from './history/mapGenerator'
+import { incrementHallFame } from '../game/utils/pokedex'
+import { unlockNextHistoriaRegion } from '../game/utils/unlockedModes'
 import { TeamFullModal } from '../components/TeamFullModal'
 import { EvolutionModal } from '../components/EvolutionModal'
-import { GameProvider, useGame } from '../context/GameContext'
+import { GameProvider, useGame, getEvolutionFamilyIds } from '../context/GameContext'
 import { PokemonInstance } from '../game/entities/PokemonInstance'
+import type { Item } from '../game/entities/PokemonInstance'
 import { ALL_ITEMS } from '../game/data/items'
+import type { ConsumableStack } from '../game/data/items'
 import { officialArtwork } from '../game/utils/spriteUrl'
 import type { MapData, MapNode } from './history/mapGenerator'
 import type { GamePhase } from './GameLayout'
@@ -31,28 +35,41 @@ import scenesData    from '../assets/scenes.json'
 const DB = allPokemon as PokemonData[]
 
 interface EvolutionEvent { fromName: string; fromId: number; toName: string; toId: number }
+interface EvolveResult  { events: EvolutionEvent[]; branch: PokemonData[] | null }
 
-function evolveIfReady(pokemon: PokemonInstance): EvolutionEvent[] {
+type RegisterFn = (id: number, shiny: boolean) => void
+
+function applyEvolution(pokemon: PokemonInstance, newData: PokemonData, register: RegisterFn): EvolutionEvent {
+  const fromName   = pokemon.data.name
+  const fromId     = pokemon.data.id
+  const wasFainted = pokemon.currentHp === 0
+  const hpPct      = pokemon.currentHp / pokemon.getMaxHp()
+  ;(pokemon as unknown as { data: PokemonData }).data = newData
+  pokemon.currentHp = wasFainted ? 0 : Math.max(1, Math.floor(pokemon.getMaxHp() * hpPct))
+  register(newData.id, pokemon.shiny)
+  return { fromName, fromId, toName: newData.name, toId: newData.id }
+}
+
+function evolveIfReady(pokemon: PokemonInstance, register: RegisterFn): EvolveResult {
   const events: EvolutionEvent[] = []
   let evolved = true
   while (evolved) {
     evolved = false
-    const evo = pokemon.data.evolutions.find(
-      e => e.trigger === 'level' && e.level <= pokemon.level
-    )
-    if (!evo) break
-    const newData = DB.find(p => p.name === evo.to_name)
-    if (!newData) break
-    const fromName = pokemon.data.name
-    const fromId   = pokemon.data.id
-    const wasFainted = pokemon.currentHp === 0
-    const hpPct = pokemon.currentHp / pokemon.getMaxHp()
-    pokemon.data = newData as PokemonData
-    pokemon.currentHp = wasFainted ? 0 : Math.max(1, Math.floor(pokemon.getMaxHp() * hpPct))
-    events.push({ fromName, fromId, toName: newData.name, toId: newData.id })
+    const candidates = pokemon.data.evolutions
+      .filter(e => e.trigger === 'level' && e.level <= pokemon.level)
+      .map(e => DB.find(p => p.name === e.to_name))
+      .filter((d): d is PokemonData => d !== undefined)
+
+    if (candidates.length === 0) break
+
+    if (candidates.length > 1) {
+      return { events, branch: candidates }
+    }
+
+    events.push(applyEvolution(pokemon, candidates[0], register))
     evolved = true
   }
-  return events
+  return { events, branch: null }
 }
 
 function EvolutionOverlay({ event, onDismiss }: { event: EvolutionEvent; onDismiss: () => void }) {
@@ -94,7 +111,7 @@ function EvolutionOverlay({ event, onDismiss }: { event: EvolutionEvent; onDismi
 }
 
 // ── Config per region ─────────────────────────────────────────────────────────
-interface LocationState { region: string; gen: number }
+interface LocationState { region: string; gen: number; mapNumber?: number; team?: PokemonInstance[] }
 
 // Finds the gym scene for the current map number, falling back to
 // the highest available gym if the exact number doesn't exist.
@@ -184,13 +201,27 @@ function generateEnemyTeam(
 }
 
 // ── View state ────────────────────────────────────────────────────────────────
-type View      = 'map' | 'history-starts' | 'combat' | 'capture' | 'mt-choice' | 'gym' | 'pokemon-center' | 'shop' | 'random'
+type View      = 'map' | 'history-starts' | 'combat' | 'capture' | 'mt-choice' | 'gym' | 'pokemon-center' | 'shop' | 'random' | 'story' | 'final-boss'
 type EventType = 'wild' | 'wild_plus_mt' | 'trainer' | null
+
+function buildFinalBossScenes(region: string, allScenes: SceneData[]): SceneData[] {
+  const result: SceneData[] = []
+  let n = 1
+  while (true) {
+    const scene = allScenes.find(s => s.scene_id === `${region}_altomando_${n}`)
+    if (!scene) break
+    result.push(scene)
+    n++
+  }
+  const campeon = allScenes.find(s => s.scene_id === `${region}_campeon`)
+  if (campeon) result.push(campeon)
+  return result
+}
 
 function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
   const navigate = useNavigate()
   const location = useLocation()
-  const { region: locRegion = 'kanto', gen: locGen = 1 } = (location.state as LocationState | null) ?? {}
+  const { region: locRegion = 'kanto', gen: locGen = 1, mapNumber: locMapNumber = 1 } = (location.state as LocationState | null) ?? {}
   const region = save?.region ?? locRegion
   const gen    = save?.gen    ?? locGen
 
@@ -200,9 +231,31 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
     setPlayerTeam, requestAddPokemon,
     reorderTeam, applyItemDrop, applyConsumableDrop, unequipToBackpack,
     addConsumable, addMoney, applyGifts,
+    registerCatch,
   } = useGame()
 
-  const [megaQueue, setMegaQueue] = useState<{ teamIdx: number; choices: PokemonData[] }[]>([])
+  const [megaQueue,   setMegaQueue]   = useState<{ teamIdx: number; choices: PokemonData[] }[]>([])
+  const [branchQueue, setBranchQueue] = useState<{ teamIdx: number; choices: PokemonData[] }[]>([])
+
+  const handleBranchComplete = useCallback((chosenData: PokemonData) => {
+    const entry = branchQueue[0]
+    if (!entry) return
+    const p = playerTeam[entry.teamIdx]
+    if (!p) return
+
+    const event   = applyEvolution(p, chosenData, registerCatch)
+    const further = evolveIfReady(p, registerCatch)
+    const newEvents: EvolutionEvent[] = [event, ...further.events]
+
+    setPlayerTeam(prev => [...prev])
+    setEvolutionQueue(prev => [...prev, ...newEvents])
+    setBranchQueue(prev => {
+      const rest = prev.slice(1)
+      return further.branch
+        ? [{ teamIdx: entry.teamIdx, choices: further.branch }, ...rest]
+        : rest
+    })
+  }, [branchQueue, playerTeam, setPlayerTeam])
 
   const handleItemDrop = (dragJson: string, toTeamIdx: number) => {
     const evo = applyItemDrop(dragJson, toTeamIdx)
@@ -227,18 +280,25 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
     mega.shiny        = p.shiny
     mega.currentHp    = Math.max(1, Math.floor(mega.getMaxHp() * hpPct))
     mega.preMegaData  = p.data
+    registerCatch(chosenData.id, mega.shiny)
     setPlayerTeam(prev => { const n = [...prev]; n[entry.teamIdx] = mega; return n })
     setMegaQueue(prev => prev.slice(1))
   }
 
   // ── Map state (restored from save if resuming) ───────────────────────────
-  const [mapNumber,    setMapNumber]    = useState(save?.mapNumber    ?? 1)
-  const [mapData,      setMapData]      = useState<MapData>           (save?.mapData      ?? generateMap(1))
+  const [mapNumber,    setMapNumber]    = useState(save?.mapNumber    ?? locMapNumber)
+  const [mapData,      setMapData]      = useState<MapData>           (save?.mapData      ?? generateMap(save?.mapNumber ?? locMapNumber, region))
   const [completedIds, setCompletedIds] = useState<Set<string>>       (save?.completedIds ?? new Set())
   const [currentId,    setCurrentId]    = useState<string | null>     (save?.currentId    ?? null)
   const [view,         setView]         = useState<View>('map')
   const [activeNodeId,  setActiveNodeId]  = useState<string | null>(null)
-  const [randomScene,   setRandomScene]   = useState<SceneData | null>(null)
+  const [randomScene,      setRandomScene]      = useState<SceneData | null>(null)
+  const [storyScene,       setStoryScene]       = useState<SceneData | null>(null)
+  const [finalBossScenes,  setFinalBossScenes]  = useState<SceneData[]>([])
+  const [finalBossIdx,     setFinalBossIdx]     = useState(0)
+  const [showHallFame,     setShowHallFame]     = useState(false)
+  const [newlyUnlocked,    setNewlyUnlocked]    = useState<string[]>([])
+  const [oakMessage,    setOakMessage]    = useState<string | null>(null)
 
   // ── Combat event state ────────────────────────────────────────────────────
   const [eventType,     setEventType]     = useState<EventType>(null)
@@ -270,12 +330,12 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
   const [evolutionQueue, setEvolutionQueue] = useState<EvolutionEvent[]>([])
   const pendingActionRef = useRef<(() => void) | null>(null)
   useEffect(() => {
-    if (evolutionQueue.length === 0 && pendingActionRef.current) {
+    if (evolutionQueue.length === 0 && branchQueue.length === 0 && pendingActionRef.current) {
       const action = pendingActionRef.current
       pendingActionRef.current = null
       action()
     }
-  }, [evolutionQueue])
+  }, [evolutionQueue, branchQueue])
 
   const combatPlacedIndices = useMemo(
     () => new Set(combatPlacements.filter((p): p is number => p !== null)),
@@ -299,9 +359,10 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
     setCompletedIds(newCompleted)
     setCurrentId(activeNodeId)
 
-    if (node.type === 'boss') {
+    const isLastFloor = node.floor === mapData.totalFloors - 1
+    if (node.type === 'boss' || (node.type === 'story' && isLastFloor)) {
       setMapNumber(n => n + 1)
-      setMapData(generateMap(mapNumber + 1))
+      setMapData(generateMap(mapNumber + 1, region))
       setCompletedIds(new Set())
       setCurrentId(null)
     }
@@ -342,10 +403,13 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
     const levelGain = eventType === 'trainer' ? 2 : 1
 
     const evolutions: EvolutionEvent[] = []
+    const branches:   { teamIdx: number; choices: PokemonData[] }[] = []
     const next = [...playerTeam]
-    next.forEach(p => {
+    next.forEach((p, idx) => {
       p.setLevel(p.level + levelGain)
-      evolutions.push(...evolveIfReady(p))
+      const result = evolveIfReady(p, registerCatch)
+      evolutions.push(...result.events)
+      if (result.branch) branches.push({ teamIdx: idx, choices: result.branch })
     })
     setPlayerTeam(next)
 
@@ -362,9 +426,10 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
       }
     }
 
-    if (evolutions.length > 0) {
+    if (evolutions.length > 0 || branches.length > 0) {
       pendingActionRef.current = proceed
-      setEvolutionQueue(evolutions)
+      if (evolutions.length > 0) setEvolutionQueue(evolutions)
+      if (branches.length > 0) setBranchQueue(prev => [...prev, ...branches])
     } else {
       proceed()
     }
@@ -405,20 +470,60 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
 
   const handleGymWin = useCallback(() => {
     const evolutions: EvolutionEvent[] = []
+    const branches:   { teamIdx: number; choices: PokemonData[] }[] = []
     const next = [...playerTeam]
-    next.forEach(p => {
+    next.forEach((p, idx) => {
       p.setLevel(p.level + 2)
-      evolutions.push(...evolveIfReady(p))
+      const result = evolveIfReady(p, registerCatch)
+      evolutions.push(...result.events)
+      if (result.branch) branches.push({ teamIdx: idx, choices: result.branch })
     })
     setPlayerTeam(next)
 
-    if (evolutions.length > 0) {
+    if (evolutions.length > 0 || branches.length > 0) {
       pendingActionRef.current = completeNode
-      setEvolutionQueue(evolutions)
+      if (evolutions.length > 0) setEvolutionQueue(evolutions)
+      if (branches.length > 0) setBranchQueue(prev => [...prev, ...branches])
     } else {
       completeNode()
     }
   }, [playerTeam, setPlayerTeam, completeNode])
+
+  const handleFinalBossSceneWin = useCallback(() => {
+    const isChampion = finalBossIdx === finalBossScenes.length - 1
+
+    const evolutions: EvolutionEvent[] = []
+    const branches:   { teamIdx: number; choices: PokemonData[] }[] = []
+    const next = [...playerTeam]
+    next.forEach((p, idx) => {
+      p.setLevel(p.level + 2)
+      const result = evolveIfReady(p, registerCatch)
+      evolutions.push(...result.events)
+      if (result.branch) branches.push({ teamIdx: idx, choices: result.branch })
+    })
+    setPlayerTeam(next)
+
+    const proceed = () => {
+      if (isChampion) {
+        const familyIds = [...new Set(playerTeam.flatMap(p => getEvolutionFamilyIds(p.data.id)))]
+        incrementHallFame(familyIds)
+        const unlocked = unlockNextHistoriaRegion(region)
+        clearSave('historia')
+        setNewlyUnlocked(unlocked)
+        setShowHallFame(true)
+      } else {
+        setFinalBossIdx(prev => prev + 1)
+      }
+    }
+
+    if (evolutions.length > 0 || branches.length > 0) {
+      pendingActionRef.current = proceed
+      if (evolutions.length > 0) setEvolutionQueue(evolutions)
+      if (branches.length > 0) setBranchQueue(prev => [...prev, ...branches])
+    } else {
+      proceed()
+    }
+  }, [finalBossIdx, finalBossScenes, playerTeam, setPlayerTeam])
 
   // ── Node click ────────────────────────────────────────────────────────────
   const handleNodeClick = useCallback((node: MapNode) => {
@@ -432,11 +537,24 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
       setView('shop')
     } else if (node.type === 'boss') {
       setView('gym')
+    } else if (node.type === 'final-boss') {
+      const scenes = buildFinalBossScenes(region, scenesData as SceneData[])
+      setFinalBossScenes(scenes)
+      setFinalBossIdx(0)
+      setView('final-boss')
     } else if (node.type === 'random') {
       const pool = (scenesData as SceneData[]).filter(s => s.scene_id.startsWith('random_event_'))
       if (pool.length > 0) {
         setRandomScene(pool[Math.floor(Math.random() * pool.length)])
         setView('random')
+      } else {
+        completeNode()
+      }
+    } else if (node.type === 'story') {
+      const scene = (scenesData as SceneData[]).find(s => s.scene_id === node.storySceneId)
+      if (scene) {
+        setStoryScene(scene)
+        setView('story')
       } else {
         completeNode()
       }
@@ -457,10 +575,16 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
 
   // ── Consumable drop: context handles item logic, screen handles evolution ──
   const handleConsumableDrop = (dragJson: string, toIdx: number) => {
-    const evo = applyConsumableDrop(dragJson, toIdx)
-    if (evo) {
-      const evos = evolveIfReady(evo.pokemon)
-      if (evos.length > 0) setEvolutionQueue(prev => [...prev, ...evos])
+    const result = applyConsumableDrop(dragJson, toIdx)
+    if (result === 'rejected') {
+      setOakMessage('Cada cosa en su debido momento')
+      return
+    }
+    if (result) {
+      const teamIdx = result.teamIdx
+      const evoResult = evolveIfReady(result.pokemon, registerCatch)
+      if (evoResult.events.length > 0) setEvolutionQueue(prev => [...prev, ...evoResult.events])
+      if (evoResult.branch) setBranchQueue(prev => [...prev, { teamIdx, choices: evoResult.branch! }])
     }
   }
 
@@ -497,7 +621,7 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
             locked={view === 'combat' && combatPhase === 'fighting'}
             side="player"
             money={money}
-            onBack={() => navigate('/historia')}
+            onBack={() => navigate('/')}
             onReorder={reorderTeam}
             onItemDrop={handleItemDrop}
             onConsumableDrop={handleConsumableDrop}
@@ -635,6 +759,30 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
             />
           )}
 
+          {view === 'story' && storyScene && activeNodeId && (
+            <StoryScene
+              key={storyScene.scene_id + mapNumber}
+              scene={storyScene}
+              db={DB}
+              baseLevel={wildLevel(mapData.nodes[activeNodeId]?.floor ?? 0, mapNumber)}
+              gen={gen}
+              onDone={handleGymWin}
+              onLose={handleCombatLose}
+            />
+          )}
+
+          {view === 'final-boss' && finalBossScenes[finalBossIdx] && (
+            <StoryScene
+              key={`final-boss-${finalBossIdx}`}
+              scene={finalBossScenes[finalBossIdx]}
+              db={DB}
+              baseLevel={wildLevel(mapData.totalFloors - 1, mapNumber)}
+              gen={gen}
+              onDone={handleFinalBossSceneWin}
+              onLose={handleCombatLose}
+            />
+          )}
+
         </div>
 
         <div className={styles.rightPanel}>
@@ -681,14 +829,83 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
         />
       )}
 
+      {evolutionQueue.length === 0 && branchQueue[0] && (
+        <EvolutionModal
+          currentData={playerTeam[branchQueue[0].teamIdx]?.data ?? branchQueue[0].choices[0]}
+          choices={branchQueue[0].choices}
+          onComplete={handleBranchComplete}
+        />
+      )}
+
+      {showHallFame && (
+        <div className={styles.hallFameOverlay}>
+          <div className={styles.hallFamePanel}>
+            <p className={styles.hallFameStars}>★ ★ ★</p>
+            <p className={styles.hallFameTitle}>¡Enhorabuena!</p>
+            <p className={styles.hallFameText}>
+              Te has pasado la historia de {regionLabel}
+            </p>
+            {newlyUnlocked.length > 0 && (
+              <div className={styles.hallFameUnlocked}>
+                <p className={styles.hallFameUnlockedTitle}>Se han desbloqueado los modos:</p>
+                <ul className={styles.hallFameUnlockedList}>
+                  {newlyUnlocked.map(label => (
+                    <li key={label} className={styles.hallFameUnlockedItem}>{label}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            <button className={styles.hallFameBtn} onClick={() => navigate('/')}>
+              Continuar
+            </button>
+          </div>
+        </div>
+      )}
+
       <TeamFullModal />
+
+      {oakMessage && (
+        <div className={styles.oakOverlay} onClick={() => setOakMessage(null)}>
+          <div className={styles.oakModal} onClick={e => e.stopPropagation()}>
+            <svg className={styles.oakCard} viewBox="0 0 60 84" width="60" height="84" fill="none">
+              <rect x="2" y="2" width="56" height="80" rx="6" fill="#1a1840" stroke="#5550a0" strokeWidth="1.5"/>
+              <rect x="7" y="7" width="46" height="70" rx="4" fill="none" stroke="#2e2a60" strokeWidth="1"/>
+              <circle cx="11" cy="13" r="2" fill="#5550a0"/>
+              <circle cx="49" cy="13" r="2" fill="#5550a0"/>
+              <circle cx="11" cy="71" r="2" fill="#5550a0"/>
+              <circle cx="49" cy="71" r="2" fill="#5550a0"/>
+            </svg>
+            <div className={styles.oakTitle}>Prof. Oak</div>
+            <p className={styles.oakText}>{oakMessage}</p>
+            <button className={styles.oakBtn} onClick={() => setOakMessage(null)}>Entendido</button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
 
+function reconstructTeam(raw: PokemonInstance[]): PokemonInstance[] {
+  return raw.map(plain => {
+    const data = DB.find(p => p.id === (plain.data as PokemonData).id)
+    if (!data) return null
+    const inst = new PokemonInstance(data, plain.level, plain.attackLevel)
+    inst.currentHp    = plain.currentHp ?? inst.getMaxHp()
+    inst.equippedItem = plain.equippedItem ?? null
+    inst.shiny        = plain.shiny ?? false
+    return inst
+  }).filter((p): p is PokemonInstance => p !== null)
+}
+
 export default function HistoryScreen() {
   const location = useLocation()
-  const { resume } = (location.state as { resume?: boolean } | null) ?? {}
+  const state = (location.state as {
+    resume?: boolean
+    team?: PokemonInstance[]
+    backpack?: Item[]
+    consumables?: ConsumableStack[]
+  } | null) ?? {}
+  const { resume, team: rawTeam, backpack: rawBackpack, consumables: rawConsumables } = state
 
   const save = useMemo(() => {
     if (resume) return readSave('historia')
@@ -696,11 +913,17 @@ export default function HistoryScreen() {
     return null
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
+  const injectedTeam = useMemo(
+    () => (rawTeam?.length ? reconstructTeam(rawTeam) : undefined),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  )
+
   return (
     <GameProvider
-      initialTeam={save?.team}
-      initialBackpack={save?.backpack}
-      initialConsumables={save?.consumables}
+      initialTeam={save?.team ?? injectedTeam}
+      initialBackpack={save?.backpack ?? rawBackpack}
+      initialConsumables={save?.consumables ?? rawConsumables}
       initialMoney={save?.money}
     >
       <HistoryScreenInner save={save} />

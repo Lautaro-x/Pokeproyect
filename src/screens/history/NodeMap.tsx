@@ -42,7 +42,9 @@ function tooltipContent(node: MapNode): { title: string; reward?: string } {
     case 'wild_plus_mt':   return { title: 'Combate salvaje', reward: 'Captura/MT · +1 lvl' }
     case 'trainer':        return { title: 'Entrenador', reward: 'Pokédólares · +2 lvls' }
     case 'boss':           return { title: 'Gimnasio', reward: 'Insignia · +2 lvls' }
+    case 'final-boss':    return { title: 'Alto Mando', reward: 'Hall of Fame' }
     case 'random':         return { title: 'Evento' }
+    case 'story':          return { title: 'Equipo enemigo', reward: '+2 lvls' }
   }
 }
 
@@ -118,7 +120,7 @@ export function NodeMap({ map, completedIds, currentId, reachableIds, onNodeClic
       node.type === 'pokemon-center' ? '✚' :
       node.type === 'shop'           ? '$' : '?'
 
-    const isTrainer    = node.type === 'trainer'
+    const isTrainer    = node.type === 'trainer' || node.type === 'story'
     const clickable    = isReachable
     const spriteFilter = isCompleted ? 'brightness(0.6) sepia(1) hue-rotate(190deg) saturate(5)'
                        : isPastFloor ? 'brightness(0.2)'
@@ -178,6 +180,15 @@ export function NodeMap({ map, completedIds, currentId, reachableIds, onNodeClic
             ? (
               <image
                 href="/sprites/others/pokegym.png"
+                x={x - R * 1.5} y={y - R * 1.5}
+                width={R * 3} height={R * 3}
+                style={{ pointerEvents: 'none', imageRendering: 'pixelated' }}
+              />
+            )
+            : node.type === 'final-boss'
+            ? (
+              <image
+                href="/sprites/others/alto_mando.png"
                 x={x - R * 1.5} y={y - R * 1.5}
                 width={R * 3} height={R * 3}
                 style={{ pointerEvents: 'none', imageRendering: 'pixelated' }}

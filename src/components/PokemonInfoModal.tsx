@@ -15,7 +15,7 @@ const STAT_LABEL: Record<typeof STAT_KEYS[number], string> = {
   speed: 'SPD',
 }
 
-const STAT_MAX = 200
+const BASE_STAT_MAX = 255
 
 interface Props {
   pokemon: PokemonInstance
@@ -78,8 +78,9 @@ export function PokemonInfoModal({ pokemon, onClose, footer }: Props) {
           </div>
 
           {STAT_KEYS.map(key => {
-            const val = pokemon.getStat(key)
-            const pct = Math.min(100, (val / STAT_MAX) * 100)
+            const baseStat = pokemon.data.stats[key]
+            const instStat = pokemon.getStat(key)
+            const pct      = Math.min(100, (baseStat / BASE_STAT_MAX) * 100)
             const isActive = (key === 'attack' && !usesSpecial) || (key === 'special_attack' && usesSpecial)
             return (
               <div key={key} className={`${styles.statRow} ${isActive ? styles.activeStatRow : ''}`}>
@@ -92,7 +93,7 @@ export function PokemonInfoModal({ pokemon, onClose, footer }: Props) {
                     style={{ width: `${pct}%`, background: isActive ? '#f5a623' : '#4488ff' }}
                   />
                 </div>
-                <span className={styles.statValue}>{val}</span>
+                <span className={styles.statValue}>{instStat}</span>
               </div>
             )
           })}

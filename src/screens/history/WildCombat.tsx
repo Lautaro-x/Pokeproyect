@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import styles from './WildCombat.module.css'
 import { CombatArea } from '../combat/CombatArea'
 import { useGame } from '../../context/GameContext'
@@ -23,10 +23,14 @@ export function WildCombat({
   onPlace, onUnplace, onStart, onNextRound,
   onWin, onLose,
 }: Props) {
-  const { playerTeam } = useGame()
+  const { playerTeam, setPlayerTeam } = useGame()
 
   const [round,  setRound]  = useState(1)
   const [result, setResult] = useState<'win' | 'lose' | null>(null)
+
+  const handleLevelUp = useCallback(() => {
+    setPlayerTeam(prev => [...prev])
+  }, [setPlayerTeam])
 
   const handleRoundEnd = () => {
     const allEnemiesDead    = enemyTeam.every(p => p.currentHp <= 0)
@@ -52,6 +56,7 @@ export function WildCombat({
         onUnplace={onUnplace}
         onStart={onStart}
         onRoundEnd={handleRoundEnd}
+        onLevelUp={handleLevelUp}
       />
 
       {result && (

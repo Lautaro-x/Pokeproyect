@@ -1,6 +1,6 @@
 import trainersData from '../../assets/trainers.json'
 
-export type NodeType = 'start' | 'wild' | 'wild_plus_mt' | 'trainer' | 'boss' | 'pokemon-center' | 'shop' | 'random'
+export type NodeType = 'start' | 'wild' | 'wild_plus_mt' | 'trainer' | 'boss' | 'final-boss' | 'pokemon-center' | 'shop' | 'random' | 'story'
 
 interface TrainerDef { id: string; sprite: string; types: string[] }
 
@@ -13,6 +13,13 @@ export interface MapNode {
   nextIds:        string[]
   trainerSprite?: string
   trainerTypes?:  string[]
+  storySceneId?:  string
+}
+
+// Types used for trainer battles on map 9, per region.
+// Empty array = any type (no filter).
+const BAD_TEAM_TYPES: Record<string, string[]> = {
+  kanto: ['normal', 'poison'],
 }
 
 export interface MapData {
@@ -48,7 +55,7 @@ function pickNodeType(f: number, totalFloors: number, mapNumber: number): NodeTy
   return Math.random() < 0.20 ? 'wild_plus_mt' : 'wild'
 }
 
-export function generateMap(mapNumber: number): MapData {
+export function generateMap(mapNumber: number, region = 'kanto'): MapData {
   const intermediate = 9
   const totalFloors  = intermediate + 2
 
@@ -81,13 +88,46 @@ export function generateMap(mapNumber: number): MapData {
     floors.push(floorIds)
   }
 
-  // ── Garantizar al menos un pokemon-center en piso 9 ──────────────────────
-  const floor9 = floors[9]
-  if (floor9 && !floor9.some(id => nodes[id].type === 'pokemon-center')) {
-    const id = floor9[Math.floor(Math.random() * floor9.length)]
-    nodes[id].type = 'pokemon-center'
-    nodes[id].trainerSprite = undefined
-    nodes[id].trainerTypes  = undefined
+  // ── Garantizar al menos un pokemon-center en piso 9 (no en mapa 9) ───────
+  if (mapNumber !== 9) {
+    const floor9 = floors[9]
+    if (floor9 && !floor9.some(id => nodes[id].type === 'pokemon-center')) {
+      const id = floor9[Math.floor(Math.random() * floor9.length)]
+      nodes[id].type = 'pokemon-center'
+      nodes[id].trainerSprite = undefined
+      nodes[id].trainerTypes  = undefined
+    }
+  }
+
+  // ── Mapa 10: boss → final-boss (Alto Mando + Campeón) ────────────────────
+  if (mapNumber === 10) {
+    const bossId = floors[totalFloors - 1][0]
+    nodes[bossId].type          = 'final-boss'
+    nodes[bossId].trainerSprite = 'alto_mando.png'
+    nodes[bossId].trainerTypes  = undefined
+  }
+
+  // ── Mapa 9: override completo de todos los nodos ──────────────────────────
+  if (mapNumber === 9) {
+    const badSprite = `bad_${region.charAt(0).toUpperCase() + region.slice(1)}_mini.png`
+    const badTypes  = BAD_TEAM_TYPES[region] ?? []
+    const storyFloors = new Set([1, 5, totalFloors - 1])
+
+    for (const node of Object.values(nodes)) {
+      if (node.floor === 0) continue  // pokemon-center, sin cambios
+
+      if (storyFloors.has(node.floor)) {
+        const num = node.floor === 1 ? 1 : node.floor === 5 ? 2 : 3
+        node.type         = 'story'
+        node.storySceneId = `${region}_bad_team_${num}`
+        node.trainerSprite = badSprite
+        node.trainerTypes  = undefined
+      } else {
+        node.type          = 'trainer'
+        node.trainerSprite = badSprite
+        node.trainerTypes  = badTypes
+      }
+    }
   }
 
   // ── Connect adjacent floors (non-crossing by design) ─────────────────────

@@ -1,0 +1,408 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modal {
+  background: #0d0d1f;
+  border: 1px solid #2a2a50;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 920px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.9);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #111128;
+  border-bottom: 1px solid #1e1e3a;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ddddff;
+  margin: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.count {
+  font-size: 10px;
+  color: #555577;
+  font-weight: 600;
+}
+
+.filterRow {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.filterBtn {
+  background: transparent;
+  border: 1px solid #2a2a50;
+  color: #555577;
+  padding: 3px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 600;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.filterBtn:hover { color: #aaaaff; border-color: #4444aa; }
+.filterActive { background: #1a1a40; border-color: #5555bb; color: #aaaaff; }
+
+.closeBtn {
+  background: transparent;
+  border: 1px solid #2a2a50;
+  color: #555577;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+  padding: 0;
+  line-height: 1;
+}
+.closeBtn:hover { color: #ff6666; border-color: #aa3333; }
+
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.searchInput {
+  flex: 1;
+  background: #16162a;
+  border: 1px solid #2a2a50;
+  border-radius: 6px;
+  color: #ddddff;
+  font-size: 11px;
+  padding: 5px 10px;
+  outline: none;
+  transition: border-color 0.12s;
+}
+.searchInput:focus { border-color: #5555bb; }
+.searchInput::placeholder { color: #33334a; }
+
+.searchClear {
+  background: transparent;
+  border: none;
+  color: #33334a;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+  transition: color 0.1s;
+  flex-shrink: 0;
+}
+.searchClear:hover { color: #aaaaff; }
+
+/* ── Body (grid + detail) ── */
+.body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ── Grid ── */
+.grid {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(74px, 1fr));
+  gap: 4px;
+  padding: 10px;
+  overflow-y: auto;
+  align-content: start;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #444466;
+  font-size: 12px;
+  padding: 32px 0;
+}
+
+/* ── Cell ── */
+.cell {
+  background: #111128;
+  border: 1px solid #1a1a30;
+  border-radius: 8px;
+  padding: 6px 4px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  transition: border-color 0.12s, background 0.12s;
+  min-height: 88px;
+  position: relative;
+}
+
+.cellClickable { cursor: pointer; }
+
+.cellObtained { border-color: #1e1e3a; }
+.cellObtained:hover { border-color: #3a3a88; background: #14143a; }
+.cellSelected { border-color: #6666ff !important; background: #1a1a50 !important; }
+
+.cellMissing { border-color: #141422; opacity: 0.45; }
+
+.cellMega { background: #0e0b18; border-color: #2a1840; }
+.cellMega:hover { border-color: #5533aa; background: #130e22; }
+
+.artwork {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+.cellMissing .artwork { filter: grayscale(1) brightness(0.25); }
+
+.megaTag {
+  font-size: 6px;
+  color: #8844cc;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.cellId { font-size: 8px; color: #383860; font-weight: 600; line-height: 1; }
+
+.cellName {
+  font-size: 8px;
+  color: #666688;
+  text-align: center;
+  text-transform: capitalize;
+  line-height: 1.2;
+  word-break: break-word;
+}
+.cellObtained .cellName { color: #9999cc; }
+
+/* ── Indicators ── */
+.indicators {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  margin-top: 1px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.dotNormal  { font-size: 8px; font-weight: 700; color: #44bb44; line-height: 1; }
+.dotShiny   { font-size: 8px; font-weight: 700; color: #ffd700; line-height: 1; }
+.dotHallFame {
+  font-size: 7px; font-weight: 700; color: #cc8800;
+  background: #1a1200; padding: 1px 3px; border-radius: 3px; line-height: 1.4;
+}
+
+/* ── Detail panel ── */
+.detail {
+  width: 240px;
+  flex-shrink: 0;
+  border-left: 1px solid #1e1e3a;
+  overflow-y: auto;
+  background: #08081a;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 12px 16px;
+  gap: 0;
+  position: relative;
+}
+
+.detailClose {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: 1px solid #2a2a50;
+  color: #555577;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.15s, border-color 0.15s;
+}
+.detailClose:hover { color: #ff6666; border-color: #aa3333; }
+
+.detailArtwork {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  align-self: center;
+  margin-bottom: 6px;
+}
+
+.detailId { font-size: 10px; color: #444466; font-weight: 600; text-align: center; }
+
+.detailName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ddddff;
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 6px;
+}
+
+.detailTypes {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.detailMeta {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.detailMetaChip {
+  font-size: 9px;
+  color: #666688;
+  background: #111128;
+  border: 1px solid #1e1e3a;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.detailBadge {
+  font-size: 9px;
+  color: #ffd700;
+  background: #1a1500;
+  border: 1px solid #665500;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.detailBadgeMega {
+  font-size: 9px;
+  color: #bb88ff;
+  background: #110a20;
+  border: 1px solid #5522aa;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.detailDivider {
+  height: 1px;
+  background: #1e1e3a;
+  margin: 10px 0;
+}
+
+.detailSectionTitle {
+  font-size: 9px;
+  font-weight: 700;
+  color: #444466;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ── Registro rows ── */
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.detailRowLabel { font-size: 10px; color: #666688; }
+.detailRowValue { font-size: 10px; color: #9999cc; }
+.detailYes      { font-size: 10px; color: #44bb44; font-weight: 600; }
+.detailYesShiny { font-size: 10px; color: #ffd700; font-weight: 600; }
+.detailHallFame { font-size: 10px; color: #cc8800; font-weight: 700; }
+.detailNo       { font-size: 10px; color: #333355; }
+
+/* ── Stat rows ── */
+.detailStatRow {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+.detailStatLabel {
+  font-size: 9px;
+  font-weight: 700;
+  color: #555577;
+  width: 28px;
+  flex-shrink: 0;
+}
+.detailBarBg {
+  flex: 1;
+  height: 5px;
+  background: #1a1a2e;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.detailBarFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+.detailStatValue {
+  font-size: 9px;
+  color: #9999cc;
+  width: 24px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ── Evolution rows ── */
+.detailEvoRow {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+.detailEvoClickable {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin: 0 -4px;
+  transition: background 0.12s;
+}
+.detailEvoClickable:hover { background: #1a1a40; }
+.detailEvoClickable:hover .detailEvoName { color: #ccccff; }
+
+.detailEvoArrow  { font-size: 10px; color: #444466; }
+.detailEvoName   { font-size: 10px; color: #aaaacc; text-transform: capitalize; flex: 1; }
+.detailEvoMega   { color: #bb88ff; }
+.detailEvoTrigger { font-size: 9px; color: #555577; }

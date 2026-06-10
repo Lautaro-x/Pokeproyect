@@ -1220,6 +1220,11 @@
         "to_name": "raichu",
         "level": 36,
         "trigger": "level"
+      },
+      {
+        "to_name": "raichu-alola",
+        "level": 36,
+        "trigger": "level"
       }
     ],
     "sprites": {
@@ -11348,7 +11353,7 @@
     "evolutions": [
       {
         "to_name": "porygon-z",
-        "level": 25,
+        "level": 41,
         "trigger": "level"
       }
     ],
@@ -18745,6 +18750,50 @@
     }
   },
   {
+    "id": 386,
+    "name": "deoxys",
+    "generation": 3,
+    "types": [
+      "psychic"
+    ],
+    "is_legendary": false,
+    "is_mythical": true,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 50,
+      "attack": 150,
+      "defense": 50,
+      "special_attack": 150,
+      "special_defense": 50,
+      "speed": 150
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/386.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/386.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/386.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/386.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 387,
     "name": "turtwig",
     "generation": 4,
@@ -20006,6 +20055,51 @@
       "sinnoh": 45,
       "teselia": 0,
       "kalos": 44,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 413,
+    "name": "wormadam",
+    "generation": 4,
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 60,
+      "attack": 59,
+      "defense": 85,
+      "special_attack": 79,
+      "special_defense": 105,
+      "speed": 36
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/413.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/413.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/413.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/413.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
       "galar": 0,
       "paldea": 0
     }
@@ -23452,6 +23546,51 @@
     }
   },
   {
+    "id": 487,
+    "name": "giratina",
+    "generation": 4,
+    "types": [
+      "ghost",
+      "dragon"
+    ],
+    "is_legendary": true,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 150,
+      "attack": 100,
+      "defense": 120,
+      "special_attack": 100,
+      "special_defense": 120,
+      "speed": 90
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/487.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/487.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/487.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/487.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 488,
     "name": "cresselia",
     "generation": 4,
@@ -23623,6 +23762,50 @@
     },
     "webm_mod": {
       "zoom": 1,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 492,
+    "name": "shaymin",
+    "generation": 4,
+    "types": [
+      "grass"
+    ],
+    "is_legendary": false,
+    "is_mythical": true,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 100,
+      "attack": 100,
+      "defense": 100,
+      "special_attack": 100,
+      "special_defense": 100,
+      "speed": 100
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/492.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/492.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/492.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/492.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
       "zoom_position": [
         0,
         0
@@ -26380,6 +26563,56 @@
     }
   },
   {
+    "id": 550,
+    "name": "basculin",
+    "generation": 5,
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 70,
+      "attack": 92,
+      "defense": 65,
+      "special_attack": 80,
+      "special_defense": 55,
+      "speed": 98
+    },
+    "evolutions": [
+      {
+        "to_name": "basculegion",
+        "level": 38,
+        "trigger": "level"
+      }
+    ],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/550.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/550.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/550.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/550.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 551,
     "name": "sandile",
     "generation": 5,
@@ -26573,6 +26806,50 @@
       "teselia": 60,
       "kalos": 0,
       "galar": 367,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 555,
+    "name": "darmanitan",
+    "generation": 5,
+    "types": [
+      "fire"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 105,
+      "attack": 140,
+      "defense": 55,
+      "special_attack": 30,
+      "special_defense": 55,
+      "speed": 95
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/555.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/555.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/555.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/555.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
       "paldea": 0
     }
   },
@@ -28289,6 +28566,102 @@
       "kalos": 54,
       "galar": 0,
       "paldea": 206
+    }
+  },
+  {
+    "id": 592,
+    "name": "frillish",
+    "generation": 5,
+    "types": [
+      "water",
+      "ghost"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 55,
+      "attack": 40,
+      "defense": 50,
+      "special_attack": 65,
+      "special_defense": 85,
+      "speed": 40
+    },
+    "evolutions": [
+      {
+        "to_name": "jellicent",
+        "level": 40,
+        "trigger": "level"
+      }
+    ],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/592.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/592.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/592.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/592.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 593,
+    "name": "jellicent",
+    "generation": 5,
+    "types": [
+      "water",
+      "ghost"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 100,
+      "attack": 60,
+      "defense": 70,
+      "special_attack": 85,
+      "special_defense": 105,
+      "speed": 60
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/593.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/593.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/593.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/593.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
     }
   },
   {
@@ -30535,6 +30908,95 @@
     }
   },
   {
+    "id": 641,
+    "name": "tornadus",
+    "generation": 5,
+    "types": [
+      "flying"
+    ],
+    "is_legendary": true,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 79,
+      "attack": 115,
+      "defense": 70,
+      "special_attack": 125,
+      "special_defense": 80,
+      "speed": 111
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/641.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/641.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/641.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/641.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 642,
+    "name": "thundurus",
+    "generation": 5,
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "is_legendary": true,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 79,
+      "attack": 115,
+      "defense": 70,
+      "special_attack": 125,
+      "special_defense": 80,
+      "speed": 111
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/642.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/642.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/642.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/642.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 643,
     "name": "reshiram",
     "generation": 5,
@@ -30625,6 +31087,51 @@
     }
   },
   {
+    "id": 645,
+    "name": "landorus",
+    "generation": 5,
+    "types": [
+      "ground",
+      "flying"
+    ],
+    "is_legendary": true,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 89,
+      "attack": 125,
+      "defense": 90,
+      "special_attack": 115,
+      "special_defense": 80,
+      "speed": 101
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/645.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/645.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/645.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/645.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 646,
     "name": "kyurem",
     "generation": 5,
@@ -30664,6 +31171,96 @@
       "hoenn": 0,
       "sinnoh": 0,
       "teselia": 152,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 647,
+    "name": "keldeo",
+    "generation": 5,
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "is_legendary": false,
+    "is_mythical": true,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 91,
+      "attack": 72,
+      "defense": 90,
+      "special_attack": 129,
+      "special_defense": 90,
+      "speed": 108
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/647.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/647.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/647.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/647.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 648,
+    "name": "meloetta",
+    "generation": 5,
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "is_legendary": false,
+    "is_mythical": true,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 100,
+      "attack": 77,
+      "defense": 77,
+      "special_attack": 128,
+      "special_defense": 128,
+      "speed": 90
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/648.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/648.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/648.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/648.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
       "kalos": 0,
       "galar": 0,
       "paldea": 0
@@ -31609,6 +32206,51 @@
     }
   },
   {
+    "id": 668,
+    "name": "pyroar",
+    "generation": 6,
+    "types": [
+      "fire",
+      "normal"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 86,
+      "attack": 68,
+      "defense": 72,
+      "special_attack": 109,
+      "special_defense": 66,
+      "speed": 106
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/668.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/668.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/668.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/668.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 669,
     "name": "flabebe",
     "generation": 6,
@@ -32041,6 +32683,50 @@
     }
   },
   {
+    "id": 678,
+    "name": "meowstic",
+    "generation": 6,
+    "types": [
+      "psychic"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 74,
+      "attack": 48,
+      "defense": 76,
+      "special_attack": 83,
+      "special_defense": 81,
+      "speed": 104
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/678.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/678.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/678.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/678.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 679,
     "name": "honedge",
     "generation": 6,
@@ -32139,6 +32825,51 @@
       "teselia": 0,
       "kalos": 118,
       "galar": 331,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 681,
+    "name": "aegislash",
+    "generation": 6,
+    "types": [
+      "steel",
+      "ghost"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 60,
+      "attack": 50,
+      "defense": 150,
+      "special_attack": 50,
+      "special_defense": 150,
+      "speed": 60
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/681.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/681.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/681.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/681.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 119,
+      "galar": 332,
       "paldea": 0
     }
   },
@@ -33489,6 +34220,102 @@
     }
   },
   {
+    "id": 710,
+    "name": "pumpkaboo",
+    "generation": 6,
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 49,
+      "attack": 66,
+      "defense": 70,
+      "special_attack": 44,
+      "special_defense": 55,
+      "speed": 51
+    },
+    "evolutions": [
+      {
+        "to_name": "gourgeist",
+        "level": 36,
+        "trigger": "level"
+      }
+    ],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/710.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/710.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/710.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/710.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 711,
+    "name": "gourgeist",
+    "generation": 6,
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 122,
+      "special_attack": 58,
+      "special_defense": 75,
+      "speed": 84
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/711.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/711.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/711.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/711.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 712,
     "name": "bergmite",
     "generation": 6,
@@ -33763,6 +34590,51 @@
       "sinnoh": 0,
       "teselia": 0,
       "kalos": 149,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 718,
+    "name": "zygarde",
+    "generation": 6,
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "is_legendary": true,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 108,
+      "attack": 100,
+      "defense": 121,
+      "special_attack": 81,
+      "special_defense": 95,
+      "speed": 95
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/718.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/718.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/718.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/718.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
       "galar": 0,
       "paldea": 0
     }
@@ -34837,6 +35709,51 @@
     }
   },
   {
+    "id": 741,
+    "name": "oricorio",
+    "generation": 7,
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 75,
+      "attack": 70,
+      "defense": 70,
+      "special_attack": 98,
+      "special_defense": 70,
+      "speed": 93
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/741.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/741.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/741.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/741.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 742,
     "name": "cutiefly",
     "generation": 7,
@@ -34980,6 +35897,94 @@
       "kalos": 0,
       "galar": 0,
       "paldea": 89
+    }
+  },
+  {
+    "id": 745,
+    "name": "lycanroc",
+    "generation": 7,
+    "types": [
+      "rock"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 75,
+      "attack": 115,
+      "defense": 65,
+      "special_attack": 55,
+      "special_defense": 65,
+      "speed": 112
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/745.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/745.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/745.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/745.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 746,
+    "name": "wishiwashi",
+    "generation": 7,
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 45,
+      "attack": 20,
+      "defense": 20,
+      "special_attack": 25,
+      "special_defense": 25,
+      "speed": 40
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/746.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/746.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/746.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/746.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
     }
   },
   {
@@ -36264,6 +37269,51 @@
     }
   },
   {
+    "id": 774,
+    "name": "minior",
+    "generation": 7,
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 60,
+      "attack": 60,
+      "defense": 100,
+      "special_attack": 60,
+      "special_defense": 100,
+      "speed": 60
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/774.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/774.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/774.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/774.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 775,
     "name": "komala",
     "generation": 7,
@@ -36394,6 +37444,51 @@
       "teselia": 0,
       "kalos": 0,
       "galar": 348,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 778,
+    "name": "mimikyu",
+    "generation": 7,
+    "types": [
+      "ghost",
+      "fairy"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 55,
+      "attack": 90,
+      "defense": 80,
+      "special_attack": 50,
+      "special_defense": 105,
+      "speed": 96
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/778.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/778.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/778.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/778.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
       "paldea": 0
     }
   },
@@ -39709,6 +40804,51 @@
     }
   },
   {
+    "id": 849,
+    "name": "toxtricity",
+    "generation": 8,
+    "types": [
+      "electric",
+      "poison"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 75,
+      "attack": 98,
+      "defense": 70,
+      "special_attack": 114,
+      "special_defense": 70,
+      "speed": 75
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/849.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/849.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/849.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/849.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 850,
     "name": "sizzlipede",
     "generation": 8,
@@ -40880,6 +42020,140 @@
     }
   },
   {
+    "id": 875,
+    "name": "eiscue",
+    "generation": 8,
+    "types": [
+      "ice"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 110,
+      "special_attack": 65,
+      "special_defense": 90,
+      "speed": 50
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/875.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/875.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/875.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/875.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 876,
+    "name": "indeedee",
+    "generation": 8,
+    "types": [
+      "psychic",
+      "normal"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 60,
+      "attack": 65,
+      "defense": 55,
+      "special_attack": 105,
+      "special_defense": 95,
+      "speed": 95
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/876.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/876.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/876.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/876.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 877,
+    "name": "morpeko",
+    "generation": 8,
+    "types": [
+      "electric",
+      "dark"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 58,
+      "attack": 95,
+      "defense": 58,
+      "special_attack": 70,
+      "special_defense": 58,
+      "speed": 97
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/877.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/877.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/877.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/877.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 878,
     "name": "cufant",
     "generation": 8,
@@ -41535,6 +42809,51 @@
     }
   },
   {
+    "id": 892,
+    "name": "urshifu",
+    "generation": 8,
+    "types": [
+      "fighting",
+      "dark"
+    ],
+    "is_legendary": true,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 100,
+      "attack": 130,
+      "defense": 100,
+      "special_attack": 63,
+      "special_defense": 60,
+      "speed": 97
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/892.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/892.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/892.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/892.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 893,
     "name": "zarude",
     "generation": 8,
@@ -41936,6 +43255,51 @@
     }
   },
   {
+    "id": 902,
+    "name": "basculegion",
+    "generation": 8,
+    "types": [
+      "water",
+      "ghost"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 120,
+      "attack": 112,
+      "defense": 65,
+      "special_attack": 80,
+      "special_defense": 75,
+      "speed": 78
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/902.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/902.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/902.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/902.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 903,
     "name": "sneasler",
     "generation": 8,
@@ -42009,6 +43373,51 @@
     },
     "webm_mod": {
       "zoom": 0.9,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
+    "id": 905,
+    "name": "enamorus",
+    "generation": 8,
+    "types": [
+      "fairy",
+      "flying"
+    ],
+    "is_legendary": true,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 74,
+      "attack": 115,
+      "defense": 70,
+      "special_attack": 135,
+      "special_defense": 80,
+      "speed": 106
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/905.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/905.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/905.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/905.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
       "zoom_position": [
         0,
         0
@@ -42514,6 +43923,50 @@
     }
   },
   {
+    "id": 916,
+    "name": "oinkologne",
+    "generation": 9,
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 110,
+      "attack": 100,
+      "defense": 75,
+      "special_attack": 59,
+      "special_defense": 80,
+      "speed": 65
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/916.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/916.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/916.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/916.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 917,
     "name": "tarountula",
     "generation": 9,
@@ -42899,6 +44352,50 @@
     }
   },
   {
+    "id": 925,
+    "name": "maushold",
+    "generation": 9,
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 74,
+      "attack": 75,
+      "defense": 70,
+      "special_attack": 65,
+      "special_defense": 75,
+      "speed": 111
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/925.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/925.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/925.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/925.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 926,
     "name": "fidough",
     "generation": 9,
@@ -43137,6 +44634,51 @@
       "kalos": 0,
       "galar": 0,
       "paldea": 86
+    }
+  },
+  {
+    "id": 931,
+    "name": "squawkabilly",
+    "generation": 9,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 82,
+      "attack": 96,
+      "defense": 51,
+      "special_attack": 45,
+      "special_defense": 51,
+      "speed": 92
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/931.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/931.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/931.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/931.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
     }
   },
   {
@@ -44671,6 +46213,50 @@
     }
   },
   {
+    "id": 964,
+    "name": "palafin",
+    "generation": 9,
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 100,
+      "attack": 70,
+      "defense": 72,
+      "special_attack": 53,
+      "special_defense": 62,
+      "speed": 100
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/964.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/964.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/964.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/964.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 965,
     "name": "varoom",
     "generation": 9,
@@ -45280,6 +46866,51 @@
     }
   },
   {
+    "id": 978,
+    "name": "tatsugiri",
+    "generation": 9,
+    "types": [
+      "dragon",
+      "water"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "special",
+    "stats": {
+      "hp": 68,
+      "attack": 50,
+      "defense": 60,
+      "special_attack": 120,
+      "special_defense": 95,
+      "speed": 82
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/978.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/978.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/978.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/978.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
+    }
+  },
+  {
     "id": 979,
     "name": "annihilape",
     "generation": 9,
@@ -45412,6 +47043,50 @@
       "kalos": 0,
       "galar": 0,
       "paldea": 193
+    }
+  },
+  {
+    "id": 982,
+    "name": "dudunsparce",
+    "generation": 9,
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "is_mythical": false,
+    "is_mega": false,
+    "attack_category": "physical",
+    "stats": {
+      "hp": 125,
+      "attack": 100,
+      "defense": 80,
+      "special_attack": 85,
+      "special_defense": 75,
+      "speed": 55
+    },
+    "evolutions": [],
+    "sprites": {
+      "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/982.gif",
+      "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/982.gif",
+      "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/982.gif",
+      "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/982.gif"
+    },
+    "webm_mod": {
+      "zoom": 0.7,
+      "zoom_position": [
+        0,
+        0
+      ]
+    },
+    "in_region": {
+      "kanto": 0,
+      "johto": 0,
+      "hoenn": 0,
+      "sinnoh": 0,
+      "teselia": 0,
+      "kalos": 0,
+      "galar": 0,
+      "paldea": 0
     }
   },
   {
@@ -47767,7 +49442,7 @@
       "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/10041.gif"
     },
     "webm_mod": {
-      "zoom": 1,
+      "zoom": 2,
       "zoom_position": [
         0,
         0

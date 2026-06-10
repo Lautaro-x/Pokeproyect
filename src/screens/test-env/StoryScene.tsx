@@ -51,7 +51,7 @@ type Phase = 'dialog_start' | 'options' | 'next_scene' | 'combat' | 'dialog_end'
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export function StoryScene({ scene, db, baseLevel, gen, onDone, onLose, withSynergies = true }: Props) {
-  const { playerTeam, applyGifts, money } = useGame()
+  const { playerTeam, setPlayerTeam, applyGifts, money } = useGame()
 
   const initialPhase: Phase =
     scene.dialog_start.length > 0 ? 'dialog_start' :
@@ -182,6 +182,10 @@ export function StoryScene({ scene, db, baseLevel, gen, onDone, onLose, withSyne
     setCombatPhase('positioning')
   }
 
+  const handleLevelUp = useCallback(() => {
+    setPlayerTeam(prev => [...prev])
+  }, [setPlayerTeam])
+
   const handleCombatContinue = () => {
     if (combatResult === 'lose') { (onLose ?? onDone)(); return }
     if (scene.dialog_end.length > 0) {
@@ -210,7 +214,7 @@ export function StoryScene({ scene, db, baseLevel, gen, onDone, onLose, withSyne
     <div className={styles.actorArea}>
       {actorCount === 1 && (
         <img
-          src={`/sprites/trainers/${scene.actors[0].sprite}`}
+          src={`/sprites/historias/${scene.actors[0].sprite}`}
           alt={scene.actors[0].name}
           className={`${styles.actorCenter} ${dimInDialog && isDim(scene.actors[0]) ? styles.actorDim : ''}`}
           draggable={false}
@@ -219,13 +223,13 @@ export function StoryScene({ scene, db, baseLevel, gen, onDone, onLose, withSyne
       {actorCount === 2 && (
         <>
           <img
-            src={`/sprites/trainers/${scene.actors[1].sprite}`}
+            src={`/sprites/historias/${scene.actors[1].sprite}`}
             alt={scene.actors[1].name}
             className={`${styles.actorSide} ${styles.actorLeft} ${dimInDialog && isDim(scene.actors[1]) ? styles.actorDim : ''}`}
             draggable={false}
           />
           <img
-            src={`/sprites/trainers/${scene.actors[0].sprite}`}
+            src={`/sprites/historias/${scene.actors[0].sprite}`}
             alt={scene.actors[0].name}
             className={`${styles.actorSide} ${styles.actorRight} ${dimInDialog && isDim(scene.actors[0]) ? styles.actorDim : ''}`}
             draggable={false}
@@ -235,19 +239,19 @@ export function StoryScene({ scene, db, baseLevel, gen, onDone, onLose, withSyne
       {actorCount >= 3 && (
         <>
           <img
-            src={`/sprites/trainers/${scene.actors[0].sprite}`}
+            src={`/sprites/historias/${scene.actors[0].sprite}`}
             alt={scene.actors[0].name}
             className={`${styles.actorTriple} ${styles.actorTripleLeft} ${dimInDialog && isDim(scene.actors[0]) ? styles.actorDim : ''}`}
             draggable={false}
           />
           <img
-            src={`/sprites/trainers/${scene.actors[1].sprite}`}
+            src={`/sprites/historias/${scene.actors[1].sprite}`}
             alt={scene.actors[1].name}
             className={`${styles.actorTriple} ${styles.actorTripleCenter} ${dimInDialog && isDim(scene.actors[1]) ? styles.actorDim : ''}`}
             draggable={false}
           />
           <img
-            src={`/sprites/trainers/${scene.actors[2].sprite}`}
+            src={`/sprites/historias/${scene.actors[2].sprite}`}
             alt={scene.actors[2].name}
             className={`${styles.actorTriple} ${styles.actorTripleRight} ${dimInDialog && isDim(scene.actors[2]) ? styles.actorDim : ''}`}
             draggable={false}
@@ -272,6 +276,7 @@ export function StoryScene({ scene, db, baseLevel, gen, onDone, onLose, withSyne
           onUnplace={handleUnplace}
           onStart={() => setCombatPhase('fighting')}
           onRoundEnd={handleRoundEnd}
+          onLevelUp={handleLevelUp}
           withSynergies={withSynergies}
         />
         {combatResult && (

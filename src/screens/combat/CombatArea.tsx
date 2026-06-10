@@ -96,6 +96,8 @@ export function CombatArea({
   const [dragOver,   setDragOver]   = useState<number | null>(null)
   const [showBanner, setShowBanner] = useState(false)
   const [inspected,  setInspected]  = useState<PokemonInstance | null>(null)
+  const [fast,       setFast]       = useState(false)
+  const speedRef                    = useRef(1)
 
   const playerHpRefs           = useRef<(HTMLDivElement | null)[]>(Array(NUM_SLOTS).fill(null))
   const enemyHpRefs            = useRef<(HTMLDivElement | null)[]>(Array(NUM_SLOTS).fill(null))
@@ -294,7 +296,7 @@ export function CombatArea({
     const tick = (now: number) => {
       const delta = now - lastTime
       lastTime = now
-      manager.tick(delta)
+      manager.tick(delta * speedRef.current)
 
       manager.slots.forEach((slot, i) => {
         if (slot.player) {
@@ -347,19 +349,29 @@ export function CombatArea({
           {isFighting ? '⚔ Combate' : 'Posiciona tu equipo'}
           <span className={styles.roundCounter}> — Round {gameRound}</span>
         </span>
-        <button
-          className={styles.startBtn}
-          disabled={!canStart || isFighting || showBanner}
-          onClick={handleStartClick}
-          style={{ pointerEvents: 'auto' }}
-        >
-          <svg viewBox="0 0 72 22" width="72" height="22" style={{ display: 'block' }}>
-            <text x="36" y="16" textAnchor="middle" fontSize="16" fontWeight="900"
-              fontFamily="Arial Black, Impact, sans-serif"
-              fill="#e63946" stroke="#ffd700" strokeWidth="2.5" paintOrder="stroke"
-              letterSpacing="1">START</text>
-          </svg>
-        </button>
+        <div className={styles.startGroup}>
+          <button
+            className={styles.startBtn}
+            disabled={!canStart || isFighting || showBanner}
+            onClick={handleStartClick}
+            style={{ pointerEvents: 'auto' }}
+          >
+            <svg viewBox="0 0 72 22" width="72" height="22" style={{ display: 'block' }}>
+              <text x="36" y="16" textAnchor="middle" fontSize="16" fontWeight="900"
+                fontFamily="Arial Black, Impact, sans-serif"
+                fill="#e63946" stroke="#ffd700" strokeWidth="2.5" paintOrder="stroke"
+                letterSpacing="1">START</text>
+            </svg>
+          </button>
+          <button
+            className={`${styles.speedBtn} ${fast ? styles.speedBtnActive : ''}`}
+            style={{ pointerEvents: 'auto' }}
+            onClick={() => setFast(f => {
+              speedRef.current = f ? 1 : 5
+              return !f
+            })}
+          >x5</button>
+        </div>
       </div>
 
       <div className={styles.zones}>
@@ -370,23 +382,39 @@ export function CombatArea({
           const enemyAlive = !!enemy && enemy.currentHp > 0
 
           const isDropTarget = !isFighting && enemyAlive
+          const canReceiveDrop = !isFighting
 
           return (
             <div
               key={slotIdx}
               className={styles.slot}
-              onDragOver={isDropTarget ? e => {
+              onDragOver={canReceiveDrop ? e => {
+                const isCombatSlotDrag = e.dataTransfer.types.includes('combatslotdrag')
+                if (!isCombatSlotDrag && !enemyAlive) return
                 e.preventDefault()
                 e.dataTransfer.dropEffect = 'move'
                 setDragOver(slotIdx)
               } : undefined}
-              onDragLeave={isDropTarget ? e => {
+              onDragLeave={canReceiveDrop ? e => {
                 if (!e.currentTarget.contains(e.relatedTarget as Node)) setDragOver(null)
               } : undefined}
-              onDrop={isDropTarget ? e => {
+              onDrop={canReceiveDrop ? e => {
                 e.preventDefault(); setDragOver(null)
+                const fromSlotStr = e.dataTransfer.getData('combatSlotDrag')
                 const ti = parseInt(e.dataTransfer.getData('teamIndex'), 10)
-                if (!isNaN(ti)) onPlace(slotIdx, ti)
+                if (fromSlotStr !== '') {
+                  const fromSlot = parseInt(fromSlotStr, 10)
+                  if (!isNaN(fromSlot) && fromSlot !== slotIdx) {
+                    const fromTeamIdx = placements[fromSlot]
+                    const toTeamIdx   = placements[slotIdx]
+                    if (fromTeamIdx !== null) {
+                      onPlace(slotIdx, fromTeamIdx)
+                      if (toTeamIdx !== null) onPlace(fromSlot, toTeamIdx)
+                    }
+                  }
+                } else if (!isNaN(ti) && enemyAlive && (playerTeam[ti]?.currentHp ?? 0) > 0) {
+                  onPlace(slotIdx, ti)
+                }
               } : undefined}
             >
 
@@ -397,7 +425,7 @@ export function CombatArea({
                     ref={el => { playerFlashRefs.current[slotIdx] = el }}
                     className={styles.combatSpriteWrap}
                   >
-                    {player && <PokemonSprite id={player.data.id} className={styles.combatSprite} style={getSpriteStyle(player.data, true)} />}
+                    {player && <PokemonSprite id={player.data.id} shiny={player.shiny} className={styles.combatSprite} style={getSpriteStyle(player.data, true)} />}
                     <div ref={el => { playerProcRefs.current[slotIdx] = el }} className={styles.procLabel} />
                     <div ref={el => { playerCritRefs.current[slotIdx] = el }} className={styles.critLabel}>
                       <svg viewBox="0 0 90 22" width="90" height="22"><text x="45" y="16" textAnchor="middle" fontSize="14" fontWeight="900" fontFamily="Arial Black,Impact,sans-serif" fill="#e63946" stroke="#ffd700" strokeWidth="2.5" paintOrder="stroke">¡CRÍTICO!</text></svg>
@@ -431,12 +459,20 @@ export function CombatArea({
                 </div>
               ) : (
                 <div
-                  className={`${styles.playerSide} ${isDropTarget ? styles.dropTarget : ''} ${isDropTarget && dragOver === slotIdx ? styles.over : ''}`}
+                  className={`${styles.playerSide} ${isDropTarget ? styles.dropTarget : ''} ${!isFighting && dragOver === slotIdx ? styles.over : ''}`}
                 >
                   {player ? (
-                    <div className={styles.placedCard}>
+                    <div
+                      className={styles.placedCard}
+                      draggable={true}
+                      onDragStart={e => {
+                        e.stopPropagation()
+                        e.dataTransfer.setData('combatSlotDrag', String(slotIdx))
+                        e.dataTransfer.effectAllowed = 'move'
+                      }}
+                    >
                       <div className={styles.spriteWithBars}>
-                        <PokemonSprite id={player.data.id} className={styles.cardSprite} style={getSpriteStyle(player.data, true)} />
+                        <PokemonSprite id={player.data.id} shiny={player.shiny} className={styles.cardSprite} style={getSpriteStyle(player.data, true)} />
                         <div className={styles.barsOverlay}>
                           <div className={styles.barBg}>
                             <div className={styles.hpFill} style={{ width: `${(player.currentHp / player.getMaxHp()) * 100}%` }} />
@@ -469,7 +505,7 @@ export function CombatArea({
                     ref={el => { enemyFlashRefs.current[slotIdx] = el }}
                     className={styles.combatEnemySpriteWrap}
                   >
-                    {enemy && <PokemonSprite id={enemy.data.id} className={styles.combatEnemySprite} style={getSpriteStyle(enemy.data, false)} />}
+                    {enemy && <PokemonSprite id={enemy.data.id} shiny={enemy.shiny} className={styles.combatEnemySprite} style={getSpriteStyle(enemy.data, false)} />}
                     <div ref={el => { enemyProcRefs.current[slotIdx] = el }} className={styles.procLabel} />
                     <div ref={el => { enemyCritRefs.current[slotIdx] = el }} className={styles.critLabel}>
                       <svg viewBox="0 0 90 22" width="90" height="22"><text x="45" y="16" textAnchor="middle" fontSize="14" fontWeight="900" fontFamily="Arial Black,Impact,sans-serif" fill="#e63946" stroke="#ffd700" strokeWidth="2.5" paintOrder="stroke">¡CRÍTICO!</text></svg>
@@ -508,6 +544,7 @@ export function CombatArea({
                       <div className={styles.spriteWithBars}>
                         <PokemonSprite
                           id={enemy.data.id}
+                          shiny={enemy.shiny}
                           className={styles.enemySprite}
                           style={getSpriteStyle(enemy.data, false)}
                           paused={!enemyAlive}

@@ -103,3 +103,130 @@
   opacity: 0.75;
   text-transform: uppercase;
 }
+
+/* ── Region modal ── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: #0d0d1f;
+  border: 1px solid #2a2a4a;
+  border-radius: 14px;
+  padding: 32px 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 680px;
+  width: 90vw;
+}
+
+.modalTitle {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 30px #ffd70055;
+  margin: 0;
+}
+
+.modalSub {
+  font-size: 0.75rem;
+  color: #555577;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: -12px 0 0;
+}
+
+.regionGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 130px);
+  gap: 10px;
+}
+
+.regionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 18px 10px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.regionCard:active { transform: scale(0.96); }
+
+.regionUnlocked {
+  background: #1a1a3a;
+  border-color: #ffd700;
+  box-shadow: 0 0 18px #ffd70033;
+}
+
+.regionUnlocked:hover {
+  background: #22224a;
+  border-color: #ffe84d;
+  box-shadow: 0 0 28px #ffd70066;
+}
+
+.regionLocked {
+  background: #0d0d1a;
+  border-color: #1e1e32;
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.regionGen {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.regionUnlocked .regionGen { color: #ffd700; }
+.regionLocked   .regionGen { color: #44445a; }
+
+.regionName {
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.regionUnlocked .regionName { color: #ffffff; }
+.regionLocked   .regionName { color: #33334a; }
+
+.lockIcon {
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.modalClose {
+  background: transparent;
+  border: 1px solid #2a2a4a;
+  border-radius: 6px;
+  color: #555577;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 7px 22px;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+  margin-top: 4px;
+}
+
+.modalClose:hover {
+  color: #aaaaff;
+  border-color: #5555aa;
+}

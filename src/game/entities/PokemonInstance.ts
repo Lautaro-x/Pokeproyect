@@ -1,5 +1,13 @@
 import type { PokemonData, PokemonType, AttackLevel } from '../../types'
 
+function attackLevelFromLevel(level: number): AttackLevel {
+  if (level <= 20) return 1
+  if (level <= 30) return Math.random() < 0.5 ? 1 : 2
+  if (level <= 50) return 2
+  if (level <= 60) return Math.random() < 0.5 ? 2 : 3
+  return 3
+}
+
 export interface Item {
   id: string
   name: string
@@ -21,10 +29,10 @@ export class PokemonInstance {
   preMegaData: PokemonData | null = null
   shiny: boolean = false
 
-  constructor(data: PokemonData, level: number, attackLevel: AttackLevel = 1) {
+  constructor(data: PokemonData, level: number, attackLevel?: AttackLevel) {
     this.data = data
     this.level = level
-    this.attackLevel = attackLevel
+    this.attackLevel = attackLevel ?? attackLevelFromLevel(level)
     this.equippedItem = null
     this.currentHp = this.getMaxHp()
   }
@@ -71,7 +79,7 @@ export class PokemonInstance {
   setLevel(newLevel: number): void {
     const wasFainted = this.currentHp === 0
     const hpPct = this.currentHp / this.getMaxHp()
-    this.level = Math.min(100, newLevel)
+    this.level = newLevel
     this.currentHp = wasFainted ? 0 : Math.max(1, Math.floor(this.getMaxHp() * hpPct))
   }
 

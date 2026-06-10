@@ -44,10 +44,31 @@ interface Props {
 export function PokemonSelector({ onBack, onPokemonRemove, onEnemyPokemonRemove }: Props) {
   const [level,       setLevel]       = useState(50)
   const [shiny,       setShiny]       = useState(false)
+  const [search,      setSearch]      = useState('')
   const [releaseOver, setReleaseOver] = useState(false)
 
-  const groups    = useMemo(() => groupByGeneration(DB), [])
+  const groups     = useMemo(() => groupByGeneration(DB), [])
   const sortedGens = useMemo(() => [...groups.keys()].sort((a, b) => a - b), [groups])
+
+  const query = search.trim().toLowerCase()
+  const filtered = useMemo(() => {
+    if (!query) return null
+    return DB.filter(p =>
+      p.name.toLowerCase().includes(query) ||
+      formatName(p.name).toLowerCase().includes(query) ||
+      String(p.id).includes(query)
+    )
+  }, [query])
+
+  const chipProps = (pokemon: PokemonData) => ({
+    key: pokemon.id,
+    className: styles.chip,
+    draggable: true as const,
+    onDragStart: (e: React.DragEvent) => {
+      e.dataTransfer.setData('pokemondrag', JSON.stringify({ id: pokemon.id, level, shiny }))
+      e.dataTransfer.effectAllowed = 'copy'
+    },
+  })
 
   return (
     <div className={styles.selector}>
@@ -58,9 +79,8 @@ export function PokemonSelector({ onBack, onPokemonRemove, onEnemyPokemonRemove 
           <input
             type="number"
             min={1}
-            max={100}
             value={level}
-            onChange={e => setLevel(Math.min(100, Math.max(1, parseInt(e.target.value) || 1)))}
+            onChange={e => setLevel(Math.max(1, parseInt(e.target.value) || 1))}
             className={styles.levelInput}
           />
         </label>
@@ -75,33 +95,51 @@ export function PokemonSelector({ onBack, onPokemonRemove, onEnemyPokemonRemove 
         </label>
       </div>
 
+      <div className={styles.searchBar}>
+        <input
+          type="text"
+          placeholder="Buscar Pokémon…"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          className={styles.searchInput}
+          autoComplete="off"
+          spellCheck={false}
+        />
+        {search && (
+          <button className={styles.searchClear} onClick={() => setSearch('')}>×</button>
+        )}
+      </div>
+
       <div className={styles.list}>
-        {sortedGens.map(gen => (
-          <details key={gen} className={styles.genGroup}>
-            <summary className={styles.genHeader}>
-              {GEN_LABEL[gen] ?? `Gen ${gen}`}
-              <span className={styles.genCount}>{groups.get(gen)!.length}</span>
-            </summary>
+        {filtered ? (
+          filtered.length === 0 ? (
+            <p className={styles.noResults}>Sin resultados</p>
+          ) : (
             <div className={styles.chips}>
-              {groups.get(gen)!.map(pokemon => (
-                <div
-                  key={pokemon.id}
-                  className={styles.chip}
-                  draggable
-                  onDragStart={e => {
-                    e.dataTransfer.setData(
-                      'pokemondrag',
-                      JSON.stringify({ id: pokemon.id, level, shiny })
-                    )
-                    e.dataTransfer.effectAllowed = 'copy'
-                  }}
-                >
+              {filtered.map(pokemon => (
+                <div {...chipProps(pokemon)}>
                   {formatId(pokemon.id)} — {formatName(pokemon.name)}
                 </div>
               ))}
             </div>
-          </details>
-        ))}
+          )
+        ) : (
+          sortedGens.map(gen => (
+            <details key={gen} className={styles.genGroup}>
+              <summary className={styles.genHeader}>
+                {GEN_LABEL[gen] ?? `Gen ${gen}`}
+                <span className={styles.genCount}>{groups.get(gen)!.length}</span>
+              </summary>
+              <div className={styles.chips}>
+                {groups.get(gen)!.map(pokemon => (
+                  <div {...chipProps(pokemon)}>
+                    {formatId(pokemon.id)} — {formatName(pokemon.name)}
+                  </div>
+                ))}
+              </div>
+            </details>
+          ))
+        )}
       </div>
 
       <div

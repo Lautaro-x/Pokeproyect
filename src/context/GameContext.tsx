@@ -4,9 +4,44 @@ import { ALL_ITEMS } from '../game/data/items'
 import type { Item } from '../game/entities/PokemonInstance'
 import type { ConsumableStack } from '../game/data/items'
 import type { Gift, PokemonData } from '../types'
+import { registerCatch } from '../game/utils/pokedex'
 import allPokemon from '../assets/pokemon.json'
 
 const DB = allPokemon as PokemonData[]
+
+// ── Evolutionary family ───────────────────────────────────────────────────────
+const _parentName = new Map<string, string>()
+for (const p of DB) {
+  for (const evo of p.evolutions) {
+    if (!_parentName.has(evo.to_name)) _parentName.set(evo.to_name, p.name)
+  }
+}
+
+export function getEvolutionFamilyIds(startId: number): number[] {
+  const start = DB.find(p => p.id === startId)
+  if (!start) return [startId]
+
+  let rootName = start.name
+  const safety = new Set<string>()
+  while (_parentName.has(rootName) && !safety.has(rootName)) {
+    safety.add(rootName)
+    rootName = _parentName.get(rootName)!
+  }
+
+  const ids: number[] = []
+  const queue = [rootName]
+  const seen  = new Set<string>()
+  while (queue.length > 0) {
+    const name = queue.shift()!
+    if (seen.has(name)) continue
+    seen.add(name)
+    const p = DB.find(pk => pk.name === name)
+    if (!p) continue
+    ids.push(p.id)
+    for (const evo of p.evolutions) queue.push(evo.to_name)
+  }
+  return ids
+}
 
 function getMegaChoices(instance: PokemonInstance): PokemonData[] {
   return instance.data.evolutions
@@ -55,7 +90,7 @@ interface GameActions {
 
   // Item interactions
   applyItemDrop:       (dragJson: string, toTeamIdx: number) => EvolutionCandidate | null
-  applyConsumableDrop: (dragJson: string, toTeamIdx: number) => EvolutionCandidate | null
+  applyConsumableDrop: (dragJson: string, toTeamIdx: number) => EvolutionCandidate | null | 'rejected'
   unequipToBackpack:   (dragJson: string) => void
   addEquipable:        (item: Item) => void
   removeEquipable:     (itemId: string) => void
@@ -67,8 +102,9 @@ interface GameActions {
   spendMoney: (amount: number) => void
 
   // Events
-  healTeam:   () => void
-  applyGifts: (gifts: Gift[], context?: { level?: number; gen?: number }) => void
+  healTeam:      () => void
+  applyGifts:    (gifts: Gift[], context?: { level?: number; gen?: number }) => void
+  registerCatch: (id: number, shiny: boolean) => void
 }
 
 type GameContextValue = GameState & GameActions
@@ -99,6 +135,7 @@ export function GameProvider({
   // ── Generic add-to-team helper (used by requestAddPokemon & applyGifts) ───
   const _requestAdd = (p: PokemonInstance, onAdded?: () => void) => {
     if (playerTeam.length < 6) {
+      registerCatch(p.data.id, p.shiny)
       setPlayerTeam(prev => [...prev, p])
       onAdded?.()
     } else {
@@ -137,6 +174,7 @@ export function GameProvider({
 
     addPokemon: (p) => {
       if (playerTeam.length >= 6) return false
+      registerCatch(p.data.id, p.shiny)
       setPlayerTeam(prev => [...prev, p])
       return true
     },
@@ -149,6 +187,7 @@ export function GameProvider({
       const cb = pendingAddCallbackRef.current
       pendingAddCallbackRef.current = undefined
       setPendingAddPokemon(null)
+      registerCatch(p.data.id, p.shiny)
       setPlayerTeam(prev => { const n = [...prev]; n[idx] = p; return n })
       cb?.()
     },
@@ -265,7 +304,7 @@ export function GameProvider({
         let evoCandidate: EvolutionCandidate | null = null
 
         if (itemId === 'potion') {
-          if (pokemon.currentHp <= 0) consumed = false
+          if (pokemon.currentHp <= 0 || pokemon.currentHp >= pokemon.getMaxHp()) consumed = false
           else pokemon.currentHp = Math.min(
             pokemon.getMaxHp(),
             pokemon.currentHp + Math.floor(pokemon.getMaxHp() * 0.30),
@@ -292,7 +331,7 @@ export function GameProvider({
           deductConsumable(itemId)
           return evoCandidate
         }
-        return null
+        return 'rejected'
       } catch {
         return null
       }
@@ -339,8 +378,21 @@ export function GameProvider({
       const newEquipables:  Item[] = []
       const newConsumables: Item[] = []
 
+      const effectHandlers: Record<string, () => void> = {
+        random_pokemon_become_shiny: () => {
+          const candidates = playerTeam.map((p, i) => ({ p, i })).filter(({ p }) => !p.shiny)
+          if (candidates.length === 0) return
+          const { p } = candidates[Math.floor(Math.random() * candidates.length)]
+          p.shiny = true
+          registerCatch(p.data.id, true)
+          setPlayerTeam([...playerTeam])
+        },
+      }
+
       for (const gift of gifts) {
-        if (gift.type === 'pokedollars') {
+        if (gift.type === 'effect') {
+          effectHandlers[gift.effect]?.()
+        } else if (gift.type === 'pokedollars') {
           setMoney(prev => prev + gift.quantity)
         } else if (gift.type === 'item') {
           const item = ALL_ITEMS.find(i => i.id === gift.item_id)
@@ -407,6 +459,8 @@ export function GameProvider({
       }
 
     },
+
+    registerCatch: (id, shiny) => registerCatch(id, shiny),
   }
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>
