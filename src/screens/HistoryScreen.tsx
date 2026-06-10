@@ -12,8 +12,11 @@ import { HistoryStarts } from './test-env/HistoryStarts'
 import { PokemonCenter } from './test-env/PokemonCenter'
 import { ShopEvent }    from './test-env/ShopEvent'
 import { StoryScene } from './test-env/StoryScene'
-import { generateMap, wildLevel } from './history/mapGenerator'
+import { generateMap, wildLevel, findGymScene, buildFinalBossScenes } from './history/mapGenerator'
 import { incrementHallFame } from '../game/utils/pokedex'
+import { generateEnemyTeam } from './history/enemyGenerator'
+import { applyEvolution, evolveIfReady } from '../game/utils/evolution'
+import type { EvolutionEvent, EvolveResult } from '../game/utils/evolution'
 import { unlockNextHistoriaRegion } from '../game/utils/unlockedModes'
 import { TeamFullModal } from '../components/TeamFullModal'
 import { EvolutionModal } from '../components/EvolutionModal'
@@ -27,50 +30,13 @@ import type { MapData, MapNode } from './history/mapGenerator'
 import type { GamePhase } from './GameLayout'
 import type { Professor } from './test-env/HistoryStarts'
 import type { SceneData } from './test-env/StoryScene'
-import type { PokemonData, RegionPresence } from '../types'
+import type { PokemonData } from '../types'
 import allPokemon    from '../assets/pokemon.json'
 import professorsData from '../assets/professors.json'
 import scenesData    from '../assets/scenes.json'
 
 const DB = allPokemon as PokemonData[]
 
-interface EvolutionEvent { fromName: string; fromId: number; toName: string; toId: number }
-interface EvolveResult  { events: EvolutionEvent[]; branch: PokemonData[] | null }
-
-type RegisterFn = (id: number, shiny: boolean) => void
-
-function applyEvolution(pokemon: PokemonInstance, newData: PokemonData, register: RegisterFn): EvolutionEvent {
-  const fromName   = pokemon.data.name
-  const fromId     = pokemon.data.id
-  const wasFainted = pokemon.currentHp === 0
-  const hpPct      = pokemon.currentHp / pokemon.getMaxHp()
-  ;(pokemon as unknown as { data: PokemonData }).data = newData
-  pokemon.currentHp = wasFainted ? 0 : Math.max(1, Math.floor(pokemon.getMaxHp() * hpPct))
-  register(newData.id, pokemon.shiny)
-  return { fromName, fromId, toName: newData.name, toId: newData.id }
-}
-
-function evolveIfReady(pokemon: PokemonInstance, register: RegisterFn): EvolveResult {
-  const events: EvolutionEvent[] = []
-  let evolved = true
-  while (evolved) {
-    evolved = false
-    const candidates = pokemon.data.evolutions
-      .filter(e => e.trigger === 'level' && e.level <= pokemon.level)
-      .map(e => DB.find(p => p.name === e.to_name))
-      .filter((d): d is PokemonData => d !== undefined)
-
-    if (candidates.length === 0) break
-
-    if (candidates.length > 1) {
-      return { events, branch: candidates }
-    }
-
-    events.push(applyEvolution(pokemon, candidates[0], register))
-    evolved = true
-  }
-  return { events, branch: null }
-}
 
 function EvolutionOverlay({ event, onDismiss }: { event: EvolutionEvent; onDismiss: () => void }) {
   const [phase, setPhase] = useState<'flash' | 'reveal'>('flash')
@@ -113,110 +79,9 @@ function EvolutionOverlay({ event, onDismiss }: { event: EvolutionEvent; onDismi
 // ── Config per region ─────────────────────────────────────────────────────────
 interface LocationState { region: string; gen: number; mapNumber?: number; team?: PokemonInstance[] }
 
-// Finds the gym scene for the current map number, falling back to
-// the highest available gym if the exact number doesn't exist.
-function findGymScene(scenes: SceneData[], region: string, mapNumber: number): SceneData | null {
-  for (let n = mapNumber; n >= 1; n--) {
-    const scene = scenes.find(s => s.scene_id === `${region}_gym_${n}`)
-    if (scene) return scene
-  }
-  return scenes.find(s => s.scene_id.startsWith(`${region}_gym_`)) ?? null
-}
-
-// ── Evolution stage precomputation ───────────────────────────────────────────
-// Reverse map: pokémon name → names of pokémon that evolve INTO it (non-mega)
-const _parents = new Map<string, string[]>()
-for (const p of DB) {
-  for (const evo of p.evolutions) {
-    if (evo.trigger !== 'mega') {
-      const list = _parents.get(evo.to_name) ?? []
-      list.push(p.name)
-      _parents.set(evo.to_name, list)
-    }
-  }
-}
-
-// Stage depth: 0 = base form, 1 = 2nd stage, 2 = 3rd stage, …
-function _computeStage(name: string, visited = new Set<string>()): number {
-  if (visited.has(name)) return 0
-  const parents = _parents.get(name)
-  if (!parents || parents.length === 0) return 0
-  visited.add(name)
-  return _computeStage(parents[0], visited) + 1
-}
-const _evoStage = new Map<string, number>()
-DB.forEach(p => { _evoStage.set(p.name, _computeStage(p.name)) })
-
-function hasNonMegaEvo(p: PokemonData): boolean {
-  return p.evolutions.some(e => e.trigger !== 'mega')
-}
-
-// ── Pool builder ──────────────────────────────────────────────────────────────
-function pickPool(region: string, mapNumber: number): PokemonData[] {
-  const key = region as keyof RegionPresence
-  return DB.filter(p => {
-    if (p.is_mega || p.is_legendary || p.is_mythical) return false
-    if ((p.in_region?.[key] ?? 0) === 0) return false
-
-    const stage = _evoStage.get(p.name) ?? 0
-
-    if (mapNumber === 1) {
-      // Only base forms that can still evolve
-      return stage === 0 && hasNonMegaEvo(p)
-    } else if (mapNumber <= 3) {
-      // + 2nd stage (middle or final of 2-chain)
-      return (stage === 0 && hasNonMegaEvo(p)) || stage === 1
-    } else {
-      // + 3rd stage and beyond
-      return (stage === 0 && hasNonMegaEvo(p)) || stage >= 1
-    }
-  })
-}
-
-function generateEnemyTeam(
-  type: 'wild' | 'wild_plus_mt' | 'trainer',
-  region: string,
-  floor: number,
-  mapNumber: number,
-  trainerTypes?: string[],
-): PokemonInstance[] {
-  const basePool = pickPool(region, mapNumber)
-
-  let pool = basePool
-  if (type === 'trainer' && trainerTypes && trainerTypes.length > 0) {
-    const filtered = basePool.filter(p => p.types.some(t => trainerTypes.includes(t)))
-    if (filtered.length > 0) pool = filtered
-  }
-
-  const isWild   = type === 'wild' || type === 'wild_plus_mt'
-  const maxCount = isWild ? 1 : (mapNumber === 1 ? 2 : 4)
-  const count    = isWild ? 1 : Math.floor(Math.random() * maxCount) + 1
-
-  return Array.from({ length: count }, () => {
-    const data = pool[Math.floor(Math.random() * pool.length)]
-    const p = new PokemonInstance(data, wildLevel(floor, mapNumber))
-    if (isWild && Math.random() < 0.10) p.shiny = true
-    return p
-  })
-}
-
 // ── View state ────────────────────────────────────────────────────────────────
 type View      = 'map' | 'history-starts' | 'combat' | 'capture' | 'mt-choice' | 'gym' | 'pokemon-center' | 'shop' | 'random' | 'story' | 'final-boss'
 type EventType = 'wild' | 'wild_plus_mt' | 'trainer' | null
-
-function buildFinalBossScenes(region: string, allScenes: SceneData[]): SceneData[] {
-  const result: SceneData[] = []
-  let n = 1
-  while (true) {
-    const scene = allScenes.find(s => s.scene_id === `${region}_altomando_${n}`)
-    if (!scene) break
-    result.push(scene)
-    n++
-  }
-  const campeon = allScenes.find(s => s.scene_id === `${region}_campeon`)
-  if (campeon) result.push(campeon)
-  return result
-}
 
 function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
   const navigate = useNavigate()
@@ -337,6 +202,27 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
     }
   }, [evolutionQueue, branchQueue])
 
+  // ── Shared: level-up team + queue evolutions, then call proceed ───────────
+  const applyTeamLevelGain = useCallback((gain: number, proceed: () => void) => {
+    const evolutions: EvolutionEvent[] = []
+    const branches:   { teamIdx: number; choices: PokemonData[] }[] = []
+    const next = [...playerTeam]
+    next.forEach((p, idx) => {
+      p.setLevel(p.level + gain)
+      const result = evolveIfReady(p, registerCatch)
+      evolutions.push(...result.events)
+      if (result.branch) branches.push({ teamIdx: idx, choices: result.branch })
+    })
+    setPlayerTeam(next)
+    if (evolutions.length > 0 || branches.length > 0) {
+      pendingActionRef.current = proceed
+      if (evolutions.length > 0) setEvolutionQueue(evolutions)
+      if (branches.length > 0) setBranchQueue(prev => [...prev, ...branches])
+    } else {
+      proceed()
+    }
+  }, [playerTeam, setPlayerTeam, registerCatch])
+
   const combatPlacedIndices = useMemo(
     () => new Set(combatPlacements.filter((p): p is number => p !== null)),
     [combatPlacements]
@@ -401,39 +287,20 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
   // ── Post-combat: level up + capture ──────────────────────────────────────
   const handleCombatWin = useCallback(() => {
     const levelGain = eventType === 'trainer' ? 2 : 1
-
-    const evolutions: EvolutionEvent[] = []
-    const branches:   { teamIdx: number; choices: PokemonData[] }[] = []
-    const next = [...playerTeam]
-    next.forEach((p, idx) => {
-      p.setLevel(p.level + levelGain)
-      const result = evolveIfReady(p, registerCatch)
-      evolutions.push(...result.events)
-      if (result.branch) branches.push({ teamIdx: idx, choices: result.branch })
-    })
-    setPlayerTeam(next)
-
     const proceed = () => {
       if (eventType === 'wild') {
-        enemyTeam[0]?.setLevel((enemyTeam[0].level) + 1)
+        enemyTeam[0]?.setLevel(enemyTeam[0].level + 1)
         setView('capture')
       } else if (eventType === 'wild_plus_mt') {
-        enemyTeam[0]?.setLevel((enemyTeam[0].level) + 1)
+        enemyTeam[0]?.setLevel(enemyTeam[0].level + 1)
         setView('mt-choice')
       } else {
         addMoney(150 + Math.floor(Math.random() * 101))
         completeNode()
       }
     }
-
-    if (evolutions.length > 0 || branches.length > 0) {
-      pendingActionRef.current = proceed
-      if (evolutions.length > 0) setEvolutionQueue(evolutions)
-      if (branches.length > 0) setBranchQueue(prev => [...prev, ...branches])
-    } else {
-      proceed()
-    }
-  }, [eventType, playerTeam, enemyTeam, setPlayerTeam, addMoney, completeNode])
+    applyTeamLevelGain(levelGain, proceed)
+  }, [eventType, enemyTeam, addMoney, completeNode, applyTeamLevelGain])
 
   const handleChooseMT = useCallback(() => {
     const mt = ALL_ITEMS.find(i => i.id === 'tm')
@@ -469,40 +336,11 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
   }, [applyGifts, completeNode])
 
   const handleGymWin = useCallback(() => {
-    const evolutions: EvolutionEvent[] = []
-    const branches:   { teamIdx: number; choices: PokemonData[] }[] = []
-    const next = [...playerTeam]
-    next.forEach((p, idx) => {
-      p.setLevel(p.level + 2)
-      const result = evolveIfReady(p, registerCatch)
-      evolutions.push(...result.events)
-      if (result.branch) branches.push({ teamIdx: idx, choices: result.branch })
-    })
-    setPlayerTeam(next)
-
-    if (evolutions.length > 0 || branches.length > 0) {
-      pendingActionRef.current = completeNode
-      if (evolutions.length > 0) setEvolutionQueue(evolutions)
-      if (branches.length > 0) setBranchQueue(prev => [...prev, ...branches])
-    } else {
-      completeNode()
-    }
-  }, [playerTeam, setPlayerTeam, completeNode])
+    applyTeamLevelGain(2, completeNode)
+  }, [completeNode, applyTeamLevelGain])
 
   const handleFinalBossSceneWin = useCallback(() => {
     const isChampion = finalBossIdx === finalBossScenes.length - 1
-
-    const evolutions: EvolutionEvent[] = []
-    const branches:   { teamIdx: number; choices: PokemonData[] }[] = []
-    const next = [...playerTeam]
-    next.forEach((p, idx) => {
-      p.setLevel(p.level + 2)
-      const result = evolveIfReady(p, registerCatch)
-      evolutions.push(...result.events)
-      if (result.branch) branches.push({ teamIdx: idx, choices: result.branch })
-    })
-    setPlayerTeam(next)
-
     const proceed = () => {
       if (isChampion) {
         const familyIds = [...new Set(playerTeam.flatMap(p => getEvolutionFamilyIds(p.data.id)))]
@@ -515,15 +353,8 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
         setFinalBossIdx(prev => prev + 1)
       }
     }
-
-    if (evolutions.length > 0 || branches.length > 0) {
-      pendingActionRef.current = proceed
-      if (evolutions.length > 0) setEvolutionQueue(evolutions)
-      if (branches.length > 0) setBranchQueue(prev => [...prev, ...branches])
-    } else {
-      proceed()
-    }
-  }, [finalBossIdx, finalBossScenes, playerTeam, setPlayerTeam])
+    applyTeamLevelGain(2, proceed)
+  }, [finalBossIdx, finalBossScenes, playerTeam, applyTeamLevelGain, region])
 
   // ── Node click ────────────────────────────────────────────────────────────
   const handleNodeClick = useCallback((node: MapNode) => {

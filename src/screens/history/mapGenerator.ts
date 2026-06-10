@@ -1,4 +1,5 @@
 import trainersData from '../../assets/trainers.json'
+import type { SceneData } from '../test-env/StoryScene'
 
 export type NodeType = 'start' | 'wild' | 'wild_plus_mt' | 'trainer' | 'boss' | 'final-boss' | 'pokemon-center' | 'shop' | 'random' | 'story'
 
@@ -181,4 +182,29 @@ export function wildLevel(floor: number, mapNumber: number): number {
   const base = Math.round(10 * (mapNumber - 1) + floor * 1.1)
   const variance = Math.floor(Math.random() * 3) - 1
   return Math.max(1, base + variance)
+}
+
+// Finds the gym scene for the current map number, falling back to the
+// highest available gym if the exact number doesn't exist.
+export function findGymScene(scenes: SceneData[], region: string, mapNumber: number): SceneData | null {
+  for (let n = mapNumber; n >= 1; n--) {
+    const scene = scenes.find(s => s.scene_id === `${region}_gym_${n}`)
+    if (scene) return scene
+  }
+  return scenes.find(s => s.scene_id.startsWith(`${region}_gym_`)) ?? null
+}
+
+// Builds the ordered list of scenes for the final-boss node (Alto Mando + Campeón).
+export function buildFinalBossScenes(region: string, allScenes: SceneData[]): SceneData[] {
+  const result: SceneData[] = []
+  let n = 1
+  while (true) {
+    const scene = allScenes.find(s => s.scene_id === `${region}_altomando_${n}`)
+    if (!scene) break
+    result.push(scene)
+    n++
+  }
+  const campeon = allScenes.find(s => s.scene_id === `${region}_campeon`)
+  if (campeon) result.push(campeon)
+  return result
 }

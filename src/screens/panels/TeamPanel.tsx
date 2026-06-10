@@ -6,6 +6,7 @@ import { TypeBadge } from '../../components/TypeBadge'
 import { PokemonInfoModal } from '../../components/PokemonInfoModal'
 import { ItemIcon } from '../../components/ItemIcon'
 import { PokedexButton } from '../../components/PokedexModal'
+import { hpBarColor } from '../../game/utils/ui'
 
 interface Props {
   team:              PokemonInstance[]
@@ -173,7 +174,7 @@ export function TeamPanel({ team, placedIndices, faintedIndices, locked, side = 
                 className={styles.hpBarFill}
                 style={{
                   width: `${hpPct}%`,
-                  background: hpPct > 50 ? '#44dd44' : hpPct > 25 ? '#ffcc00' : '#ff3333',
+                  background: hpBarColor(hpPct),
                 }}
               />
             </div>

@@ -10,6 +10,7 @@ import type { PokemonInstance } from '../../game/entities/PokemonInstance'
 import type { PokemonData } from '../../types'
 import type { GamePhase } from '../GameLayout'
 import { ItemIcon } from '../../components/ItemIcon'
+import { hpBarColor } from '../../game/utils/ui'
 
 function getSpriteStyle(data: PokemonData, isPlayer: boolean): CSSProperties {
   const mod = data.webm_mod
@@ -304,7 +305,7 @@ export function CombatArea({
           const hpEl = playerHpRefs.current[i]
           if (hpEl) {
             hpEl.style.width = `${hp}%`
-            hpEl.style.background = hp > 50 ? '#44dd44' : hp > 25 ? '#ffcc00' : '#ff3333'
+            hpEl.style.background = hpBarColor(hp)
           }
           if (playerAtbRefs.current[i])
             playerAtbRefs.current[i]!.style.width = `${slot.player.getAtbPercent()}%`
@@ -314,7 +315,7 @@ export function CombatArea({
           const hpEl = enemyHpRefs.current[i]
           if (hpEl) {
             hpEl.style.width = `${hp}%`
-            hpEl.style.background = hp > 50 ? '#44dd44' : hp > 25 ? '#ffcc00' : '#ff3333'
+            hpEl.style.background = hpBarColor(hp)
           }
           if (enemyAtbRefs.current[i])
             enemyAtbRefs.current[i]!.style.width = `${slot.enemy.getAtbPercent()}%`
@@ -554,8 +555,7 @@ export function CombatArea({
                             {enemyAlive && (
                               <div className={styles.hpFill} style={{
                                 width: `${(enemy.currentHp / enemy.getMaxHp()) * 100}%`,
-                                background: (enemy.currentHp / enemy.getMaxHp()) > 0.5 ? '#44dd44'
-                                  : (enemy.currentHp / enemy.getMaxHp()) > 0.25 ? '#ffcc00' : '#ff3333',
+                                background: hpBarColor((enemy.currentHp / enemy.getMaxHp()) * 100),
                               }} />
                             )}
                           </div>

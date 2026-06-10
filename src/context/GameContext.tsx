@@ -5,27 +5,21 @@ import type { Item } from '../game/entities/PokemonInstance'
 import type { ConsumableStack } from '../game/data/items'
 import type { Gift, PokemonData } from '../types'
 import { registerCatch } from '../game/utils/pokedex'
+import { evoParentName } from '../game/utils/evolutionGraph'
 import allPokemon from '../assets/pokemon.json'
 
 const DB = allPokemon as PokemonData[]
 
 // ── Evolutionary family ───────────────────────────────────────────────────────
-const _parentName = new Map<string, string>()
-for (const p of DB) {
-  for (const evo of p.evolutions) {
-    if (!_parentName.has(evo.to_name)) _parentName.set(evo.to_name, p.name)
-  }
-}
-
 export function getEvolutionFamilyIds(startId: number): number[] {
   const start = DB.find(p => p.id === startId)
   if (!start) return [startId]
 
   let rootName = start.name
   const safety = new Set<string>()
-  while (_parentName.has(rootName) && !safety.has(rootName)) {
+  while (evoParentName.has(rootName) && !safety.has(rootName)) {
     safety.add(rootName)
-    rootName = _parentName.get(rootName)!
+    rootName = evoParentName.get(rootName)!
   }
 
   const ids: number[] = []

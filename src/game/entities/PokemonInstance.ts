@@ -21,7 +21,7 @@ export interface Item {
 }
 
 export class PokemonInstance {
-  readonly data: PokemonData
+  data: PokemonData
   level: number
   attackLevel: AttackLevel
   equippedItem: Item | null
