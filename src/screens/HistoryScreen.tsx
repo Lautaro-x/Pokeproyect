@@ -29,11 +29,11 @@ import { officialArtwork } from '../game/utils/spriteUrl'
 import type { MapData, MapNode } from './history/mapGenerator'
 import type { GamePhase } from './GameLayout'
 import type { Professor } from './test-env/HistoryStarts'
-import type { SceneData } from './test-env/StoryScene'
+import type { SceneData } from '../game/utils/sceneTypes'
 import type { PokemonData } from '../types'
 import allPokemon    from '../assets/pokemon.json'
 import professorsData from '../assets/professors.json'
-import scenesData    from '../assets/scenes.json'
+import { ALL_SCENES as scenesData } from '../assets/scenes/index'
 
 const DB = allPokemon as PokemonData[]
 
@@ -369,12 +369,12 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
     } else if (node.type === 'boss') {
       setView('gym')
     } else if (node.type === 'final-boss') {
-      const scenes = buildFinalBossScenes(region, scenesData as SceneData[])
+      const scenes = buildFinalBossScenes(region, scenesData)
       setFinalBossScenes(scenes)
       setFinalBossIdx(0)
       setView('final-boss')
     } else if (node.type === 'random') {
-      const pool = (scenesData as SceneData[]).filter(s => s.scene_id.startsWith('random_event_'))
+      const pool = scenesData.filter(s => s.scene_id.startsWith('random_event_'))
       if (pool.length > 0) {
         setRandomScene(pool[Math.floor(Math.random() * pool.length)])
         setView('random')
@@ -382,7 +382,7 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
         completeNode()
       }
     } else if (node.type === 'story') {
-      const scene = (scenesData as SceneData[]).find(s => s.scene_id === node.storySceneId)
+      const scene = scenesData.find(s => s.scene_id === node.storySceneId)
       if (scene) {
         setStoryScene(scene)
         setView('story')
@@ -421,7 +421,7 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
 
   // ── Derived: boss scene & professor ──────────────────────────────────────
   const bossScene = useMemo(() =>
-    findGymScene(scenesData as SceneData[], region, mapNumber),
+    findGymScene(scenesData, region, mapNumber),
     [region, mapNumber]
   )
 

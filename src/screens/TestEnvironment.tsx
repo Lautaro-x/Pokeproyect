@@ -9,9 +9,10 @@ import { ItemSelector } from './test-env/ItemSelector'
 import { ShopEvent } from './test-env/ShopEvent'
 import { PokemonCenter } from './test-env/PokemonCenter'
 import { StoryScene } from './test-env/StoryScene'
-import type { SceneData } from './test-env/StoryScene'
-import scenesData from '../assets/scenes.json'
+import type { SceneData } from '../game/utils/sceneTypes'
+import { ALL_SCENES as scenesData } from '../assets/scenes/index'
 import { ScenePicker } from './test-env/ScenePicker'
+import { SceneEditor } from './test-env/SceneEditor'
 import { HistoryStarts } from './test-env/HistoryStarts'
 import type { Professor } from './test-env/HistoryStarts'
 import professorsData from '../assets/professors.json'
@@ -67,6 +68,7 @@ function TestEnvironmentInner() {
   const [enemyTeam,      setEnemyTeam]      = useState<PokemonInstance[]>([])
   const [showEnemyPanel, setShowEnemyPanel] = useState(false)
   const [gameBoxView,    setGameBoxView]    = useState<GameBoxView>('default')
+  const [showSceneEditor, setShowSceneEditor] = useState(false)
   const [evolutionQueue, setEvolutionQueue] = useState<EvolutionEntry[]>([])
   const [historyGen,     setHistoryGen]     = useState<number>(1)
   const [selectedScene,  setSelectedScene]  = useState<SceneData | null>(null)
@@ -295,6 +297,9 @@ function TestEnvironmentInner() {
                 <button className={styles.actionBtn} onClick={() => setGameBoxView('story-picker')}>
                   ✦ Historia
                 </button>
+                <button className={styles.actionBtn} onClick={() => setShowSceneEditor(true)}>
+                  ✎ Editor de Escenas
+                </button>
                 <button className={styles.actionBtn} onClick={() => setGameBoxView('gen-picker')}>
                   ★ Historia inicial
                 </button>
@@ -335,7 +340,7 @@ function TestEnvironmentInner() {
 
           {gameBoxView === 'story-picker' && (
             <ScenePicker
-              scenes={scenesData as SceneData[]}
+              scenes={scenesData}
               onSelect={scene => { setSelectedScene(scene); setGameBoxView('story') }}
               onBack={() => setGameBoxView('default')}
             />
@@ -465,6 +470,8 @@ function TestEnvironmentInner() {
       )}
 
       <TeamFullModal />
+
+      {showSceneEditor && <SceneEditor onBack={() => setShowSceneEditor(false)} />}
 
       {/* ── Game mode launch modal ── */}
       {gameModeStep !== null && (

@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import styles from './ScenePicker.module.css'
-import type { SceneData } from './StoryScene'
+import type { SceneData } from '../../game/utils/sceneTypes'
 
 interface Props {
   scenes: SceneData[]

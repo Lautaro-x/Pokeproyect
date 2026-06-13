@@ -401,10 +401,16 @@ export function GameProvider({
 
           let pool = DB.filter(p => !p.is_mega)
 
-          if (gen !== undefined && gift.generation === 'actual')
+          const REGION_GEN: Record<string, number> = {
+            kanto: 1, johto: 2, hoenn: 3, sinnoh: 4,
+            teselia: 5, kalos: 6, alola: 7, galar: 8, paldea: 9,
+          }
+          if (gift.generation === 'actual' && gen !== undefined)
             pool = pool.filter(p => p.generation === gen)
-          else if (gen !== undefined && gift.generation === 'not_actual')
+          else if (gift.generation === 'not_actual' && gen !== undefined)
             pool = pool.filter(p => p.generation !== gen)
+          else if (gift.generation && REGION_GEN[gift.generation] !== undefined)
+            pool = pool.filter(p => p.generation === REGION_GEN[gift.generation!])
 
           if (gift.is_legendary || gift.is_mythical) {
             pool = pool.filter(p =>

@@ -1,0 +1,3783 @@
+[
+  {
+    "scene_id": "kanto_altomando_1",
+    "scene_name": "Primer Miembro del Alto Mando de Kanto",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Lorelei",
+        "sprite": "alto_mando/Generation1_Kanto_altomando1_ice_Lorelei.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Lorelei, miembro del Alto Mando de Kanto. El frío de mis Pokémon no tiene piedad."
+          },
+          {
+            "actor_id": 1,
+            "text": "A partir de ahora lucharás contra equipos que están aquí para derrotarte, no para ponerte a prueba..."
+          },
+          {
+            "actor_id": "1",
+            "text": "¡Te dejaré helado!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 87,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 91,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 124,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 131,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 80,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 10104,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kanto_altomando_2",
+    "scene_name": "Segundo Miembro del Alto Mando de Kanto",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Bruno",
+        "sprite": "alto_mando/Generation1_Kanto_altomando2_fighting_Bruno.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Bruno, miembro del Alto Mando de Kanto. La verdadera fuerza se forja en la batalla."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 95,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 106,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 107,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 68,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 57,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 10110,
+            "item": "metronome",
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Una buena demostración de fuerza"
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kanto_altomando_3",
+    "scene_name": "Tercer Miembro del Alto Mando de Kanto",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Agata",
+        "sprite": "alto_mando/Generation1_Kanto_altomando3_ghost_Agata.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Agata, miembro del Alto Mando de Kanto. Las sombras y los espectros son mi dominio."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Demuestra tu luz si quieres superarme!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 93,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 94,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 24,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 42,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 10113,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 197,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Me has cegado."
+          },
+          {
+            "actor_id": 1,
+            "text": "Enhorabuena, el Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kanto_campeon",
+    "scene_name": "Campeón de Kanto",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Lance",
+        "sprite": "campeones/Generation1_Kanto_campeon_dragon_Lance.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Lance, el Campeón de Kanto. Solo los más fuertes llegan hasta aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Voy a darte la batalla más dura de tu vida!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 148,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 148,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 130,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 142,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 149,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 230,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Has ganado... esta victoria es completamente tuya."
+          },
+          {
+            "actor_id": 1,
+            "text": "Felicidades. Eres el nuevo Campeón de Kanto."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 5000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 5
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_altomando_1",
+    "scene_name": "Primer Miembro del Alto Mando de Johto",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Mento",
+        "sprite": "alto_mando/Generation2_Johto_altomando1_psychic_Mento.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Mento, miembro del Alto Mando de Johto. Tu mente no puede ocultarme nada."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 178,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 178,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 124,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 80,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 103,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_altomando_2",
+    "scene_name": "Segundo Miembro del Alto Mando de Johto",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Koga",
+        "sprite": "alto_mando/Generation2_Johto_altomando2_poison_Koga.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Koga, miembro del Alto Mando de Johto. Ni el veneno más suave es inofensivo."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 168,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 49,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 89,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 205,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 169,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_altomando_3",
+    "scene_name": "Tercer Miembro del Alto Mando de Johto",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Bruno",
+        "sprite": "alto_mando/Generation2_Johto_altomando3_fighting_Bruno.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Bruno, miembro del Alto Mando de Johto. La verdadera fuerza se forja en la batalla."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 95,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 106,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 107,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 68,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 62,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_altomando_4",
+    "scene_name": "Cuarto Miembro del Alto Mando de Johto",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Karen",
+        "sprite": "alto_mando/Generation2_Johto_altomando4_dark_Karen.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Karen, miembro del Alto Mando de Johto. La oscuridad tiene su propia belleza."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 198,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 94,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 197,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 229,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 359,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_campeon",
+    "scene_name": "Campeón de Johto",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Azul",
+        "sprite": "campeones/Generation2_Johto_campeon_multi_Azul.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Azul, el Campeón de Johto. Solo los más fuertes llegan hasta aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Voy a darte la batalla más dura de tu vida!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 18,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 65,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 112,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 130,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 59,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 103,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Has ganado... esta victoria es completamente tuya."
+          },
+          {
+            "actor_id": 1,
+            "text": "Felicidades. Eres el nuevo Campeón de Johto."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 5000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 5
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "hoenn_altomando_1",
+    "scene_name": "Primer Miembro del Alto Mando de Hoenn",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Sixto",
+        "sprite": "alto_mando/Generation3_Hoenn_altomando1_dark_Sixto.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Sixto, miembro del Alto Mando de Hoenn. La oscuridad tiene su propia belleza."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 262,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 332,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 319,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 342,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 359,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "hoenn_altomando_2",
+    "scene_name": "Segundo Miembro del Alto Mando de Hoenn",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Fátima",
+        "sprite": "alto_mando/Generation3_Hoenn_altomando2_ghost_Fatima.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Fátima, miembro del Alto Mando de Hoenn. Las sombras y los espectros son mi dominio."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 302,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 353,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 354,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 200,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 356,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "hoenn_altomando_3",
+    "scene_name": "Tercer Miembro del Alto Mando de Hoenn",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Nivea",
+        "sprite": "alto_mando/Generation3_Hoenn_altomando3_ice_Nivea.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Nivea, miembro del Alto Mando de Hoenn. El frío de mis Pokémon no tiene piedad."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 361,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 362,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 364,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 365,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 124,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "hoenn_altomando_4",
+    "scene_name": "Cuarto Miembro del Alto Mando de Hoenn",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Dracón",
+        "sprite": "alto_mando/Generation3_Hoenn_altomando4_dragon_Dracon.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Dracón, miembro del Alto Mando de Hoenn. Los dragones solo obedecen al más poderoso."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 329,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 330,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 334,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 372,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 373,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "hoenn_campeon",
+    "scene_name": "Campeón de Hoenn",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Máximo",
+        "sprite": "campeones/Generation3_Hoenn_campeon_steel_Maximo.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Máximo, el Campeón de Hoenn. Solo los más fuertes llegan hasta aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Voy a darte la batalla más dura de tu vida!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 227,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 306,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 344,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 346,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 348,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 376,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Has ganado... esta victoria es completamente tuya."
+          },
+          {
+            "actor_id": 1,
+            "text": "Felicidades. Eres el nuevo Campeón de Hoenn."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 5000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 5
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "sinnoh_altomando_1",
+    "scene_name": "Primer Miembro del Alto Mando de Sinnoh",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Alecrán",
+        "sprite": "alto_mando/Generation4_Sinnoh_altomando1_bug_Alecran.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Alecrán, miembro del Alto Mando de Sinnoh. No subestimes nunca a los insectos."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 267,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 416,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 214,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 469,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 212,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 452,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "sinnoh_altomando_2",
+    "scene_name": "Segundo Miembro del Alto Mando de Sinnoh",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Gaia",
+        "sprite": "alto_mando/Generation4_Sinnoh_altomando2_ground_Gaia.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Gaia, miembro del Alto Mando de Sinnoh. La tierra firme es mi fortaleza."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 195,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 472,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 76,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 450,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 464,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "sinnoh_altomando_3",
+    "scene_name": "Tercer Miembro del Alto Mando de Sinnoh",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Fausto",
+        "sprite": "alto_mando/Generation4_Sinnoh_altomando3_fire_Fausto.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Fausto, miembro del Alto Mando de Sinnoh. Mi llama nunca se apaga."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 78,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 59,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 467,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 392,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 229,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "sinnoh_altomando_4",
+    "scene_name": "Cuarto Miembro del Alto Mando de Sinnoh",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Delos",
+        "sprite": "alto_mando/Generation4_Sinnoh_altomando4_psychic_Delos.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Delos, miembro del Alto Mando de Sinnoh. Tu mente no puede ocultarme nada."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 196,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 122,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 203,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 65,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 437,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 475,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "sinnoh_campeon",
+    "scene_name": "Campeón de Sinnoh",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Cintia",
+        "sprite": "campeones/Generation4_Sinnoh_campeon_multi_Cintia.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Cintia, el Campeón de Sinnoh. Solo los más fuertes llegan hasta aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Voy a darte la batalla más dura de tu vida!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 442,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 407,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 350,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 448,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 468,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 445,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Has ganado... esta victoria es completamente tuya."
+          },
+          {
+            "actor_id": 1,
+            "text": "Felicidades. Eres el nuevo Campeón de Sinnoh."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 5000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 5
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "teselia_altomando_1",
+    "scene_name": "Primer Miembro del Alto Mando de Teselia",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Anís",
+        "sprite": "alto_mando/Generation5_Teselia_altomando1_ghost_Anis.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Anís, miembro del Alto Mando de Teselia. Las sombras y los espectros son mi dominio."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 426,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 563,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 593,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 623,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 609,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "teselia_altomando_2",
+    "scene_name": "Segundo Miembro del Alto Mando de Teselia",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Aza",
+        "sprite": "alto_mando/Generation5_Teselia_altomando2_dark_Aza.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Aza, miembro del Alto Mando de Teselia. La oscuridad tiene su propia belleza."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 510,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 560,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 553,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 359,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 625,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "teselia_altomando_3",
+    "scene_name": "Tercer Miembro del Alto Mando de Teselia",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Lotto",
+        "sprite": "alto_mando/Generation5_Teselia_altomando3_fighting_Lotto.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Lotto, miembro del Alto Mando de Teselia. La verdadera fuerza se forja en la batalla."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 538,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 539,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 534,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 620,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 448,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "teselia_altomando_4",
+    "scene_name": "Cuarto Miembro del Alto Mando de Teselia",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Catleya",
+        "sprite": "alto_mando/Generation5_Teselia_altomando4_psychic_Catleya.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Catleya, miembro del Alto Mando de Teselia. Tu mente no puede ocultarme nada."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 518,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 561,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 579,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 576,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 65,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "teselia_campeon",
+    "scene_name": "Campeón de Teselia",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Mirto",
+        "sprite": "campeones/Generation5_Teselia_campeon_bug_Mirto.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Mirto, el Campeón de Teselia. Solo los más fuertes llegan hasta aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Voy a darte la batalla más dura de tu vida!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 617,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 589,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 637,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 632,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 557,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 542,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Has ganado... esta victoria es completamente tuya."
+          },
+          {
+            "actor_id": 1,
+            "text": "Felicidades. Eres el nuevo Campeón de Teselia."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 5000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 5
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kalos_altomando_1",
+    "scene_name": "Primer Miembro del Alto Mando de Kalos",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Tileo",
+        "sprite": "alto_mando/Generation6_Kalos_altomando1_steel_Tileo.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Tileo, miembro del Alto Mando de Kalos. El acero no cede ante nada."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 707,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 476,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 212,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 10046,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 681,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kalos_altomando_2",
+    "scene_name": "Segundo Miembro del Alto Mando de Kalos",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Malva",
+        "sprite": "alto_mando/Generation6_Kalos_altomando2_fire_Malva.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Malva, miembro del Alto Mando de Kalos. Mi llama nunca se apaga."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 668,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 324,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 10048,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 609,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 663,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kalos_altomando_3",
+    "scene_name": "Tercer Miembro del Alto Mando de Kalos",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Drácena",
+        "sprite": "alto_mando/Generation6_Kalos_altomando3_dragon_Dracena.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Drácena, miembro del Alto Mando de Kalos. Los dragones solo obedecen al más poderoso."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 714,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 715,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 691,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 10067,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 621,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kalos_altomando_4",
+    "scene_name": "Cuarto Miembro del Alto Mando de Kalos",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Narciso",
+        "sprite": "alto_mando/Generation6_Kalos_altomando4_water_Narciso.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Narciso, miembro del Alto Mando de Kalos. El agua fluye y todo lo conquista."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 121,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 693,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 10041,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 134,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 689,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kalos_campeon",
+    "scene_name": "Campeón de Kalos",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Dianta",
+        "sprite": "campeones/Generation6_Kalos_campeon_fairy_Dianta.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Dianta, el Campeón de Kalos. Solo los más fuertes llegan hasta aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Voy a darte la batalla más dura de tu vida!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 701,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 10051,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 700,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 468,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 706,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 711,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Has ganado... esta victoria es completamente tuya."
+          },
+          {
+            "actor_id": 1,
+            "text": "Felicidades. Eres el nuevo Campeón de Kalos."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 5000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 5
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "alola_altomando_1",
+    "scene_name": "Primer Miembro del Alto Mando de Alola",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Kaudan",
+        "sprite": "alto_mando/Generation7_Alola_altomando1_fighting_Kaudan.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Kaudan, miembro del Alto Mando de Alola. La verdadera fuerza se forja en la batalla."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 56,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 297,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 740,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 760,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 62,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 107,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "alola_altomando_2",
+    "scene_name": "Segundo Miembro del Alto Mando de Alola",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Mayla",
+        "sprite": "alto_mando/Generation7_Alola_altomando2_rock_Mayla.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Mayla, miembro del Alto Mando de Alola. Soy tan resistente como la roca viva."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 745,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 525,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 526,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 703,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 476,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "alola_altomando_3",
+    "scene_name": "Tercer Miembro del Alto Mando de Alola",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Zarala",
+        "sprite": "alto_mando/Generation7_Alola_altomando3_ghost_Zarala.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Zarala, miembro del Alto Mando de Alola. Las sombras y los espectros son mi dominio."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 426,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 781,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 770,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 429,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 778,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "alola_altomando_4",
+    "scene_name": "Cuarto Miembro del Alto Mando de Alola",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Kahili",
+        "sprite": "alto_mando/Generation7_Alola_altomando4_flying_Kahili.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Kahili, miembro del Alto Mando de Alola. El cielo entero es mi territorio."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 169,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 227,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 630,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 733,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 628,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "galar_campeon",
+    "scene_name": "Campeón de Galar",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Lionel",
+        "sprite": "campeones/Generation8_Galar_campeon_multi_Lionel.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Lionel, el Campeón de Galar. Solo los más fuertes llegan hasta aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Voy a darte la batalla más dura de tu vida!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 681,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 612,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 537,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 866,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 6,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 887,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Has ganado... esta victoria es completamente tuya."
+          },
+          {
+            "actor_id": 1,
+            "text": "Felicidades. Eres el nuevo Campeón de Galar."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 5000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 5
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "paldea_altomando_1",
+    "scene_name": "Primer Miembro del Alto Mando de Paldea",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Denis",
+        "sprite": "alto_mando/Generation9_Paldea_altomando1_ground_Denis.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Denis, miembro del Alto Mando de Paldea. La tierra firme es mi fortaleza."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 323,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 232,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 51,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 450,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 445,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "paldea_altomando_2",
+    "scene_name": "Segundo Miembro del Alto Mando de Paldea",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Nerina",
+        "sprite": "alto_mando/Generation9_Paldea_altomando2_steel_Nerina.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Nerina, miembro del Alto Mando de Paldea. El acero no cede ante nada."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 303,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 476,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 462,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 681,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 879,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "paldea_altomando_3",
+    "scene_name": "Tercer Miembro del Alto Mando de Paldea",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Aroa",
+        "sprite": "alto_mando/Generation9_Paldea_altomando3_flying_Aroa.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Aroa, miembro del Alto Mando de Paldea. El cielo entero es mi territorio."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 334,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 398,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 628,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 701,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 169,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "paldea_altomando_4",
+    "scene_name": "Cuarto Miembro del Alto Mando de Paldea",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Levi",
+        "sprite": "alto_mando/Generation9_Paldea_altomando4_dragon_Levi.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Levi, miembro del Alto Mando de Paldea. Los dragones solo obedecen al más poderoso."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 715,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 612,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 706,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 887,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 149,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Impresionante... pocos consiguen superarme."
+          },
+          {
+            "actor_id": 1,
+            "text": "Sigue adelante. El Campeón te espera."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "paldea_campeon",
+    "scene_name": "Campeón de Paldea",
+    "category": "final_boss",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Ságita",
+        "sprite": "campeones/Generation9_Paldea_campeon_dragon_Sagita.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Ságita, el Campeón de Paldea. Solo los más fuertes llegan hasta aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Voy a darte la batalla más dura de tu vida!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 706,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 445,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 887,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 715,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 149,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 373,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Has ganado... esta victoria es completamente tuya."
+          },
+          {
+            "actor_id": 1,
+            "text": "Felicidades. Eres el nuevo Campeón de Paldea."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 5000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 5
+          }
+        ],
+        "next": null
+      }
+    }
+  }
+]

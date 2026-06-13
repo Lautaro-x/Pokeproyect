@@ -83,5 +83,5 @@ export interface RoundEndEvent {
 export type Gift =
   | { type: 'pokedollars'; quantity: number }
   | { type: 'item'; item_id: string; quantity: number }
-  | { type: 'pokemon'; id: number | 'random'; generation?: 'actual' | 'not_actual'; is_shiny: boolean; is_legendary: boolean; is_mythical: boolean }
+  | { type: 'pokemon'; id: number | 'random'; generation?: 'actual' | 'not_actual' | 'kanto' | 'johto' | 'hoenn' | 'sinnoh' | 'teselia' | 'kalos' | 'alola' | 'galar' | 'paldea'; is_shiny: boolean; is_legendary: boolean; is_mythical: boolean }
   | { type: 'effect'; effect: string }

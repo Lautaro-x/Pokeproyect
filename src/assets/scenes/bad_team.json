@@ -1,0 +1,373 @@
+[
+  {
+    "scene_id": "kanto_bad_team_1",
+    "scene_name": "¡El equipo Rocket!",
+    "category": "bad_team",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Recluta del Team Rocket",
+        "sprite": "otros/Soldados_Rocket.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¿Ese debería estar aquí?"
+          },
+          {
+            "actor_id": 1,
+            "text": "Diría que no..."
+          },
+          {
+            "actor_id": 1,
+            "text": "He tú! ¿Qué haces aquí?"
+          }
+        ],
+        "next": "options"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 20,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 52,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 169,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 24,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 110,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 108,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          }
+        ],
+        "on_win": "dialog_end",
+        "on_lose": null
+      },
+      "dialog_intro_1": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Exacto!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Este chaval me gusta, aunque me gustan mas sus Pokémon!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Has tenido suerte! este famoso equipo de maleantes te va a robar como al resto de entrenadores de Kanto"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 500
+          }
+        ],
+        "next": null
+      },
+      "options": {
+        "type": "options",
+        "options": [
+          {
+            "text": "¿Sois aquel famoso equipo de maleantes que se dedica a robar a los entrenadores de Kanto verdad?",
+            "next": "dialog_intro_1"
+          },
+          {
+            "text": "¿Esta no es la calle victoria no?",
+            "next": "dialog_intro_2"
+          },
+          {
+            "text": "Ala! sois unos mimos! que divertido! a ver...  Os vais a estampar, pero esta vez de verdad.",
+            "next": "combat_1"
+          }
+        ]
+      },
+      "dialog_intro_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "Es tan alelao como parece..."
+          }
+        ],
+        "next": "combat_1"
+      },
+      "dialog_end": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "Pos nos hemos estampado pero bien"
+          },
+          {
+            "actor_id": "1",
+            "text": "Bueno, pues deberías dar la vuelta ahora que puedes, nosotros solo somos 2, pero a nuestras espaldas encontrarás un ejercito!"
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kanto_bad_team_2",
+    "scene_name": "¡El equipo Rocket 2!",
+    "category": "bad_team",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Recluta del Team Rocket",
+        "sprite": "otros/Soldados_Rocket.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Ese es el intruso!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Anda pa'allá bobo! Anda pa'allá! que no eres nada, un niñato, un piltrafa, poca cosa!"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Nosotros somos un ejercito, una banda criminal, un grupo de elite! te lo vamos a enseñar"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 20,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 52,
+            "item": null,
+            "is_shiny": false,
+            "level": 1
+          },
+          {
+            "id": 169,
+            "item": null,
+            "is_shiny": false,
+            "level": 1
+          },
+          {
+            "id": 24,
+            "item": null,
+            "is_shiny": false,
+            "level": 3
+          },
+          {
+            "id": 110,
+            "item": null,
+            "is_shiny": false,
+            "level": 1
+          },
+          {
+            "id": 108,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Compañero, escucha maquina, mastodonte, gigante, maestro, jefe, titán... que esta es nuestra base..."
+          },
+          {
+            "actor_id": 1,
+            "text": "Pirate anda, que no le hacemos daño a nadie..."
+          },
+          {
+            "actor_id": 1,
+            "text": "Nos quedamos algún pokemonsillo con dueño que otro... pero nada más. Bueno, a lo mejor algún objeto de valor..."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 600
+          }
+        ],
+        "next": null
+      },
+      "options": {
+        "type": "options",
+        "options": [
+          {
+            "text": "Madre... son un montón, y de momento ni uno vale nada... ¿Cómo reunieron a tanto inepto junto?",
+            "next": "dialog_intro_1"
+          },
+          {
+            "text": "¡Estos hablan, el resto solo estaba ahí de pie sacando equipos iguales uno tras otro!",
+            "next": "dialog_intro_2"
+          },
+          {
+            "text": "Shhhh...",
+            "next": "combat_1"
+          }
+        ]
+      },
+      "dialog_intro_1": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "Este se va a enterar... pedazo de cabrón..."
+          }
+        ],
+        "next": "combat_1"
+      },
+      "dialog_intro_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "Nosotros si hablamos y dialogamos y luchamos y somos mejores que esos pánfilos que hay en la entrada! ya lo verás"
+          }
+        ],
+        "next": "combat_1"
+      }
+    }
+  },
+  {
+    "scene_id": "kanto_bad_team_3",
+    "scene_name": "¡El equipo Rocket 3!",
+    "category": "bad_team",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Giovanni, jefe del Team Rocket",
+        "sprite": "otros/boss_rocket.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Así que eres el intruso."
+          },
+          {
+            "actor_id": 1,
+            "text": "Volvemos a encontrarnos... esta vez... no puedo ser generoso."
+          }
+        ],
+        "next": "n4"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 150,
+            "item": null,
+            "is_shiny": false,
+            "level": 11
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¿Como es esto posible? ¿Cómo has podido derrotarme? No es posible... no es posible..."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 600
+          }
+        ],
+        "next": null
+      },
+      "n4": {
+        "type": "options",
+        "options": [
+          {
+            "text": "Pero toda esta instalación y recursos ¿Para qué?",
+            "next": "n5"
+          }
+        ]
+      },
+      "n5": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "Nuestra actividad nos ha permitido financiar cierto... experimento... "
+          },
+          {
+            "actor_id": "1",
+            "text": "Te presento, al pokemon definitivo! "
+          }
+        ],
+        "next": "combat_1"
+      }
+    }
+  }
+]

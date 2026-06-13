@@ -1,0 +1,21 @@
+Región	Equipo villano principal	Líder
+Kanto	Team Rocket	Giovanni
+Johto	Team Rocket (reorganizado)	Giovanni (ausente)
+Hoenn	Equipo Magma y Equipo Aqua	Maxie y Archie
+Sinnoh	Equipo Galaxia	Cyrus
+Teselia (Unova)	Equipo Plasma	Ghetsis
+Kalos	Team Flare	Lysandre
+Alola	Team Skull (además de la Fundación Æther como antagonista principal)	Guzma y Lusamine
+Galar	Team Yell y Macro Cosmos	Piers y Rose
+Paldea	Team Star	Penny
+
+Resumen rápido de sus objetivos
+Team Rocket (Kanto/Johto): crimen organizado, robo y tráfico de Pokémon.
+Equipo Aqua (Hoenn): expandir los océanos usando a Kyogre.
+Equipo Magma (Hoenn): expandir la tierra usando a Groudon.
+Equipo Galaxia (Sinnoh): recrear el universo.
+Equipo Plasma (Teselia): liberar a los Pokémon de los entrenadores (aunque escondían otros planes).
+Team Flare (Kalos): destruir el mundo para reconstruirlo según sus ideales.
+Team Skull (Alola): una banda de marginados y delincuentes más que una organización terrorista clásica.
+Team Yell (Galar): aficionados extremos de una entrenadora; más molestos que malvados.
+Team Star (Paldea): estudiantes rebeldes que inicialmente actuaban contra el acoso escolar.

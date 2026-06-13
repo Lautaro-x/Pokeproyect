@@ -1,0 +1,6699 @@
+[
+  {
+    "scene_id": "kanto_gym_1",
+    "scene_name": "Primer Gimnasio de Kanto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Brock",
+        "sprite": "lideres/Generation1_Kanto_lider1_rock_Brock.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Bienvenido al Gimnasio de tipo Roca de Kanto."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Prepárate para enfrentarte a mi equipo!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 74,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 95,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kanto_gym_2",
+    "scene_name": "Segundo Gimnasio de Kanto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Misty",
+        "sprite": "lideres/Generation1_Kanto_lider2_water_Misty.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Hola! Soy Misty, experta en Pokémon de tipo Agua."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon son hermosos y feroces a la vez!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 54,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 131,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 121,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kanto_gym_3",
+    "scene_name": "Tercer Gimnasio de Kanto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Lt. Surge",
+        "sprite": "lideres/Generation1_Kanto_lider3_electric_Surge.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Oye, recluta! ¡Soy el Teniente Surge!"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon eléctricos te dejarán sin movimiento!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 100,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 125,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 82,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 26,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kanto_gym_4",
+    "scene_name": "Cuarto Gimnasio de Kanto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Erika",
+        "sprite": "lideres/Generation1_Kanto_lider4_grass_Erika.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Bienvenido a mi jardín. Soy Erika, Líder de Gimnasio."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Los Pokémon de tipo Planta son tan elegantes como letales!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 71,
+            "item": null,
+            "is_shiny": true,
+            "level": 2
+          },
+          {
+            "id": 114,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 45,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 103,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kanto_gym_5",
+    "scene_name": "Quinto Gimnasio de Kanto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Koga",
+        "sprite": "lideres/Generation1_Kanto_lider5_poison_Koga.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Yo soy Koga. Mis Pokémon de tipo Veneno son maestros del sigilo."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Prepárate para conocer el verdadero poder del veneno!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 168,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 49,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 89,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 205,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 169,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kanto_gym_6",
+    "scene_name": "Sexto Gimnasio de Kanto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Sabrina",
+        "sprite": "lideres/Generation1_Kanto_lider6_psychic_Sabrina.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Ya sabía que vendrías. Soy Sabrina."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Los Pokémon Psíquicos pueden leer tu mente... y destrozarte!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 65,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 196,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 124,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 202,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 122,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 475,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kanto_gym_7",
+    "scene_name": "Séptimo Gimnasio de Kanto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Blaine",
+        "sprite": "lideres/Generation1_Kanto_lider7_fire_Blaine.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Soy Blaine! ¡Mis Pokémon arderán con la furia del volcán!"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Si no puedes aguantar el calor, sal de mi gimnasio!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 324,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 59,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 126,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 229,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 219,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 38,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kanto_gym_8",
+    "scene_name": "Octavo Gimnasio de Kanto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Giovanni",
+        "sprite": "lideres/Generation1_Kanto_lider8_ground_Giovanni.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Hm... Así que has llegado hasta aquí. Soy Giovanni."
+          },
+          {
+            "actor_id": 1,
+            "text": "Como líder de gimnasio, tengo el deber de dedicarte mi preciado tiempo."
+          },
+          {
+            "actor_id": "1",
+            "text": "Intenta que no sea una absoluta perdida de tiempo. Pues ni siquiera merece la pena utilizar a..."
+          },
+          {
+            "actor_id": "1",
+            "text": "Da igual. ¡Te enseñaré el poder del tipo Tierra!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 53,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 31,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 111,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 34,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 51,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 115,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido"
+          },
+          {
+            "actor_id": 1,
+            "text": "Uno de mis deberes es premiar aquellos en la cima de esta obsoleta versión de entrenamiento Pokémon."
+          },
+          {
+            "actor_id": "1",
+            "text": "Espero que muevas las aguas un poco. Estos presentes te serán de ayuda."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_gym_1",
+    "scene_name": "Primer Gimnasio de Johto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Pegaso",
+        "sprite": "lideres/Generation2_Johto_lider1_flying_Pegaso.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Pegaso, Líder de Gimnasio de Johto."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon surcan los cielos y atacarán sin piedad!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 163,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 17,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 176,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 164,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_gym_2",
+    "scene_name": "Segundo Gimnasio de Johto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Antón",
+        "sprite": "lideres/Generation2_Johto_lider2_bug_Anton.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Bienvenido! Soy Antón, el Líder del Gimnasio."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Los Pokémon de tipo Bicho son más fuertes de lo que crees!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 167,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 14,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 193,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 123,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_gym_3",
+    "scene_name": "Tercer Gimnasio de Johto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Blanca",
+        "sprite": "lideres/Generation2_Johto_lider3_normal_Blanca.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Hola, soy Blanca. Lidero este Gimnasio de tipo Normal."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No te confíes, lo normal puede sorprenderte!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 35,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 209,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 241,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 242,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_gym_4",
+    "scene_name": "Cuarto Gimnasio de Johto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Morti",
+        "sprite": "lideres/Generation2_Johto_lider4_ghost_Morti.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¿Qué hay en la oscuridad...? Soy Morti."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Fantasma te acecharán desde las sombras!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 92,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 93,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 94,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 200,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_gym_5",
+    "scene_name": "Quinto Gimnasio de Johto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Aníbal",
+        "sprite": "lideres/Generation2_Johto_lider5_fighting_Anibal.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Soy Aníbal! El entrenamiento es la clave del verdadero poder."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Lucha no conocen la rendición!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 57,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 106,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 107,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 62,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 68,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_gym_6",
+    "scene_name": "Sexto Gimnasio de Johto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Yasmina",
+        "sprite": "lideres/Generation2_Johto_lider6_steel_Yasmina.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Yasmina. El acero es el material más noble."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon son fuertes como el metal y fríos como el hierro!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 81,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 82,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 205,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 208,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 227,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_gym_7",
+    "scene_name": "Séptimo Gimnasio de Johto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Fredo",
+        "sprite": "lideres/Generation2_Johto_lider7_ice_Fredo.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Fredo."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Es un placer conocerte!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 86,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 87,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 215,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 124,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 221,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_gym_8",
+    "scene_name": "Octavo Gimnasio de Johto",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Débora",
+        "sprite": "lideres/Generation2_Johto_lider8_dragon_Debora.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Débora, Líder del último Gimnasio de Johto."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡El poder del Dragón está más allá de tu comprensión!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 148,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 148,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 130,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 230,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "hoenn_gym_1",
+    "scene_name": "Primer Gimnasio de Hoenn",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Petra",
+        "sprite": "lideres/Generation3_Hoenn_lider1_rock_Petra.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Petra, Líder de Gimnasio de Hoenn."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Roca son sólidos como las montañas!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 74,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 299,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 95,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "hoenn_gym_2",
+    "scene_name": "Segundo Gimnasio de Hoenn",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Marcial",
+        "sprite": "lideres/Generation3_Hoenn_lider2_fighting_Marcial.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Soy Marcial! ¡La fuerza del cuerpo supera cualquier obstáculo!"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Lucha son la imagen de la determinación!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 66,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 296,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 297,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "hoenn_gym_3",
+    "scene_name": "Tercer Gimnasio de Hoenn",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Erico",
+        "sprite": "lideres/Generation3_Hoenn_lider3_electric_Erico.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Soy Erico! ¡La electricidad es el poder de la naturaleza!"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Eléctrico son rápidos como el relámpago!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 100,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 309,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 82,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 310,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "hoenn_gym_4",
+    "scene_name": "Cuarto Gimnasio de Hoenn",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Candela",
+        "sprite": "lideres/Generation3_Hoenn_lider4_fire_Candela.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Soy Candela! ¡El fuego en mi corazón nunca se apaga!"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Prepárate para sentir el calor abrasador de mis Pokémon!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 218,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 322,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 324,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 59,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "hoenn_gym_5",
+    "scene_name": "Quinto Gimnasio de Hoenn",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Norman",
+        "sprite": "lideres/Generation3_Hoenn_lider5_normal_Norman.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Norman. El tipo Normal no tiene debilidades naturales..."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡pero mis Pokémon tienen una voluntad de acero!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 327,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 264,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 288,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 289,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "hoenn_gym_6",
+    "scene_name": "Sexto Gimnasio de Hoenn",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Alana",
+        "sprite": "lideres/Generation3_Hoenn_lider6_flying_Alana.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Alana, Líder del Gimnasio de tipo Volador."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon vuelan libres y atacan desde las alturas!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 277,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 279,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 227,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 333,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 334,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "hoenn_gym_7",
+    "scene_name": "Séptimo Gimnasio de Hoenn",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Vito",
+        "sprite": "lideres/Generation3_Hoenn_lider7_psychic_Vito.png"
+      },
+      {
+        "id": 2,
+        "name": "Tecla",
+        "sprite": "lideres/Generation3_Hoenn_lider7_psychic_Leti.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Somos Vito y Tecla, mellizos y Líderes de este Gimnasio!"
+          },
+          {
+            "actor_id": 2,
+            "text": "¡Nuestra mente unida hace que nuestros Pokémon Psíquicos sean imbatibles!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 325,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 337,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 338,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 308,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 326,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 2,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "hoenn_gym_8",
+    "scene_name": "Octavo Gimnasio de Hoenn",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Plubio",
+        "sprite": "lideres/Generation3_Hoenn_lider8_water_Plubio.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Plubio, el Líder del último Gimnasio de Hoenn."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Agua te engullirán como el océano!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 363,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 364,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 272,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 340,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 365,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 350,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "sinnoh_gym_1",
+    "scene_name": "Primer Gimnasio de Sinnoh",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Roco",
+        "sprite": "lideres/Generation4_Sinnoh_lider1_rock_Roco.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Roco, Líder de Gimnasio de Sinnoh."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Roca son tan resistentes como las montañas!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 74,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 408,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 95,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "sinnoh_gym_2",
+    "scene_name": "Segundo Gimnasio de Sinnoh",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Gardenia",
+        "sprite": "lideres/Generation4_Sinnoh_lider2_grass_Gardenia.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Hola! Soy Gardenia, ¡los Pokémon de tipo Planta son mi pasión!"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Espero que te gusten las plantas, porque ahora te enseñaré su poder!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 420,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 387,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 315,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 407,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "sinnoh_gym_3",
+    "scene_name": "Tercer Gimnasio de Sinnoh",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Brega",
+        "sprite": "lideres/Generation4_Sinnoh_lider3_fighting_Brega.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Brega. El espíritu combativo es lo más importante."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Lucha lucharán con todo su ser!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 307,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 67,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 447,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 448,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "sinnoh_gym_4",
+    "scene_name": "Cuarto Gimnasio de Sinnoh",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Mananti",
+        "sprite": "lideres/Generation4_Sinnoh_lider4_water_Mananti.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Mananti, Líder del Gimnasio de tipo Agua."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡El agua es fluida y poderosa, como mis Pokémon!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 422,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 423,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 130,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 419,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "sinnoh_gym_5",
+    "scene_name": "Quinto Gimnasio de Sinnoh",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Fantina",
+        "sprite": "lideres/Generation4_Sinnoh_lider5_ghost_Fantina.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Oui, soy Fantina. ¡Los Pokémon Fantasma son mi especialidad!"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Deja que mis Pokémon te envuelvan en la oscuridad!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 355,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 93,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 429,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 94,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "sinnoh_gym_6",
+    "scene_name": "Sexto Gimnasio de Sinnoh",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Aceron",
+        "sprite": "lideres/Generation4_Sinnoh_lider6_steel_Aceron.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Aceron. El acero no cede jamás."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Acero son impenetrables!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 436,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 208,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 411,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 462,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "sinnoh_gym_7",
+    "scene_name": "Séptimo Gimnasio de Sinnoh",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Inverna",
+        "sprite": "lideres/Generation4_Sinnoh_lider7_ice_Inverna.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Inverna. El frío del invierno te aguarda."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Hielo te congelarán en el acto!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 459,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 215,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 461,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 478,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 460,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "sinnoh_gym_8",
+    "scene_name": "Octavo Gimnasio de Sinnoh",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Lectro",
+        "sprite": "lideres/Generation4_Sinnoh_lider8_electric_Lectro.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Lectro, Líder del último Gimnasio de Sinnoh."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡El poder eléctrico de mis Pokémon te dejará sin palabras!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 135,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 26,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 417,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 466,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 405,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "teselia_gym_1",
+    "scene_name": "Primer Gimnasio de Teselia",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Millo",
+        "sprite": "lideres/Generation5_Teselia_lider1_grass_Millo.png"
+      },
+      {
+        "id": 2,
+        "name": "Zeo",
+        "sprite": "lideres/Generation5_Teselia_lider1_fire_Zeo.png"
+      },
+      {
+        "id": 3,
+        "name": "Maíz",
+        "sprite": "lideres/Generation5_Teselia_lider1_water_Maiz.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Somos Millo, Zeo y Maíz, los tres Líderes de Teselia!"
+          },
+          {
+            "actor_id": 2,
+            "text": "¡Juntos dominamos los tipos Planta, Fuego y Agua!"
+          },
+          {
+            "actor_id": 3,
+            "text": "¡Preparate para un combate desafiante!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 511,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 513,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 515,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 512,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 514,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 516,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Hemos perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 2,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "teselia_gym_2",
+    "scene_name": "Segundo Gimnasio de Teselia",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Aloe",
+        "sprite": "lideres/Generation5_Teselia_lider2_normal_Aloe.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Aloe, directora del museo y Líder del Gimnasio."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡El tipo Normal tiene más profundidad de la que imaginas!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 507,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 531,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 573,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 508,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "teselia_gym_3",
+    "scene_name": "Tercer Gimnasio de Teselia",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Camus",
+        "sprite": "lideres/Generation5_Teselia_lider3_bug_Camus.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Soy Camus! Los insectos son los seres más fascinantes del mundo."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Bicho te sorprenderán!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 540,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 542,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 557,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 558,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 544,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "teselia_gym_4",
+    "scene_name": "Cuarto Gimnasio de Teselia",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Camila",
+        "sprite": "lideres/Generation5_Teselia_lider4_electric_Camila.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Camila. La electricidad corre por mis venas."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon te darán un choque que no olvidarás!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 522,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 587,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 595,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 523,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 596,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "teselia_gym_5",
+    "scene_name": "Quinto Gimnasio de Teselia",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Yakón",
+        "sprite": "lideres/Generation5_Teselia_lider5_ground_Yakon.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Yakón, Líder del Gimnasio de tipo Tierra."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡El tipo Tierra es el poder de la naturaleza misma!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 551,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 552,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 536,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 537,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 530,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "teselia_gym_6",
+    "scene_name": "Sexto Gimnasio de Teselia",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Gerania",
+        "sprite": "lideres/Generation5_Teselia_lider6_flying_Gerania.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Gerania. El cielo es mi hogar y el de mis Pokémon."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Volaremos por encima de ti en esta batalla!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 528,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 520,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 521,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 561,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 581,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 628,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "teselia_gym_7",
+    "scene_name": "Séptimo Gimnasio de Teselia",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Junco",
+        "sprite": "lideres/Generation5_Teselia_lider7_ice_Junco.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Junco. El frío lo purifica todo."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Hielo te dejarán helado!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 582,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 583,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 614,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 615,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 584,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "teselia_gym_8",
+    "scene_name": "Octavo Gimnasio de Teselia",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Lirio",
+        "sprite": "lideres/Generation5_Teselia_lider8_dragon_Lirio.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Lirio, el Líder final de Teselia."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡El poder del Dragón es el más majestuoso de todos!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 610,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 611,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 621,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 612,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 633,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 634,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kalos_gym_1",
+    "scene_name": "Primer Gimnasio de Kalos",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Violeta",
+        "sprite": "lideres/Generation6_Kalos_lider1_bug_Violeta.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Violeta, Líder de Gimnasio de Kalos."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Los Pokémon de tipo Bicho son elegantes y mortíferos!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 283,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 284,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 664,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 666,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kalos_gym_2",
+    "scene_name": "Segundo Gimnasio de Kalos",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Lino",
+        "sprite": "lideres/Generation6_Kalos_lider2_rock_Lino.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Lino. Las rocas tienen una historia milenaria."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Roca son tan antiguos como las montañas!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 74,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 299,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 698,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 696,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kalos_gym_3",
+    "scene_name": "Tercer Gimnasio de Kalos",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Corelia",
+        "sprite": "lideres/Generation6_Kalos_lider3_fighting_Corelia.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Soy Corelia! ¡La lucha es el camino hacia la perfección!"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon combatirán con toda su fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 619,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 620,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 701,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 448,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kalos_gym_4",
+    "scene_name": "Cuarto Gimnasio de Kalos",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Amaro",
+        "sprite": "lideres/Generation6_Kalos_lider4_grass_Amaro.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Amaro. Las plantas son mis aliadas más fieles."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Planta florecerán en esta batalla!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 10033,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 70,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 189,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 673,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 407,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kalos_gym_5",
+    "scene_name": "Quinto Gimnasio de Kalos",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Lem",
+        "sprite": "lideres/Generation6_Kalos_lider5_electric_Lem.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Lem. ¡La electricidad es el futuro!"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon te darán una descarga que no esperabas!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 587,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 82,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 702,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 695,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 10055,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kalos_gym_6",
+    "scene_name": "Sexto Gimnasio de Kalos",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Valeria",
+        "sprite": "lideres/Generation6_Kalos_lider6_fairy_Valeria.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Valeria. Los Pokémon de tipo Hada son llenos de gracia."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Pero no te dejes engañar, su poder es inmenso!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 303,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 10069,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 210,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 468,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 700,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kalos_gym_7",
+    "scene_name": "Séptimo Gimnasio de Kalos",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Ástrid",
+        "sprite": "lideres/Generation6_Kalos_lider7_psychic_Astrid.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Ástrid. La mente es el arma más poderosa."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon Psíquicos leerán cada uno de tus movimientos!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 561,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 199,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 579,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 282,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 10037,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "kalos_gym_8",
+    "scene_name": "Octavo Gimnasio de Kalos",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Édel",
+        "sprite": "lideres/Generation6_Kalos_lider8_ice_Edel.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Édel, Líder del último Gimnasio de Kalos."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡El hielo de mis Pokémon es tan hermoso como letal!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 712,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 361,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 131,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 10060,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 713,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "alola_gym_1",
+    "scene_name": "Primer Gimnasio de Alola",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Liam",
+        "sprite": "lideres/Generation7_Alola_lider1_normal_Liam.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Liam. Lo ordinario también tiene su valor."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Bienvenido a mi prueba insular!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 235,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 133,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 52,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 735,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "alola_gym_2",
+    "scene_name": "Segundo Gimnasio de Alola",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Nereida",
+        "sprite": "lideres/Generation7_Alola_lider2_water_Nereida.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Nereida. Fluyo como el agua, imparable y libre."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡El mar de Alola es mi hogar!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 751,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 752,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 746,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 131,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 134,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "alola_gym_3",
+    "scene_name": "Tercer Gimnasio de Alola",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Kiawe",
+        "sprite": "lideres/Generation7_Alola_lider3_fire_Kiawe.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Kiawe. El fuego en mi corazón arde sin cesar."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡El volcán me otorga un poder inmenso!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 105,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 776,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 758,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 59,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "alola_gym_4",
+    "scene_name": "Cuarto Gimnasio de Alola",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Lulu",
+        "sprite": "lideres/Generation7_Alola_lider4_grass_Lulu.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Lulu. Las plantas crecen fuertes con paciencia."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Alola florece con energía natural!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 761,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 762,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 754,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 763,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "alola_gym_5",
+    "scene_name": "Quinto Gimnasio de Alola",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Chris",
+        "sprite": "lideres/Generation7_Alola_lider5_electric_Chris.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Chris. ¡La electricidad corre por mis venas!"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mi energía eléctrica es imparable!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 737,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 777,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 738,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 26,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 135,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "alola_gym_6",
+    "scene_name": "Sexto Gimnasio de Alola",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Zerala",
+        "sprite": "lideres/Generation7_Alola_lider6_ghost_Zerala.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Zerala. Las sombras son mi dominio."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon emergen desde el más allá!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 770,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 781,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 429,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 94,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 778,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "alola_gym_7",
+    "scene_name": "Séptimo Gimnasio de Alola",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Rika",
+        "sprite": "lideres/Generation7_Alola_lider7_fairy_Rika.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Rika. La magia y la gracia son mi fortaleza."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡La gracia de Alola es mi mayor fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 764,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 743,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 707,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 468,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 700,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "alola_gym_8",
+    "scene_name": "Octavo Gimnasio de Alola",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Lario",
+        "sprite": "lideres/Generation7_Alola_lider8_steel_Lario.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Lario. El acero no cede jamás."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡El acero de Alola no tiene rival!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 375,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 376,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 462,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 476,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 681,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "galar_gym_1",
+    "scene_name": "Primer Gimnasio de Galar",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Percy",
+        "sprite": "lideres/Generation8_Galar_lider1_grass_Percy.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡Oi! Soy Percy, Líder en Galar."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Planta están listos para la batalla!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 829,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 830,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 420,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 840,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "galar_gym_2",
+    "scene_name": "Segundo Gimnasio de Galar",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Alistair",
+        "sprite": "lideres/Generation8_Galar_lider2_ghost_Alistair.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Alistair. Las sombras son mi dominio."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon Fantasma te acecharán desde la oscuridad!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 562,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 222,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 93,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 855,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 94,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "galar_gym_3",
+    "scene_name": "Tercer Gimnasio de Galar",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Judith",
+        "sprite": "lideres/Generation8_Galar_lider3_fighting_Judith.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Judith. El espíritu de lucha es lo que importa."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡La lucha es todo para mí!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 66,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 675,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 865,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 68,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "galar_gym_4",
+    "scene_name": "Cuarto Gimnasio de Galar",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Naboru",
+        "sprite": "lideres/Generation8_Galar_lider4_fire_Naboru.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Naboru. El fuego en mi corazón arde sin cesar."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Las llamas de Galar arden con intensidad!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 37,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 38,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 59,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 229,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 851,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "galar_gym_5",
+    "scene_name": "Quinto Gimnasio de Galar",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Nerio",
+        "sprite": "lideres/Generation8_Galar_lider5_dark_Nerio.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Nerio. La oscuridad tiene sus propias reglas."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡La oscuridad de Galar no tiene límites!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 215,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 510,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 560,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 625,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 861,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "galar_gym_6",
+    "scene_name": "Sexto Gimnasio de Galar",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Morris",
+        "sprite": "lideres/Generation8_Galar_lider6_rock_Morris.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Morris. Las rocas son eternas, como mi determinación."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Las rocas de Galar son tan duras como mi voluntad!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 744,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 689,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 874,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 526,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 839,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "galar_gym_7",
+    "scene_name": "Séptimo Gimnasio de Galar",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Mel",
+        "sprite": "lideres/Generation8_Galar_lider7_ice_Mel.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Mel. El frío de las alturas me da claridad."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡El hielo de Galar es el más puro del mundo!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 872,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 873,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 131,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 875,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 471,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "galar_gym_8",
+    "scene_name": "Octavo Gimnasio de Galar",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Roy",
+        "sprite": "lideres/Generation8_Galar_lider8_dragon_Roy.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Roy. El dragón representa el poder supremo."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡El tipo Dragón es el símbolo del verdadero poder!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 776,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 330,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 612,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 884,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 887,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "paldea_gym_1",
+    "scene_name": "Primer Gimnasio de Paldea",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Araceli",
+        "sprite": "lideres/Generation9_Paldea_lider1_bug_Araceli.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Araceli. Los insectos son más fuertes de lo que parecen."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Los insectos de Paldea son mis mejores aliados!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 15,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 212,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 214,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 738,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "paldea_gym_2",
+    "scene_name": "Segundo Gimnasio de Paldea",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Brais",
+        "sprite": "lideres/Generation9_Paldea_lider2_grass_Brais.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Brais. Las plantas crecen fuertes con paciencia."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Las plantas de Paldea me dan fuerza!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 763,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 407,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 754,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 470,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 673,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "paldea_gym_3",
+    "scene_name": "Tercer Gimnasio de Paldea",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "E-Nigma",
+        "sprite": "lideres/Generation9_Paldea_lider3_electric_ENigma.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy E-Nigma. ¿Puedes descifrar mi poder?"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon eléctricos son un enigma para todos!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 135,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 596,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 479,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 405,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 695,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "paldea_gym_4",
+    "scene_name": "Cuarto Gimnasio de Paldea",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Fuco",
+        "sprite": "lideres/Generation9_Paldea_lider4_water_Fuco.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Fuco. Fluyo como el agua, imparable y libre."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Las aguas de Paldea son indomables!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 134,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 130,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 752,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 693,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 350,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "paldea_gym_5",
+    "scene_name": "Quinto Gimnasio de Paldea",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Laureano",
+        "sprite": "lideres/Generation9_Paldea_lider5_normal_Laureano.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Laureano. Lo ordinario puede ser extraordinario."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon de tipo Normal te demostrarán su valía!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 143,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 242,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 573,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 289,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 474,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "paldea_gym_6",
+    "scene_name": "Sexto Gimnasio de Paldea",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Lima",
+        "sprite": "lideres/Generation9_Paldea_lider6_ghost_Lima.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Lima. Las sombras son mi dominio."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Los espíritus de Paldea responden a mi llamado!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 94,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 609,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 778,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 563,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 781,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "paldea_gym_7",
+    "scene_name": "Séptimo Gimnasio de Paldea",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Tuli",
+        "sprite": "lideres/Generation9_Paldea_lider7_psychic_Tuli.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Tuli. La mente es el arma más poderosa."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡La mente de Paldea no tiene fronteras!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 282,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 475,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 196,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 65,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 579,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "paldea_gym_8",
+    "scene_name": "Octavo Gimnasio de Paldea",
+    "category": "gym",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Grusha",
+        "sprite": "lideres/Generation9_Paldea_lider8_ice_Grusha.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Grusha. El hielo de Paldea es mi mundo."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Mis Pokémon te envolverán en un frío eterno!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 461,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 471,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 473,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 873,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 615,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          }
+        ],
+        "on_win": "dialog_end_2",
+        "on_lose": null
+      },
+      "dialog_end_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "He perdido, ¡bien hecho!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 1500
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 3
+          }
+        ],
+        "next": null
+      }
+    }
+  }
+]

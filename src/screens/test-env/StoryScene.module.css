@@ -190,6 +190,13 @@
   margin-left: 12px;
 }
 
+.exchangeDetail {
+  font-size: 11px;
+  color: #88aaff;
+  margin-left: 10px;
+  font-style: italic;
+}
+
 /* ── Replace overlay ── */
 .replaceOverlay {
   position: absolute;

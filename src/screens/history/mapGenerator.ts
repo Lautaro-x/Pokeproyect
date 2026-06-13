@@ -1,5 +1,5 @@
 import trainersData from '../../assets/trainers.json'
-import type { SceneData } from '../test-env/StoryScene'
+import type { SceneData } from '../../game/utils/sceneTypes'
 
 export type NodeType = 'start' | 'wild' | 'wild_plus_mt' | 'trainer' | 'boss' | 'final-boss' | 'pokemon-center' | 'shop' | 'random' | 'story'
 

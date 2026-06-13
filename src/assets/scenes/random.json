@@ -1,0 +1,1112 @@
+[
+  {
+    "scene_id": "random_event_1",
+    "scene_name": "Venta ilegal de Pokémon shiny",
+    "category": "random",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Persona poco sospechoza",
+        "sprite": "otros/ilegal_shop.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Meoh... ejem... Un vendedor honesto que se ha encontrado este ejemplar de aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No es muy fuerte pero tiene un brillo especial!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Por solo 1000 pokedollars puede ser tuyo. Meoh ejem ejem"
+          }
+        ],
+        "next": "options_1"
+      },
+      "options_1": {
+        "type": "options",
+        "options": [
+          {
+            "text": "¡Trato hecho!",
+            "next": "dialog_yes_2",
+            "condition": {
+              "pokedollars": 1000
+            }
+          },
+          {
+            "text": "No, gracias.",
+            "next": "dialog_no_4"
+          }
+        ]
+      },
+      "dialog_yes_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Perfecto, aqui tienes."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": -1000
+          },
+          {
+            "type": "pokemon",
+            "id": "random",
+            "generation": "actual",
+            "is_shiny": true,
+            "is_legendary": false,
+            "is_mythical": false
+          }
+        ],
+        "next": null
+      },
+      "dialog_no_4": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Bueno, no se lo que haré con el entonces... ¡Hasta luego!"
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "random_event_2",
+    "scene_name": "Venta ilegal de Pokémon no regional",
+    "category": "random",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Persona poco sospechoza",
+        "sprite": "otros/ilegal_shop.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Meoh... ejem... Un vendedor honesto que se ha encontrado este ejemplar de aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No es muy fuerte pero no es muy común por estos lares!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Por solo 1000 pokedollars puede ser tuyo. Meoh ejem ejem"
+          }
+        ],
+        "next": "options_1"
+      },
+      "options_1": {
+        "type": "options",
+        "options": [
+          {
+            "text": "¡Trato hecho!",
+            "next": "dialog_yes_2",
+            "condition": {
+              "pokedollars": 1000
+            }
+          },
+          {
+            "text": "No, gracias.",
+            "next": "dialog_no_4"
+          }
+        ]
+      },
+      "dialog_yes_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Perfecto, aqui tienes."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": -1000
+          },
+          {
+            "type": "pokemon",
+            "id": "random",
+            "generation": "not_actual",
+            "is_shiny": false,
+            "is_legendary": false,
+            "is_mythical": false
+          }
+        ],
+        "next": null
+      },
+      "dialog_no_4": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Bueno, no se lo que haré con el entonces... ¡Hasta luego!"
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "random_event_3",
+    "scene_name": "Venta ilegal de Pokémon legendario",
+    "category": "random",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Persona poco sospechoza",
+        "sprite": "otros/ilegal_shop.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Meoh... ejem... Un vendedor honesto que se ha encontrado este ejemplar de aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Es muy fuerte y me está costando demasido controlarlo!"
+          },
+          {
+            "actor_id": 1,
+            "text": "Pero tampoco puedo regalartelo... ¿qué te parece 3000 pokedollars por el?"
+          }
+        ],
+        "next": "options_1"
+      },
+      "options_1": {
+        "type": "options",
+        "options": [
+          {
+            "text": "¡Trato hecho!",
+            "next": "dialog_yes_2",
+            "condition": {
+              "pokedollars": 3000
+            }
+          },
+          {
+            "text": "No, gracias.",
+            "next": "dialog_no_4"
+          }
+        ]
+      },
+      "dialog_yes_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Perfecto, aqui tienes."
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": -3000
+          },
+          {
+            "type": "pokemon",
+            "id": "random",
+            "generation": "actual",
+            "is_shiny": false,
+            "is_legendary": true,
+            "is_mythical": true
+          }
+        ],
+        "next": null
+      },
+      "dialog_no_4": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Bueno, no se lo que haré con el entonces... ¡Hasta luego!"
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "random_event_4",
+    "scene_name": "Venta ilegal de objeto raro",
+    "category": "random",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Persona poco sospechoza",
+        "sprite": "otros/ilegal_shop.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Meoh... ejem... Un vendedor honesto que se ha \"encontrado\" este objeto de aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Es un objeto muy raro, de coleccionista!"
+          },
+          {
+            "actor_id": 1,
+            "text": "No se que hace realmente, pero seguro que te interesa. Te lo dejo a 1000 pokedollars."
+          }
+        ],
+        "next": "options_1"
+      },
+      "options_1": {
+        "type": "options",
+        "options": [
+          {
+            "text": "¡Trato hecho!",
+            "next": "dialog_yes_2",
+            "condition": {
+              "pokedollars": 1000
+            }
+          },
+          {
+            "text": "No, gracias.",
+            "next": "dialog_no_4"
+          }
+        ]
+      },
+      "dialog_yes_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Perfecto, aqui tienes. Una piedrita mega interesante, todita para ti ^.^"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": -1000
+          },
+          {
+            "type": "item",
+            "item_id": "charizardite-x",
+            "quantity": 1
+          }
+        ],
+        "next": null
+      },
+      "dialog_no_4": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Bueno, tendre que encontrar otro pardi... cliente ¡Hasta luego!"
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "random_event_5",
+    "scene_name": "Venta ilegal de objeto raro",
+    "category": "random",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Persona poco sospechoza",
+        "sprite": "otros/ilegal_shop.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Meoh... ejem... Un vendedor honesto que se ha \"encontrado\" este objeto de aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Es un objeto muy raro, de coleccionista!"
+          },
+          {
+            "actor_id": 1,
+            "text": "No se que hace realmente, pero seguro que te interesa. Te lo dejo a 1000 pokedollars."
+          }
+        ],
+        "next": "options_1"
+      },
+      "options_1": {
+        "type": "options",
+        "options": [
+          {
+            "text": "¡Trato hecho!",
+            "next": "dialog_yes_2",
+            "condition": {
+              "pokedollars": 1000
+            }
+          },
+          {
+            "text": "No, gracias.",
+            "next": "dialog_no_4"
+          }
+        ]
+      },
+      "dialog_yes_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Perfecto, aqui tienes. Una botellita que algo curará imagino, todita para ti ^.^"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": -1000
+          },
+          {
+            "type": "item",
+            "item_id": "potion",
+            "quantity": 1
+          }
+        ],
+        "next": null
+      },
+      "dialog_no_4": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Bueno, tendre que encontrar otro pardi... cliente ¡Hasta luego!"
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "random_event_6",
+    "scene_name": "Venta ilegal de objeto raro",
+    "category": "random",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Persona poco sospechoza",
+        "sprite": "otros/ilegal_shop.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Meoh... ejem... Un vendedor honesto que se ha \"encontrado\" este objeto de aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Es un objeto muy raro, de coleccionista!"
+          },
+          {
+            "actor_id": 1,
+            "text": "No se que hace realmente, pero seguro que te interesa. Te lo dejo a 1000 pokedollars."
+          }
+        ],
+        "next": "options_1"
+      },
+      "options_1": {
+        "type": "options",
+        "options": [
+          {
+            "text": "¡Trato hecho!",
+            "next": "dialog_yes_2",
+            "condition": {
+              "pokedollars": 1000
+            }
+          },
+          {
+            "text": "No, gracias.",
+            "next": "dialog_no_4"
+          }
+        ]
+      },
+      "dialog_yes_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Perfecto, aqui tienes. Una piedra blanca, todita para ti ^.^"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": -1000
+          },
+          {
+            "type": "item",
+            "item_id": "lucky-egg",
+            "quantity": 1
+          }
+        ],
+        "next": null
+      },
+      "dialog_no_4": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Bueno, tendre que encontrar otro pardi... cliente ¡Hasta luego!"
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "random_event_7",
+    "scene_name": "Venta ilegal de objeto raro",
+    "category": "random",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Persona poco sospechoza",
+        "sprite": "otros/ilegal_shop.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Meoh... ejem... Un vendedor honesto que se ha \"encontrado\" este objeto de aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Es un objeto muy raro, de coleccionista!"
+          },
+          {
+            "actor_id": 1,
+            "text": "No se que hace realmente, pero seguro que te interesa. Te lo dejo a 1000 pokedollars."
+          }
+        ],
+        "next": "options_1"
+      },
+      "options_1": {
+        "type": "options",
+        "options": [
+          {
+            "text": "¡Trato hecho!",
+            "next": "dialog_yes_2",
+            "condition": {
+              "pokedollars": 1000
+            }
+          },
+          {
+            "text": "No, gracias.",
+            "next": "dialog_no_4"
+          }
+        ]
+      },
+      "dialog_yes_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Pefecto, emm... creo que lo he perdido."
+          },
+          {
+            "actor_id": 1,
+            "text": "emm... bueno... ¿cosas que pasan no?"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Lo siento mucho! Pero no puedo darte nada ahora... ¡Hasta luego!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": -1000
+          }
+        ],
+        "next": null
+      },
+      "dialog_no_4": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Bueno, tendre que encontrar otro pardi... cliente ¡Hasta luego!"
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "random_event_8",
+    "scene_name": "Venta ilegal de objeto raro",
+    "category": "random",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Persona poco sospechoza",
+        "sprite": "otros/ilegal_shop.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Soy Meoh... ejem... Un vendedor honesto que se ha \"encontrado\" este objeto de aquí."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Es un objeto muy raro, de coleccionista!"
+          },
+          {
+            "actor_id": 1,
+            "text": "No se que hace realmente, pero seguro que te interesa. Te lo dejo a 1000 pokedollars."
+          }
+        ],
+        "next": "options_1"
+      },
+      "options_1": {
+        "type": "options",
+        "options": [
+          {
+            "text": "¡Trato hecho!",
+            "next": "dialog_yes_2",
+            "condition": {
+              "pokedollars": 1000
+            }
+          },
+          {
+            "text": "No, gracias.",
+            "next": "dialog_no_4"
+          }
+        ]
+      },
+      "dialog_yes_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Pefecto, emm... creo que lo he perdido."
+          },
+          {
+            "actor_id": 1,
+            "text": "emm... bueno... ¿cosas que pasan no?"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Lo siento mucho! No te enfades te daré algo igualmente"
+          },
+          {
+            "actor_id": 1,
+            "text": "Como eres un buen niño, te daré estos caramelitos"
+          },
+          {
+            "actor_id": 1,
+            "text": "¡No hace falta que me lo agradezcas! ... priga... ejem ¡hasta la próxima!"
+          }
+        ],
+        "next": "gift_3"
+      },
+      "gift_3": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": -1000
+          },
+          {
+            "type": "item",
+            "item_id": "rare-candy",
+            "quantity": 5
+          }
+        ],
+        "next": null
+      },
+      "dialog_no_4": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Bueno, tendre que encontrar otro pardi... cliente ¡Hasta luego!"
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "random_event_9",
+    "scene_name": "Smeargle artista",
+    "category": "random",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Smeargle",
+        "sprite": "otros/smeargle.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Hay un smeargle mirandote fijamente a uno de tus pokémons."
+          },
+          {
+            "actor_id": 1,
+            "text": "Es un poco incómodo la verdad."
+          },
+          {
+            "actor_id": 1,
+            "text": "¡Qué raro!"
+          }
+        ],
+        "next": "gift_1"
+      },
+      "gift_1": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "effect",
+            "effect": "random_pokemon_become_shiny"
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "random_event_10",
+    "scene_name": "Intercambio beneficioso",
+    "category": "random",
+    "actors": [
+      {
+        "id": 0,
+        "name": "Entrenadora",
+        "sprite": "otros/fem_trainer.png"
+      }
+    ],
+    "team_random_count": 1,
+    "pokemon_pool": [],
+    "start": "combat",
+    "nodes": {
+      "combat": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": "random",
+            "item": null,
+            "is_shiny": false,
+            "level": 0,
+            "generation": "actual"
+          },
+          {
+            "id": "random",
+            "item": null,
+            "is_shiny": false,
+            "level": 0,
+            "generation": "actual"
+          },
+          {
+            "id": "random",
+            "item": null,
+            "is_shiny": false,
+            "level": 0,
+            "generation": "actual"
+          },
+          {
+            "id": "random",
+            "item": null,
+            "is_shiny": false,
+            "level": 0,
+            "generation": "actual"
+          },
+          {
+            "id": "random",
+            "item": null,
+            "is_shiny": false,
+            "level": 0,
+            "generation": "actual"
+          },
+          {
+            "id": "random",
+            "item": null,
+            "is_shiny": false,
+            "level": 0,
+            "generation": "actual"
+          }
+        ],
+        "on_win": "dialog_offer",
+        "on_lose": null
+      },
+      "dialog_offer": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 0,
+            "text": "¡Ala! Tienes un Pokémon muy chulo. Yo también tengo Pokémon interesantes... ¿te apetecería hacer un intercambio?"
+          }
+        ],
+        "next": "exchange_main"
+      },
+      "exchange_main": {
+        "type": "exchange",
+        "offers": [
+          {
+            "label": "Intercambiar",
+            "give": "team_random_0",
+            "receive": "pool_0",
+            "next": "dialog_accept"
+          },
+          {
+            "label": "Intercambiar",
+            "give": "team_random_0",
+            "receive": "pool_1",
+            "next": "dialog_accept"
+          },
+          {
+            "label": "Intercambiar",
+            "give": "team_random_0",
+            "receive": "pool_2",
+            "next": "dialog_accept"
+          },
+          {
+            "label": "Intercambiar",
+            "give": "team_random_0",
+            "receive": "pool_3",
+            "next": "dialog_accept"
+          },
+          {
+            "label": "Intercambiar",
+            "give": "team_random_0",
+            "receive": "pool_4",
+            "next": "dialog_accept"
+          },
+          {
+            "label": "Intercambiar",
+            "give": "team_random_0",
+            "receive": "pool_5",
+            "next": "dialog_accept"
+          },
+          {
+            "label": "No, gracias.",
+            "give": "team_random_0",
+            "receive": null,
+            "next": "dialog_decline"
+          }
+        ]
+      },
+      "dialog_accept": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 0,
+            "text": "¡Genial! Espero que le des una buena vida. ¡Yo también cuidaré mucho de mi nuevo amigo!"
+          }
+        ],
+        "next": null
+      },
+      "dialog_decline": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 0,
+            "text": "No pasa nada, ¡fue un buen combate de todas formas!"
+          }
+        ],
+        "next": null
+      }
+    },
+    "pool_from_combat": "combat"
+  },
+  {
+    "scene_id": "random_event_11",
+    "scene_name": "Metamorfosis extraña",
+    "category": "random",
+    "actors": [
+      {
+        "id": "1",
+        "name": "Cientifico",
+        "sprite": "otros/cientifico_loco.png"
+      }
+    ],
+    "start": "n0",
+    "nodes": {
+      "n0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "Hola! Disculpa, te he estado analizando... y mis notas indican que eres la persona perfecta para un experimento!"
+          },
+          {
+            "actor_id": "1",
+            "text": "Con eee eee... eeesta máquina milagrosa que he inventado yo (patente en curso) puedo eee eee... hacerle una metamorfosis integral avanzada cuántica espectacular a un Pokémon!"
+          },
+          {
+            "actor_id": "1",
+            "text": "¿Estás interesado?"
+          }
+        ],
+        "next": "n1"
+      },
+      "n1": {
+        "type": "options",
+        "options": [
+          {
+            "text": "¿Qué?",
+            "next": "n2"
+          },
+          {
+            "text": "¿Cómo funciona eso?",
+            "next": "n2"
+          },
+          {
+            "text": "SIIIII !!!!",
+            "next": "n4"
+          },
+          {
+            "text": "No, gracias (alejarse lentamente sin quitarle la mirada al chiflado este)",
+            "next": null
+          }
+        ]
+      },
+      "n2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "Bueno, con esta maquina quántica de electrolitos genera una onda macrosintética queee ... eee... altera la entropía del Pokémon a nivel molecular."
+          },
+          {
+            "actor_id": "1",
+            "text": "Gracias a este proceso, si ajustamos bien los parámetros, podemos generar un macroplano eee...eeespaciotemporal continuo transversal a nuestro plano existencial..."
+          },
+          {
+            "actor_id": "1",
+            "text": "Y por lo tanto eee...eee... sacando al Pokémon de su estado de superposición electro dimensional podríamos mitificar su morfosintaxis... especulativamente claro."
+          },
+          {
+            "actor_id": "1",
+            "text": "¿No es magnifico? podríamos hacer que tu Pokémon se transforme en un Pokémon legendario!... aunque es poco probable..."
+          }
+        ],
+        "next": "n3"
+      },
+      "n3": {
+        "type": "options",
+        "options": [
+          {
+            "text": "Vale, hagámoslo!",
+            "next": "n4"
+          },
+          {
+            "text": "Disculpe, ¿puede alejarse de mi?",
+            "next": null
+          }
+        ]
+      },
+      "n4": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "De acuerdo, ¿Qué Pokémon quieres alterar?"
+          }
+        ],
+        "next": "n5"
+      },
+      "n5": {
+        "type": "exchange",
+        "offers": [
+          {
+            "label": "Este",
+            "give": "team_random_0",
+            "receive": "pool_random",
+            "next": "n6",
+            "hide_receive": true
+          },
+          {
+            "label": "Este",
+            "give": "team_random_1",
+            "receive": "pool_random",
+            "next": "n6",
+            "hide_receive": true
+          },
+          {
+            "label": "Este",
+            "give": "team_random_2",
+            "receive": "pool_random",
+            "next": "n6",
+            "hide_receive": true
+          },
+          {
+            "label": "Este",
+            "give": "team_random_3",
+            "receive": "pool_random",
+            "next": "n6",
+            "hide_receive": true
+          },
+          {
+            "label": "Este",
+            "give": "team_random_4",
+            "receive": "pool_random",
+            "next": "n6",
+            "hide_receive": true
+          },
+          {
+            "label": "Este",
+            "give": "team_random_5",
+            "receive": "pool_random",
+            "next": "n6",
+            "hide_receive": true
+          },
+          {
+            "label": "He cambiado de idea, mejor no",
+            "give": null,
+            "receive": null,
+            "next": null,
+            "hide_receive": false
+          }
+        ]
+      },
+      "n6": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "¿Ha funcionado? eeee... claro que ha funcionado! Te seguiré analizando desde la distancia!"
+          },
+          {
+            "actor_id": "1",
+            "text": "Si el Pokémon comienza a derretirse... eee... eee... bueno, da igual. Suerte!"
+          }
+        ],
+        "next": null
+      }
+    },
+    "pokemon_pool": [
+      {
+        "id": "random",
+        "item": null,
+        "is_shiny": true,
+        "level": 0,
+        "is_mythical": true,
+        "is_legendary": true,
+        "generation": "actual"
+      },
+      {
+        "id": "random",
+        "item": null,
+        "is_shiny": false,
+        "level": 0,
+        "generation": "actual",
+        "is_legendary": true,
+        "is_mythical": true
+      },
+      {
+        "id": "random",
+        "item": null,
+        "is_shiny": true,
+        "level": 0,
+        "generation": "actual",
+        "is_legendary": false,
+        "is_mythical": false
+      },
+      {
+        "id": "random",
+        "item": null,
+        "is_shiny": false,
+        "level": 0,
+        "generation": "actual",
+        "is_mythical": false,
+        "is_legendary": false
+      },
+      {
+        "id": "random",
+        "item": null,
+        "is_shiny": true,
+        "level": 0,
+        "is_mythical": false,
+        "is_legendary": false,
+        "generation": "not_actual"
+      },
+      {
+        "id": "random",
+        "item": null,
+        "is_shiny": false,
+        "level": 0,
+        "is_mythical": false,
+        "is_legendary": false,
+        "generation": "not_actual"
+      }
+    ]
+  }
+]
