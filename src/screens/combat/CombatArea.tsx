@@ -426,7 +426,7 @@ export function CombatArea({
                     ref={el => { playerFlashRefs.current[slotIdx] = el }}
                     className={styles.combatSpriteWrap}
                   >
-                    {player && <PokemonSprite id={player.data.id} shiny={player.shiny} className={styles.combatSprite} style={getSpriteStyle(player.data, true)} />}
+                    {player && <PokemonSprite id={player.data.id} shiny={player.shiny} shinyFill className={styles.combatSprite} style={getSpriteStyle(player.data, true)} />}
                     <div ref={el => { playerProcRefs.current[slotIdx] = el }} className={styles.procLabel} />
                     <div ref={el => { playerCritRefs.current[slotIdx] = el }} className={styles.critLabel}>
                       <svg viewBox="0 0 90 22" width="90" height="22"><text x="45" y="16" textAnchor="middle" fontSize="14" fontWeight="900" fontFamily="Arial Black,Impact,sans-serif" fill="#e63946" stroke="#ffd700" strokeWidth="2.5" paintOrder="stroke">¡CRÍTICO!</text></svg>
@@ -506,7 +506,7 @@ export function CombatArea({
                     ref={el => { enemyFlashRefs.current[slotIdx] = el }}
                     className={styles.combatEnemySpriteWrap}
                   >
-                    {enemy && <PokemonSprite id={enemy.data.id} shiny={enemy.shiny} className={styles.combatEnemySprite} style={getSpriteStyle(enemy.data, false)} />}
+                    {enemy && <PokemonSprite id={enemy.data.id} shiny={enemy.shiny} shinyFill className={styles.combatEnemySprite} style={getSpriteStyle(enemy.data, false)} />}
                     <div ref={el => { enemyProcRefs.current[slotIdx] = el }} className={styles.procLabel} />
                     <div ref={el => { enemyCritRefs.current[slotIdx] = el }} className={styles.critLabel}>
                       <svg viewBox="0 0 90 22" width="90" height="22"><text x="45" y="16" textAnchor="middle" fontSize="14" fontWeight="900" fontFamily="Arial Black,Impact,sans-serif" fill="#e63946" stroke="#ffd700" strokeWidth="2.5" paintOrder="stroke">¡CRÍTICO!</text></svg>

@@ -3,7 +3,7 @@ import { useGame } from '../context/GameContext'
 import { officialArtwork } from '../game/utils/spriteUrl'
 
 export function TeamFullModal() {
-  const { playerTeam, pendingAddPokemon, confirmReplace } = useGame()
+  const { playerTeam, pendingAddPokemon, confirmReplace, cancelAddPokemon } = useGame()
   if (!pendingAddPokemon) return null
 
   return (
@@ -21,6 +21,9 @@ export function TeamFullModal() {
           </button>
         ))}
       </div>
+      <button className={styles.keepBtn} onClick={cancelAddPokemon}>
+        Mantener el equipo actual
+      </button>
     </div>
   )
 }

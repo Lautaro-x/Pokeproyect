@@ -417,7 +417,7 @@
           },
           {
             "actor_id": 1,
-            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+            "text": "¡Demuéstrame lo que hay en tu mente!"
           }
         ],
         "next": "combat_1"
@@ -426,7 +426,7 @@
         "type": "combat",
         "pokemons": [
           {
-            "id": 178,
+            "id": 437,
             "item": null,
             "is_shiny": false,
             "level": 2
@@ -454,6 +454,12 @@
             "item": null,
             "is_shiny": false,
             "level": 2
+          },
+          {
+            "id": 282,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
           }
         ],
         "on_win": "dialog_end_2",
@@ -468,7 +474,7 @@
           },
           {
             "actor_id": 1,
-            "text": "Sigue adelante. El Campeón te espera."
+            "text": "Puedes continuar tu camino."
           }
         ],
         "next": "gift_3"
@@ -512,7 +518,7 @@
           },
           {
             "actor_id": 1,
-            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+            "text": "¿Que tan resistente eres?"
           }
         ],
         "next": "combat_1"
@@ -549,6 +555,12 @@
             "item": null,
             "is_shiny": false,
             "level": 2
+          },
+          {
+            "id": 435,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
           }
         ],
         "on_win": "dialog_end_2",
@@ -559,11 +571,11 @@
         "lines": [
           {
             "actor_id": 1,
-            "text": "Impresionante... pocos consiguen superarme."
+            "text": "Buen ejercicio."
           },
           {
             "actor_id": 1,
-            "text": "Sigue adelante. El Campeón te espera."
+            "text": "Sigue adelante. Creo que tienes opciones con el campeón!"
           }
         ],
         "next": "gift_3"
@@ -603,11 +615,11 @@
         "lines": [
           {
             "actor_id": 1,
-            "text": "Soy Bruno, miembro del Alto Mando de Johto. La verdadera fuerza se forja en la batalla."
+            "text": "Que tal otra vez! Si aqui también soy un alto mando, no tantos superan la liga en Johto, por eso puedo viajar entre regiones con comodidad."
           },
           {
             "actor_id": 1,
-            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+            "text": "He subido un poco el nivel desde la última vez, no me desepciones."
           }
         ],
         "next": "combat_1"
@@ -644,6 +656,12 @@
             "item": null,
             "is_shiny": false,
             "level": 2
+          },
+          {
+            "id": 208,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
           }
         ],
         "on_win": "dialog_end_2",
@@ -654,11 +672,11 @@
         "lines": [
           {
             "actor_id": 1,
-            "text": "Impresionante... pocos consiguen superarme."
+            "text": "Impresionante..."
           },
           {
             "actor_id": 1,
-            "text": "Sigue adelante. El Campeón te espera."
+            "text": "Enhorabuena... ten cuidado con la siguiente, es de armas tomar!"
           }
         ],
         "next": "gift_3"
@@ -698,11 +716,11 @@
         "lines": [
           {
             "actor_id": 1,
-            "text": "Soy Karen, miembro del Alto Mando de Johto. La oscuridad tiene su propia belleza."
+            "text": "Soy Karen, miembro del Alto Mando de Johto."
           },
           {
             "actor_id": 1,
-            "text": "¡No llegaste hasta aquí para rendirte! ¡Demuestra tu fuerza!"
+            "text": "¡Nadie llega hasta aquí siendo débil, no te tomaré a la ligera!"
           }
         ],
         "next": "combat_1"
@@ -739,6 +757,12 @@
             "item": null,
             "is_shiny": false,
             "level": 2
+          },
+          {
+            "id": 45,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
           }
         ],
         "on_win": "dialog_end_2",
@@ -753,7 +777,7 @@
           },
           {
             "actor_id": 1,
-            "text": "Sigue adelante. El Campeón te espera."
+            "text": "Campeón te espera."
           }
         ],
         "next": "gift_3"
@@ -797,7 +821,7 @@
           },
           {
             "actor_id": 1,
-            "text": "¡Voy a darte la batalla más dura de tu vida!"
+            "text": "No tengo intención de cederte el trono, así que prepárate!"
           }
         ],
         "next": "combat_1"
@@ -809,22 +833,22 @@
             "id": 18,
             "item": null,
             "is_shiny": false,
-            "level": 2
+            "level": 4
           },
           {
             "id": 65,
             "item": null,
             "is_shiny": false,
-            "level": 2
+            "level": 4
           },
           {
             "id": 112,
             "item": null,
-            "is_shiny": false,
-            "level": 2
+            "is_shiny": true,
+            "level": 4
           },
           {
-            "id": 130,
+            "id": 10041,
             "item": null,
             "is_shiny": false,
             "level": 2
@@ -833,13 +857,13 @@
             "id": 59,
             "item": null,
             "is_shiny": false,
-            "level": 2
+            "level": 4
           },
           {
             "id": 103,
             "item": null,
             "is_shiny": false,
-            "level": 2
+            "level": 4
           }
         ],
         "on_win": "dialog_end_2",

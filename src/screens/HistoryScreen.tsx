@@ -162,6 +162,7 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
   const [finalBossScenes,  setFinalBossScenes]  = useState<SceneData[]>([])
   const [finalBossIdx,     setFinalBossIdx]     = useState(0)
   const [showHallFame,     setShowHallFame]     = useState(false)
+  const [storyEnemyTeam,   setStoryEnemyTeam]   = useState<PokemonInstance[]>([])
   const [newlyUnlocked,    setNewlyUnlocked]    = useState<string[]>([])
   const [oakMessage,    setOakMessage]    = useState<string | null>(null)
 
@@ -240,6 +241,7 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
   // ── Complete node ─────────────────────────────────────────────────────────
   const completeNode = useCallback(() => {
     if (!activeNodeId) return
+    setStoryEnemyTeam([])
     const node = mapData.nodes[activeNodeId]
     const newCompleted = new Set([...completedIds, activeNodeId])
     setCompletedIds(newCompleted)
@@ -374,7 +376,14 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
       setFinalBossIdx(0)
       setView('final-boss')
     } else if (node.type === 'random') {
-      const pool = scenesData.filter(s => s.scene_id.startsWith('random_event_'))
+      const hasPokedollarReq = (s: typeof scenesData[0]) =>
+        Object.values(s.nodes).some(n =>
+          n.type === 'options' && n.options.some(o => o.condition?.pokedollars)
+        )
+      const pool = scenesData.filter(s =>
+        s.scene_id.startsWith('random_event_') &&
+        (mapNumber > 1 || !hasPokedollarReq(s))
+      )
       if (pool.length > 0) {
         setRandomScene(pool[Math.floor(Math.random() * pool.length)])
         setView('random')
@@ -571,10 +580,11 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
               key={bossScene.scene_id + mapNumber}
               scene={bossScene}
               db={DB}
-              baseLevel={wildLevel(mapData.nodes[activeNodeId]?.floor ?? 0, mapNumber)}
+              baseLevel={wildLevel(mapData.nodes[activeNodeId]?.floor ?? 0, mapNumber, region)}
               gen={gen}
               onDone={handleGymWin}
               onLose={handleCombatLose}
+              onEnemyTeamUpdate={setStoryEnemyTeam}
             />
           )}
 
@@ -583,10 +593,11 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
               key={randomScene.scene_id + activeNodeId}
               scene={randomScene}
               db={DB}
-              baseLevel={wildLevel(mapData.nodes[activeNodeId]?.floor ?? 0, mapNumber)}
+              baseLevel={wildLevel(mapData.nodes[activeNodeId]?.floor ?? 0, mapNumber, region)}
               gen={gen}
               onDone={completeNode}
               onLose={handleCombatLose}
+              onEnemyTeamUpdate={setStoryEnemyTeam}
             />
           )}
 
@@ -595,10 +606,11 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
               key={storyScene.scene_id + mapNumber}
               scene={storyScene}
               db={DB}
-              baseLevel={wildLevel(mapData.nodes[activeNodeId]?.floor ?? 0, mapNumber)}
+              baseLevel={wildLevel(mapData.nodes[activeNodeId]?.floor ?? 0, mapNumber, region)}
               gen={gen}
               onDone={handleGymWin}
               onLose={handleCombatLose}
+              onEnemyTeamUpdate={setStoryEnemyTeam}
             />
           )}
 
@@ -607,10 +619,11 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
               key={`final-boss-${finalBossIdx}`}
               scene={finalBossScenes[finalBossIdx]}
               db={DB}
-              baseLevel={wildLevel(mapData.totalFloors - 1, mapNumber)}
+              baseLevel={wildLevel(mapData.totalFloors - 1, mapNumber, region)}
               gen={gen}
               onDone={handleFinalBossSceneWin}
               onLose={handleCombatLose}
+              onEnemyTeamUpdate={setStoryEnemyTeam}
             />
           )}
 
@@ -629,7 +642,7 @@ function HistoryScreenInner({ save }: { save: LoadedSave | null }) {
               playerTeam={view === 'combat'
                 ? combatPlacements.filter((i): i is number => i !== null).map(i => playerTeam[i]).filter(Boolean)
                 : playerTeam}
-              enemyTeam={view === 'combat' ? enemyTeam : []}
+              enemyTeam={view === 'combat' ? enemyTeam : storyEnemyTeam}
             />
           </div>
         </div>

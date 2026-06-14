@@ -45,7 +45,7 @@ export function generateEnemyTeam(
 
   return Array.from({ length: count }, () => {
     const data = pool[Math.floor(Math.random() * pool.length)]
-    const p = new PokemonInstance(data, wildLevel(floor, mapNumber))
+    const p = new PokemonInstance(data, wildLevel(floor, mapNumber, region))
     if (isWild && Math.random() < 0.10) p.shiny = true
     return p
   })

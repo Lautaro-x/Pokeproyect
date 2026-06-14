@@ -2785,8 +2785,8 @@
     "evolutions": [
       {
         "to_name": "annihilape",
-        "level": 0,
-        "trigger": "use-move"
+        "level": 41,
+        "trigger": "level"
       }
     ],
     "sprites": {

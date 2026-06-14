@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback, useEffect } from 'react'
 import styles from './StoryScene.module.css'
 import { CombatArea } from '../combat/CombatArea'
 import { PokemonInstance } from '../../game/entities/PokemonInstance'
@@ -13,13 +13,14 @@ export type { SceneData, Actor, DialogLine }
 export type { ScenePokemon } from '../../game/utils/sceneTypes'
 
 interface Props {
-  scene:          SceneData
-  db:             PokemonData[]
-  baseLevel:      number
-  gen?:           number
-  onDone:         () => void
-  onLose?:        () => void
-  withSynergies?: boolean
+  scene:                SceneData
+  db:                   PokemonData[]
+  baseLevel:            number
+  gen?:                 number
+  onDone:               () => void
+  onLose?:              () => void
+  withSynergies?:       boolean
+  onEnemyTeamUpdate?:   (team: PokemonInstance[]) => void
 }
 
 const REGION_GEN: Record<string, number> = {
@@ -69,7 +70,7 @@ function buildEnemyTeam(node: CombatNode, db: PokemonData[], baseLevel: number, 
     .filter((p): p is PokemonInstance => p !== null)
 }
 
-export function StoryScene({ scene, db, baseLevel, gen, onDone, onLose, withSynergies = true }: Props) {
+export function StoryScene({ scene, db, baseLevel, gen, onDone, onLose, withSynergies = true, onEnemyTeamUpdate }: Props) {
   const { playerTeam, setPlayerTeam, applyGifts, money, registerCatch, addEquipable } = useGame()
 
   const [currentNodeId, setCurrentNodeId] = useState<string | null>(scene.start)
@@ -107,6 +108,10 @@ export function StoryScene({ scene, db, baseLevel, gen, onDone, onLose, withSyne
     if (startNode?.type === 'combat') return buildEnemyTeam(startNode, db, baseLevel, gen)
     return []
   })
+
+  useEffect(() => {
+    onEnemyTeamUpdate?.(combatEnemyTeam)
+  }, [combatEnemyTeam, onEnemyTeamUpdate])
 
   const placedIndices = useMemo(
     () => new Set(placements.filter((p): p is number => p !== null)),

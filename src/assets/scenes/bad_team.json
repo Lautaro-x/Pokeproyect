@@ -369,5 +369,532 @@
         "next": "combat_1"
       }
     }
+  },
+  {
+    "scene_id": "johto_bad_team_1",
+    "scene_name": "Rocket despega de nuevo 1!",
+    "category": "bad_team",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Recluta del Team Rocket",
+        "sprite": "otros/Soldados_Rocket_female.png"
+      },
+      {
+        "id": "2",
+        "name": "Petrel",
+        "sprite": "otros/Petrel.png"
+      },
+      {
+        "id": "3",
+        "name": "Recluta del Team Rocket",
+        "sprite": "otros/Soldados_Rocket_male.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "¡No puede ser! Ejecutivo Petrel! creo que ese es el entrenador que venció a Giovani"
+          },
+          {
+            "actor_id": "2",
+            "text": "¿Estás seguro? No podemos tener contratiempos ahora que estamos verificando el dispositivo de ondas de radio evolutivas!"
+          },
+          {
+            "actor_id": "1",
+            "text": "Si señor... seguro que es él!"
+          },
+          {
+            "actor_id": "2",
+            "text": "Recluta! Avisa a los otros ejecutivos, ¡si este tipo derrotó a Giovani, no lo vamos a subestimar!"
+          },
+          {
+            "actor_id": "3",
+            "text": "!SI SEÑOR!"
+          },
+          {
+            "actor_id": "2",
+            "text": "Tú! Atenta, directos a por él!"
+          }
+        ],
+        "next": "combat_1"
+      },
+      "combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 20,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 53,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 169,
+            "item": null,
+            "is_shiny": true,
+            "level": 1
+          },
+          {
+            "id": 24,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 110,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 108,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          }
+        ],
+        "on_win": "dialog_intro_1",
+        "on_lose": null
+      },
+      "dialog_intro_1": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Petrel, Señor, debemos retirarnos!"
+          },
+          {
+            "actor_id": "3",
+            "text": "Ejecutivo Petrel, debemos huir de inmediato... ese monstruo me persigue!"
+          },
+          {
+            "actor_id": "2",
+            "text": "Te dije que avisaras a...  ¿¡Qué es eso!?"
+          },
+          {
+            "actor_id": "2",
+            "text": "Corred!!"
+          }
+        ],
+        "next": "options"
+      },
+      "options": {
+        "type": "options",
+        "options": [
+          {
+            "text": "¿Qué demonios es esa cosa?",
+            "next": "combat_2"
+          }
+        ]
+      },
+      "combat_2": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 130,
+            "item": null,
+            "is_shiny": true,
+            "level": 10
+          }
+        ],
+        "on_win": "n5",
+        "on_lose": null
+      },
+      "n5": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 596
+          },
+          {
+            "type": "pokemon",
+            "quantity": 0,
+            "id": 130,
+            "is_shiny": true
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_bad_team_2",
+    "scene_name": "Rocket despega de nuevo 2!",
+    "category": "bad_team",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Protón",
+        "sprite": "otros/Protón.png"
+      },
+      {
+        "id": "2",
+        "name": "Atenea",
+        "sprite": "otros/Atenea.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Nos han avisado de tu llegada... te estábamos esperando"
+          },
+          {
+            "actor_id": "2",
+            "text": "Desde que derrotaste a Giovanni, nuestra organización no vale un pimiento... has arruinado incontables vidas!"
+          }
+        ],
+        "next": "opts_1"
+      },
+      "opts_1": {
+        "type": "options",
+        "options": [
+          {
+            "text": "¿Lo siento...?",
+            "next": "dialog_intro_1"
+          },
+          {
+            "text": "Bueno, cosas que pasan, un día eres la banda criminal mas potente de dos regiones y al día siguiente viene un niño que obtuvo su primer Pokémon hace un par de minutos y os humilla... hay que aprender a vivir con estas cosas...",
+            "next": "dialog_intro_1"
+          },
+          {
+            "text": "Aja... ¿Os conozco?",
+            "next": "dialog_intro_1"
+          }
+        ]
+      },
+      "dialog_intro_1": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "2",
+            "text": "¿Nos está vacilando?"
+          },
+          {
+            "actor_id": "1",
+            "text": "Calma Atenea, el equipo Rocket ha permitido que esto pasara por su falta de estilo, disciplina y entrenamiento... es normal que ahora que estamos en horas bajas nos tomen el pelo."
+          },
+          {
+            "actor_id": "2",
+            "text": "Pues yo no pienso permitirlo! A luchar!"
+          }
+        ],
+        "next": "Combat_1"
+      },
+      "Combat_1": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 430,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 24,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 45,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 215,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          }
+        ],
+        "on_win": "dialog_intro_2",
+        "on_lose": null
+      },
+      "dialog_intro_2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "2",
+            "text": "AAAAAAAAAAAAAAAAA!! MALDITO ENANO DEL DEMONIO!"
+          },
+          {
+            "actor_id": "1",
+            "text": "Atenea! cálmate, por otro lado... "
+          },
+          {
+            "actor_id": "1",
+            "text": "Esto no va a quedar así, no dejaré que sigas estropeando nuestros planes... debes... ser aplastado."
+          }
+        ],
+        "next": "Combat_2"
+      },
+      "Combat_2": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 110,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 110,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 110,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 110,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 110,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          }
+        ],
+        "on_win": "n6",
+        "on_lose": null
+      },
+      "n6": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "Ah.... Esto es humillante"
+          }
+        ],
+        "next": "n7"
+      },
+      "n7": {
+        "type": "options",
+        "options": [
+          {
+            "text": "Si",
+            "next": "n8"
+          }
+        ]
+      },
+      "n8": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "2",
+            "text": "Hijo de...! Protón, esto para mi es demasiado... dejo la organización, supongo que me centraré en mi de ahora en adelante. Si encontráis a Giovanni, decidle que no me busque."
+          },
+          {
+            "actor_id": "1",
+            "text": "Supongo que este es el final de una etapa también para mi Atenea... "
+          },
+          {
+            "actor_id": "2",
+            "text": "Puedes acompañarme un tiempo si quieres... pero no intentes convencerme de volver."
+          }
+        ],
+        "next": "gift"
+      },
+      "gift": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "quantity": 3,
+            "item_id": "rare-candy"
+          }
+        ],
+        "next": null
+      }
+    }
+  },
+  {
+    "scene_id": "johto_bad_team_3",
+    "scene_name": "Rocket despega de nuevo 3!",
+    "category": "bad_team",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Atlas",
+        "sprite": "otros/Atlas.png"
+      }
+    ],
+    "start": "dialog_intro_0",
+    "nodes": {
+      "dialog_intro_0": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": 1,
+            "text": "Encantado de conocerte, soy Atlas, jefe en funciones del acabado de desmontar Equipo Rocket."
+          }
+        ],
+        "next": "n1"
+      },
+      "n1": {
+        "type": "options",
+        "options": [
+          {
+            "text": "Al fin un maleante con educación! Igualmente.",
+            "next": "n2"
+          },
+          {
+            "text": "Bla bla bla... al final vamos a acabar en combate, vas a perder y yo seguiré con mi vida... ¿nos ahorramos el circo?",
+            "next": "n3"
+          },
+          {
+            "text": "Hola bro!",
+            "next": "n4"
+          }
+        ]
+      },
+      "n2": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "Bueno, por mi parte no te guardo ningún rencor... de hecho estoy alucinado con el talento mostrado por alguien tan joven."
+          }
+        ],
+        "next": "n5"
+      },
+      "n3": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "Jajaja, veo que el talento indiscutible que has mostrado para el combate no va a la par con la educación."
+          }
+        ],
+        "next": "n5"
+      },
+      "n4": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "Un saludo pueril de manos de quien ha derrotado a nuestro antiguo líder."
+          }
+        ],
+        "next": "n5"
+      },
+      "n5": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "El Equipo Rocket ha sido desmontado y en consecuencia nuestra rivalidad es inexistente."
+          },
+          {
+            "actor_id": "1",
+            "text": "Por otro lado soy cociente de mis antecedentes y entenderás que debo marcharme por la puerta de atrás antes de que la policía se persone."
+          },
+          {
+            "actor_id": "1",
+            "text": "Aún así, la perspectiva de un combate se me antoja tentadora..."
+          }
+        ],
+        "next": "n6"
+      },
+      "n6": {
+        "type": "combat",
+        "pokemons": [
+          {
+            "id": 229,
+            "item": null,
+            "is_shiny": false,
+            "level": 1
+          },
+          {
+            "id": 224,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 101,
+            "item": null,
+            "is_shiny": false,
+            "level": 0
+          },
+          {
+            "id": 42,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 110,
+            "item": null,
+            "is_shiny": false,
+            "level": 1
+          },
+          {
+            "id": 202,
+            "item": null,
+            "is_shiny": true,
+            "level": 0
+          }
+        ],
+        "on_win": "n7",
+        "on_lose": null
+      },
+      "n7": {
+        "type": "dialog",
+        "lines": [
+          {
+            "actor_id": "1",
+            "text": "Impresionante, he de admitir que impresiona ver tanto talento en alguien como tú."
+          },
+          {
+            "actor_id": "1",
+            "text": "No volveremos a vernos... buena suerte."
+          }
+        ],
+        "next": "n8"
+      },
+      "n8": {
+        "type": "gift",
+        "gifts": [
+          {
+            "type": "pokedollars",
+            "quantity": 2000
+          },
+          {
+            "type": "item",
+            "quantity": 3,
+            "item_id": "revive"
+          }
+        ],
+        "next": null
+      }
+    }
   }
 ]

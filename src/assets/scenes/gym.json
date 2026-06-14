@@ -33,13 +33,13 @@
             "id": 74,
             "item": null,
             "is_shiny": false,
-            "level": 2
+            "level": 0
           },
           {
             "id": 95,
             "item": null,
-            "is_shiny": false,
-            "level": 2
+            "is_shiny": true,
+            "level": 0
           }
         ],
         "on_win": "dialog_end_2",
@@ -899,11 +899,11 @@
         "lines": [
           {
             "actor_id": 1,
-            "text": "He perdido, ¡bien hecho!"
+            "text": "Admito la derrota"
           },
           {
             "actor_id": 1,
-            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+            "text": "Espero que este presente facilite tu subida a lo mas alto."
           }
         ],
         "next": "gift_3"
@@ -947,7 +947,7 @@
           },
           {
             "actor_id": 1,
-            "text": "¡No te confíes, lo normal puede sorprenderte!"
+            "text": "¡No te confíes, mis Pokémon no tienen nada de normal!"
           }
         ],
         "next": "combat_1"
@@ -956,7 +956,7 @@
         "type": "combat",
         "pokemons": [
           {
-            "id": 35,
+            "id": 36,
             "item": null,
             "is_shiny": false,
             "level": 2
@@ -978,6 +978,18 @@
             "item": null,
             "is_shiny": false,
             "level": 2
+          },
+          {
+            "id": 40,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 128,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
           }
         ],
         "on_win": "dialog_end_2",
@@ -992,7 +1004,7 @@
           },
           {
             "actor_id": 1,
-            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+            "text": "Sigue adelante con la cabeza bien alta, ten este regalito."
           }
         ],
         "next": "gift_3"
@@ -1045,7 +1057,7 @@
         "type": "combat",
         "pokemons": [
           {
-            "id": 92,
+            "id": 302,
             "item": null,
             "is_shiny": false,
             "level": 2
@@ -1067,6 +1079,18 @@
             "item": null,
             "is_shiny": false,
             "level": 2
+          },
+          {
+            "id": 356,
+            "item": "eviolite",
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 478,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
           }
         ],
         "on_win": "dialog_end_2",
@@ -1077,11 +1101,11 @@
         "lines": [
           {
             "actor_id": 1,
-            "text": "He perdido, ¡bien hecho!"
+            "text": "He perdido"
           },
           {
             "actor_id": 1,
-            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+            "text": "Esto te hará la vida un poco mas fácil."
           }
         ],
         "next": "gift_3"
@@ -1134,7 +1158,7 @@
         "type": "combat",
         "pokemons": [
           {
-            "id": 57,
+            "id": 286,
             "item": null,
             "is_shiny": false,
             "level": 2
@@ -1158,7 +1182,7 @@
             "level": 2
           },
           {
-            "id": 68,
+            "id": 10054,
             "item": null,
             "is_shiny": false,
             "level": 2
@@ -1172,11 +1196,15 @@
         "lines": [
           {
             "actor_id": 1,
-            "text": "He perdido, ¡bien hecho!"
+            "text": "¿Te ha sorprendido mi Medicham?"
           },
           {
             "actor_id": 1,
-            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+            "text": "Tal vez algún día sepas porque es tan fuerte!"
+          },
+          {
+            "actor_id": "1",
+            "text": "Ten, un presente para el futuro campeón! jeje"
           }
         ],
         "next": "gift_3"
@@ -1229,19 +1257,19 @@
         "type": "combat",
         "pokemons": [
           {
-            "id": 81,
+            "id": 462,
             "item": null,
             "is_shiny": false,
             "level": 2
           },
           {
-            "id": 82,
+            "id": 395,
             "item": null,
             "is_shiny": false,
             "level": 2
           },
           {
-            "id": 205,
+            "id": 437,
             "item": null,
             "is_shiny": false,
             "level": 2
@@ -1257,6 +1285,12 @@
             "item": null,
             "is_shiny": false,
             "level": 2
+          },
+          {
+            "id": 376,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
           }
         ],
         "on_win": "dialog_end_2",
@@ -1267,11 +1301,11 @@
         "lines": [
           {
             "actor_id": 1,
-            "text": "He perdido, ¡bien hecho!"
+            "text": "jajajaja! buen combate!"
           },
           {
             "actor_id": 1,
-            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+            "text": "ten, un regalito, no seas duros con tus Pokémon y mímalos eh!"
           }
         ],
         "next": "gift_3"
@@ -1315,7 +1349,7 @@
           },
           {
             "actor_id": 1,
-            "text": "¡Es un placer conocerte!"
+            "text": "Es un placer"
           }
         ],
         "next": "combat_1"
@@ -1324,7 +1358,7 @@
         "type": "combat",
         "pokemons": [
           {
-            "id": 86,
+            "id": 217,
             "item": null,
             "is_shiny": false,
             "level": 2
@@ -1352,6 +1386,12 @@
             "item": null,
             "is_shiny": false,
             "level": 2
+          },
+          {
+            "id": 91,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
           }
         ],
         "on_win": "dialog_end_2",
@@ -1362,11 +1402,11 @@
         "lines": [
           {
             "actor_id": 1,
-            "text": "He perdido, ¡bien hecho!"
+            "text": "He perdido."
           },
           {
             "actor_id": 1,
-            "text": "Esto te será útil en tu aventura. ¡Buena suerte!"
+            "text": "Recoge tu recompensa."
           }
         ],
         "next": "gift_3"
@@ -1419,7 +1459,7 @@
         "type": "combat",
         "pokemons": [
           {
-            "id": 148,
+            "id": 149,
             "item": null,
             "is_shiny": false,
             "level": 2
@@ -1441,6 +1481,18 @@
             "item": null,
             "is_shiny": false,
             "level": 2
+          },
+          {
+            "id": 6,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
+          },
+          {
+            "id": 142,
+            "item": null,
+            "is_shiny": false,
+            "level": 2
           }
         ],
         "on_win": "dialog_end_2",
@@ -1451,7 +1503,7 @@
         "lines": [
           {
             "actor_id": 1,
-            "text": "He perdido, ¡bien hecho!"
+            "text": "Pues lo has comprendido la verdad... fallo mío XD"
           },
           {
             "actor_id": 1,

@@ -41,16 +41,16 @@ function pickNodeType(f: number, totalFloors: number, mapNumber: number): NodeTy
   if (f >= 3 && f <= 8 && Math.random() < 0.05) return 'pokemon-center'
   if (f === 9 && Math.random() < 0.50) return 'pokemon-center'
 
-  // Shop: pisos 3-9 → 5%
-  if (f >= 3 && f <= 9 && Math.random() < 0.05) return 'shop'
+  // Shop: pisos 3-9 → 10% (solo mapa 2+)
+  if (mapNumber > 1 && f >= 3 && f <= 9 && Math.random() < 0.10) return 'shop'
 
-  // Random event: mapa 1 → pisos 3-9; mapas 2+ → pisos 1-9; 10%
+  // Random event: mapa 1 → pisos 3-9; mapas 2+ → pisos 1-9; 12%
   const eventEligible = mapNumber === 1 ? f >= 3 : f >= 1
-  if (eventEligible && Math.random() < 0.10) return 'random'
+  if (eventEligible && Math.random() < 0.12) return 'random'
 
-  // Trainer: mapa 1 → pisos 3-9; mapas 2+ → pisos 1-9; 30%
+  // Trainer: mapa 1 → pisos 3-9; mapas 2+ → pisos 1-9; 33%
   const trainerEligible = mapNumber === 1 ? f >= 3 : f >= 1
-  if (trainerEligible && Math.random() < 0.30) return 'trainer'
+  if (trainerEligible && Math.random() < 0.33) return 'trainer'
 
   // Wild: resto (20% wild_plus_mt, 80% wild)
   return Math.random() < 0.20 ? 'wild_plus_mt' : 'wild'
@@ -131,7 +131,7 @@ export function generateMap(mapNumber: number, region = 'kanto'): MapData {
     }
   }
 
-  // ── Connect adjacent floors (non-crossing by design) ─────────────────────
+  // ── Connect adjacent floors ───────────────────────────────────────────────
   for (let f = 0; f < totalFloors - 1; f++) {
     const srcIds = floors[f]
     const dstIds = floors[f + 1]
@@ -144,7 +144,12 @@ export function generateMap(mapNumber: number, region = 'kanto'): MapData {
 
       const candidates: string[] = []
       for (let j = lo; j <= hi; j++) candidates.push(dstIds[j])
-      candidates.sort(() => Math.random() - 0.5)
+
+      // Fisher-Yates shuffle — unbiased unlike .sort(() => Math.random() - 0.5)
+      for (let k = candidates.length - 1; k > 0; k--) {
+        const r = Math.floor(Math.random() * (k + 1));
+        [candidates[k], candidates[r]] = [candidates[r], candidates[k]]
+      }
 
       const cnt = Math.min(candidates.length, rng(1, 2))
       for (let k = 0; k < cnt; k++) {
@@ -154,18 +159,75 @@ export function generateMap(mapNumber: number, region = 'kanto'): MapData {
       }
     }
 
+    // Ensure every destination has at least one incoming edge.
+    // Pick a RANDOM matching source (not always the leftmost) to avoid
+    // accumulating extra connections on left-side nodes.
     for (let j = 0; j < n; j++) {
       const hasIncoming = srcIds.some(sid => nodes[sid].nextIds.includes(dstIds[j]))
       if (!hasIncoming) {
+        const matching: number[] = []
         for (let i = 0; i < m; i++) {
           const lo = Math.floor(i * n / m)
           const hi = Math.max(lo, Math.min(n - 1, Math.floor((i + 1) * n / m)))
-          if (lo <= j && j <= hi) {
-            if (!nodes[srcIds[i]].nextIds.includes(dstIds[j])) {
-              nodes[srcIds[i]].nextIds.push(dstIds[j])
-            }
-            break
+          if (lo <= j && j <= hi) matching.push(i)
+        }
+        if (matching.length > 0) {
+          const pick = matching[Math.floor(Math.random() * matching.length)]
+          nodes[srcIds[pick]].nextIds.push(dstIds[j])
+        }
+      }
+    }
+  }
+
+  // ── Second pass: remove crossing edges ───────────────────────────────────
+  // Two edges (sa→da) and (sb→db) cross when their source and destination
+  // columns go in opposite directions: (sa-sb) and (da-db) have opposite signs.
+  // Only remove an edge if both its source still has another outgoing edge
+  // and its destination still has another incoming edge.
+  for (let f = 0; f < totalFloors - 1; f++) {
+    const srcIds = floors[f]
+    const dstIds = floors[f + 1]
+
+    const outDeg  = (si: number) =>
+      nodes[srcIds[si]].nextIds.filter(id => dstIds.includes(id)).length
+    const inDeg   = (di: number) =>
+      srcIds.reduce((n, sid) => n + (nodes[sid].nextIds.includes(dstIds[di]) ? 1 : 0), 0)
+    const removeEdge = (si: number, di: number) => {
+      nodes[srcIds[si]].nextIds = nodes[srcIds[si]].nextIds.filter(id => id !== dstIds[di])
+    }
+
+    let resolving = true
+    while (resolving) {
+      resolving = false
+
+      const edges: Array<[number, number]> = []
+      for (let si = 0; si < srcIds.length; si++)
+        for (const dstId of nodes[srcIds[si]].nextIds) {
+          const di = dstIds.indexOf(dstId)
+          if (di !== -1) edges.push([si, di])
+        }
+
+      outer:
+      for (let a = 0; a < edges.length; a++) {
+        for (let b = a + 1; b < edges.length; b++) {
+          const [sa, da] = edges[a]
+          const [sb, db] = edges[b]
+          if ((sa - sb) * (da - db) >= 0) continue  // no crossing
+
+          const canA = outDeg(sa) > 1 && inDeg(da) > 1
+          const canB = outDeg(sb) > 1 && inDeg(db) > 1
+
+          if (!canA && !canB) continue  // can't resolve this crossing
+
+          if (canA && canB) {
+            if (Math.random() < 0.5) removeEdge(sa, da); else removeEdge(sb, db)
+          } else if (canA) {
+            removeEdge(sa, da)
+          } else {
+            removeEdge(sb, db)
           }
+          resolving = true
+          break outer
         }
       }
     }
@@ -174,12 +236,26 @@ export function generateMap(mapNumber: number, region = 'kanto'): MapData {
   return { nodes, floors, totalFloors }
 }
 
+const REGION_MAP_STEP: Record<string, number> = {
+  kanto:  10,
+  johto:  11,
+  hoenn:  11.5,
+  sinnoh: 12,
+  teselia:  12.5,
+  kalos:  12.8,
+  alola:  13.1,
+  galar:  13.4,
+  paldea: 13.8,
+}
+
 /**
  * Level for a wild/trainer Pokémon.
- * Kanto formula: round(10 * (mapNumber - 1) + floor * 1.1) ± 1
+ * Kanto:  round(10 * (mapNumber - 1) + floor * 1.1) ± 1
+ * Johto:  round(11 * (mapNumber - 1) + floor * 1.1) ± 1
  */
-export function wildLevel(floor: number, mapNumber: number): number {
-  const base = Math.round(10 * (mapNumber - 1) + floor * 1.1)
+export function wildLevel(floor: number, mapNumber: number, region = 'kanto'): number {
+  const step = REGION_MAP_STEP[region] ?? 10
+  const base = Math.round(step * (mapNumber - 1) + floor * 1.1)
   const variance = Math.floor(Math.random() * 3) - 1
   return Math.max(1, base + variance)
 }

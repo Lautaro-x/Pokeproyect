@@ -78,6 +78,7 @@ interface GameActions {
   addPokemon:          (p: PokemonInstance) => boolean        // false if team full (no UI)
   requestAddPokemon:   (p: PokemonInstance, onAdded?: () => void) => void  // shows modal if full
   confirmReplace:      (idx: number) => void
+  cancelAddPokemon:    () => void
   replacePokemon:      (idx: number, p: PokemonInstance) => void
   flushTeam:           () => void
   reorderTeam:         (from: number, to: number) => void
@@ -141,7 +142,7 @@ export function GameProvider({
   // ── Internal helpers ──────────────────────────────────────────────────────
 
   const addEquipable = (item: Item) =>
-    setBackpack(prev => prev.some(i => i.id === item.id) ? prev : [...prev, item])
+    setBackpack(prev => [...prev, item])
 
   const addConsumable = (item: Item) =>
     setConsumables(prev => {
@@ -186,6 +187,11 @@ export function GameProvider({
       cb?.()
     },
 
+    cancelAddPokemon: () => {
+      pendingAddCallbackRef.current = undefined
+      setPendingAddPokemon(null)
+    },
+
     replacePokemon: (idx, p) =>
       setPlayerTeam(prev => { const n = [...prev]; n[idx] = p; return n }),
 
@@ -228,7 +234,8 @@ export function GameProvider({
           }
 
           setBackpack(prev => {
-            const next = prev.filter(i => i.id !== item.id)
+            const idx  = prev.findIndex(i => i.id === item.id)
+            const next = idx !== -1 ? [...prev.slice(0, idx), ...prev.slice(idx + 1)] : [...prev]
             if (displaced) next.push(displaced)
             return next
           })
@@ -356,7 +363,10 @@ export function GameProvider({
 
     addEquipable,
     removeEquipable: (itemId) =>
-      setBackpack(prev => prev.filter(i => i.id !== itemId)),
+      setBackpack(prev => {
+        const idx = prev.findIndex(i => i.id === itemId)
+        return idx !== -1 ? [...prev.slice(0, idx), ...prev.slice(idx + 1)] : prev
+      }),
     addConsumable,
     deductConsumable,
 
@@ -438,12 +448,7 @@ export function GameProvider({
       }
 
       if (newEquipables.length) {
-        setBackpack(prev => {
-          const result = [...prev]
-          for (const item of newEquipables)
-            if (!result.some(i => i.id === item.id)) result.push(item)
-          return result
-        })
+        setBackpack(prev => [...prev, ...newEquipables])
       }
 
       if (newConsumables.length) {

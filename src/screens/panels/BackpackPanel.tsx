@@ -84,9 +84,9 @@ export function BackpackPanel({ equipables, consumables, onItemDrop }: Props) {
         equipables.length === 0
           ? <span className={styles.empty}>Sin objetos</span>
           : <div className={styles.grid}>
-              {equipables.map(item => (
+              {equipables.map((item, idx) => (
                 <div
-                  key={item.id}
+                  key={idx}
                   className={styles.itemCell}
                   draggable={true}
                   onDragStart={e => {

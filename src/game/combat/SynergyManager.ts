@@ -75,13 +75,24 @@ function calcLevel(count: number): 0 | 1 | 2 | 3 {
   return 0
 }
 
+// Weight each alive Pokémon's contribution to a type:
+//   single-type normal → 1.5 | single-type shiny → 3
+//   dual-type normal   → 1   | dual-type shiny: primary → 2, secondary → 1
+function typeScore(p: PokemonInstance, type: PokemonType): number {
+  if (p.currentHp <= 0 || !p.data.types.includes(type)) return 0
+  const single    = p.data.types.length === 1
+  const isPrimary = p.data.types[0] === type
+  if (single)      return p.shiny ? 3   : 1.5
+  return p.shiny ? (isPrimary    ? 2   : 1) : 1
+}
+
 function makeSynergy(
   type: PokemonType,
   name: string,
   effects: [SynergyEffect, SynergyEffect, SynergyEffect],
 ): Synergy {
   const getCount = (team: PokemonInstance[]) =>
-    team.filter(p => p.currentHp > 0 && p.data.types.includes(type)).length
+    Math.ceil(team.reduce((sum, p) => sum + typeScore(p, type), 0))
   return {
     id: type,
     name,

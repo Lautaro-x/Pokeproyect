@@ -24,7 +24,7 @@ interface Props {
 }
 
 export function ShopEvent({ onBack }: Props) {
-  const { backpack, money, addEquipable, addConsumable, spendMoney } = useGame()
+  const { money, addEquipable, addConsumable, spendMoney } = useGame()
 
   const [shopEquips]   = useState<Item[]>(() => weightedSample(ALL_EQUIPABLES, 3))
   const [shopConsumes] = useState<Item[]>(() => weightedSample(ALL_CONSUMABLES.map(s => s.item), 3))
@@ -33,12 +33,10 @@ export function ShopEvent({ onBack }: Props) {
     () => Object.fromEntries(shopConsumes.map(i => [i.id, i.shopMaxQty ?? 1]))
   )
 
-  const backpackIds = new Set(backpack.map(i => i.id))
-
   const handleBuy = (item: Item, type: 'equip' | 'consume') => {
     const price = item.price ?? 0
     if (money < price) return
-    if (type === 'equip' && (soldEquips.has(item.id) || backpackIds.has(item.id))) return
+    if (type === 'equip' && soldEquips.has(item.id)) return
     if (type === 'consume' && (consumeStock[item.id] ?? 0) <= 0) return
 
     spendMoney(price)
@@ -55,7 +53,7 @@ export function ShopEvent({ onBack }: Props) {
     const price     = item.price ?? 0
     const canAfford = money >= price
     const isSold    = type === 'equip'
-      ? (soldEquips.has(item.id) || backpackIds.has(item.id))
+      ? soldEquips.has(item.id)
       : (consumeStock[item.id] ?? 0) <= 0
     const disabled  = isSold || !canAfford
     const stockLeft = type === 'consume' ? (consumeStock[item.id] ?? 0) : null
